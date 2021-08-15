@@ -44,7 +44,7 @@ export function workThumbnailConfigs(): WorkThumbnailConfig[] {
         {
             order: 50,
             title: "Virtual Fixtures",
-            tags: ["digital", "software"],
+            tags: ["digital", "video game", "software"],
             description:
                 "It's you and your buddy against digital Ascii characters.",
             image: require("../assets/menu/virtual-fixtures.png"),
@@ -53,7 +53,7 @@ export function workThumbnailConfigs(): WorkThumbnailConfig[] {
         {
             order: 60,
             title: "Find NEO",
-            tags: ["digital", "video game", "software"],
+            tags: ["digital", "software"],
             description: "What Near-Earth object can I stress about today?",
             image: require("../assets/menu/find-neo.png"),
             routerLink: "/findNEO",
