@@ -1,23 +1,30 @@
 <template>
-    <div class="work-thumbnails-container">Illustrations</div>
+    <work-page-images
+        :images="images"
+        :portait-aspect-ratio="false"
+    ></work-page-images>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import WorkPageImages from "@/components/WorkPageImages.vue";
 
 @Options({
-    components: {},
+    components: {
+        WorkPageImages,
+    },
 })
-export default class Illustrations extends Vue {}
+export default class Illustrations extends Vue {
+    private images = [
+        require("../../assets/illustrations/bat-person-1080h.png"),
+        require("../../assets/illustrations/breaking-bad-1500h.jpg"),
+        require("../../assets/illustrations/can-you-hear-me-1800h.jpg"),
+        require("../../assets/illustrations/fried-1381h.jpg"),
+        require("../../assets/illustrations/man-rock-900h.png"),
+        require("../../assets/illustrations/woman-cursive-900h.png"),
+        require("../../assets/illustrations/yellow-vision-1800h.jpg"),
+    ];
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.work-thumbnails-container {
-    padding: 125px 25px 20px 25px;
-
-    @media (min-width: $small-device-width) {
-        padding: 125px 0 20px 0;
-    }
-}
-</style>
+<style lang="scss"></style>

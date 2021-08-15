@@ -8,7 +8,9 @@
                 <router-link to="/about">About</router-link>
             </div>
         </div>
-        <router-view />
+        <div class="view-container">
+            <router-view />
+        </div>
     </div>
 </template>
 
@@ -83,6 +85,15 @@ body {
 
     @media (min-width: $small-device-width) {
         display: none;
+    }
+}
+
+.view-container {
+    padding-top: 95px;
+    padding-bottom: 20px;
+
+    @media (min-width: $small-device-width) {
+        padding-top: 125px;
     }
 }
 </style>

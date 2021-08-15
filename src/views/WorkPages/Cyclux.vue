@@ -1,23 +1,29 @@
 <template>
-    <div class="work-thumbnails-container">Cyclux</div>
+    <work-page-images
+        :images="images"
+        :portait-aspect-ratio="true"
+    ></work-page-images>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import WorkPageImages from "@/components/WorkPageImages.vue";
 
 @Options({
-    components: {},
+    components: {
+        WorkPageImages,
+    },
 })
-export default class Cyclux extends Vue {}
+export default class Cyclux extends Vue {
+    private images = [
+        require("../../assets/comics/cyclux/spread-1-1000.jpg"),
+        require("../../assets/comics/cyclux/spread-2-1000.jpg"),
+        require("../../assets/comics/cyclux/spread-3-1000.jpg"),
+        require("../../assets/comics/cyclux/spread-4-1000.jpg"),
+        require("../../assets/comics/cyclux/spread-5-1000.jpg"),
+        require("../../assets/comics/cyclux/spread-6-1000.jpg"),
+    ];
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.work-thumbnails-container {
-    padding: 125px 25px 20px 25px;
-
-    @media (min-width: $small-device-width) {
-        padding: 125px 0 20px 0;
-    }
-}
-</style>
+<style lang="scss"></style>
