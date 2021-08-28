@@ -21,6 +21,7 @@ export default class App extends Vue {}
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 html,
 body {
@@ -31,6 +32,7 @@ body {
 
 #app {
     font-family: "Space Mono", monospace;
+    font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
