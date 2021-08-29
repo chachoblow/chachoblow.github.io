@@ -1,5 +1,8 @@
 <template>
     <div class="work-thumbnail-container">
+        <div class="work-thumbnail-date hide-non-desktop">
+            <span>2018 -<br />2019</span>
+        </div>
         <div class="work-thumbnail-image">
             <router-link :to="routerLink">
                 <img :src="image" />
@@ -11,8 +14,6 @@
                     {{ title }}
                 </router-link>
             </div>
-
-            <span>-</span>
             <div class="work-thumbnail-description">{{ description }}</div>
         </div>
     </div>
@@ -60,7 +61,8 @@ export default class WorkThumbnail extends Vue.with(Props) {
 
     @media (min-width: $small-device-width) {
         flex-direction: row;
-        height: 350px;
+        max-width: 800px;
+        padding: 40px 20px;
     }
 }
 
@@ -68,48 +70,60 @@ export default class WorkThumbnail extends Vue.with(Props) {
     display: flex;
     flex-direction: column;
     width: 100%;
+    line-height: 1;
 
     @media (min-width: $small-device-width) {
-        width: 25%;
+        max-width: 200px;
     }
 }
 
 .work-thumbnail-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     word-wrap: break-word;
-    padding-bottom: 10px;
     width: fit-content;
+    padding-bottom: 10px;
 
     @media (min-width: $small-device-width) {
         padding-bottom: 20px;
-        font-size: 1.5rem;
     }
 }
 
 .work-thumbnail-image {
     padding: 10px 0;
+    height: 250px;
+    width: 100%;
 
     @media (min-width: $small-device-width) {
-        padding: 10px 30px;
+        padding: 0 10px;
     }
 }
 
 .work-thumbnail-description {
-    font-size: 0.85rem;
+    font-size: 1rem;
+}
 
-    @media (min-width: $small-device-width) {
-        font-size: 1rem;
-    }
+.work-thumbnail-date {
+    width: 100%;
+    max-width: 50px;
+    font-size: 1rem;
 }
 
 img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 a {
     color: black;
     text-decoration: none;
+}
+
+.hide-non-desktop {
+    display: none;
+
+    @media (min-width: $small-device-width) {
+        display: initial;
+    }
 }
 </style>

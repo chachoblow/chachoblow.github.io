@@ -8,22 +8,6 @@
                 <router-link to="/about">About</router-link>
             </div>
         </div>
-        <div class="tag-selection-container">
-            <div class="tag-selection-inputs">
-                <div v-for="tag in availableTags" :key="tag">
-                    <input
-                        type="checkbox"
-                        :id="tag"
-                        :value="tag"
-                        v-model="selectedTags"
-                    />
-                    <label :for="tag">{{ tag }}</label>
-                </div>
-            </div>
-            <span class="tag-selection-count">
-                {{ selectedThumbnailsCount }} works
-            </span>
-        </div>
     </div>
 </template>
 

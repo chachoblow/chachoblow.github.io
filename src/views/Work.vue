@@ -30,10 +30,12 @@ export default class Work extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .work-thumbnails-container {
-    padding: 0 25px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 10px;
 
     @media (min-width: $small-device-width) {
-        padding: 0 20px;
+        padding: 40px 20px;
     }
 }
 </style>
