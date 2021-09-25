@@ -7,11 +7,19 @@
                 <h2 class="category-title" v-html="formatText('Work')"></h2>
                 <div class="category-content">
                     <ul>
-                        <li
-                            v-for="work in works"
-                            :key="work.title"
-                            v-html="formatText(work.title)"
-                        ></li>
+                        <li v-for="work in works" :key="work.title">
+                            <router-link
+                                :to="work.routerLink"
+                                v-slot="{ href, navigate }"
+                                custom
+                            >
+                                <a
+                                    :href="href"
+                                    @click="navigate"
+                                    v-html="formatText(work.title)"
+                                ></a>
+                            </router-link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -32,10 +40,42 @@
                 <h2 class="category-title" v-html="formatText('Contact')"></h2>
                 <div class="category-content">
                     <ul>
-                        <li v-html="formatText('Github')"></li>
-                        <li v-html="formatText('Instagram')"></li>
-                        <li v-html="formatText('LinkedIn')"></li>
-                        <li v-html="formatText('Email')"></li>
+                        <li>
+                            <a
+                                href="https://github.com/chachoblow"
+                                title="My Github"
+                            >
+                                <div v-html="formatText('Github')"></div>
+                                <img
+                                    alt="External link"
+                                    src="../assets/icons/external-link.jpg"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.instagram.com/chachoblow"
+                                title="My Instagram"
+                            >
+                                <div v-html="formatText('Instagram')"></div>
+                                <img
+                                    alt="External link"
+                                    src="../assets/icons/external-link.jpg"
+                                />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/wesleyklein/"
+                                title="My LinkedIn"
+                            >
+                                <div v-html="formatText('LinkedIn')"></div>
+                                <img
+                                    alt="External link"
+                                    src="../assets/icons/external-link.jpg"
+                                />
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -44,13 +84,19 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Vue, Options } from "vue-class-component";
 import {
     WorkThumbnailConfig,
     workThumbnailConfigs,
 } from "@/model/WorkThumbnailConfig";
 import { perWordSpan } from "@/helpers/text";
+import DynamicRouterLink from "@/components/DynamicRouterLink.vue";
 
+@Options({
+    components: {
+        DynamicRouterLink,
+    },
+})
 export default class Home extends Vue {
     private get works(): WorkThumbnailConfig[] {
         return workThumbnailConfigs();
@@ -133,6 +179,10 @@ export default class Home extends Vue {
     width: 100%;
     padding: 0;
 
+    + .category {
+        padding-top: 40px;
+    }
+
     @media (min-width: $small-device-width) {
         width: 25%;
         padding: 0 20px;
@@ -143,6 +193,10 @@ export default class Home extends Vue {
 
         &:last-of-type {
             padding-right: 0;
+        }
+
+        + .category {
+            padding-top: 0;
         }
     }
 }
@@ -161,6 +215,24 @@ ul {
 
     li {
         padding-bottom: $text-bottom-padding;
+        width: fit-content;
+    }
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+
+    &:hover {
+        font-style: italic;
+    }
+
+    img {
+        height: 15px;
+        margin-left: 10px;
+        background-color: white;
     }
 }
 </style>
