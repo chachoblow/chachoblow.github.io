@@ -1,0 +1,15 @@
+@import "./variables.scss";
+
+// So that text has a per word white background, all text is manually wrapped in a span element
+//  with the below class. It is then added to the template via a v-html binding. The :deep binding
+//  is needed so that the styling applies correctly.
+// See the following link for more info: https://github.com/vuejs/vue-loader/issues/749
+:deep(.per-word-background) {
+    // height: 1rem;
+    // line-height: 1;
+    padding-bottom: $text-bottom-padding;
+}
+
+:deep(.per-word-background > span:first-child) {
+    background-color: white;
+}
