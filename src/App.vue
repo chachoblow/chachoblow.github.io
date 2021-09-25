@@ -7,14 +7,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
-import AppHeader from "@/components/AppHeader.vue";
+import { Vue } from "vue-class-component";
 
-@Options({
-    components: {
-        AppHeader,
-    },
-})
 export default class App extends Vue {}
 </script>
 
