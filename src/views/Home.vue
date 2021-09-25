@@ -1,13 +1,25 @@
 <template>
     <div class="home-container">
         <div class="background-image"></div>
+        <img
+            v-show="showHoverImage"
+            :src="hoverImageUrl"
+            :style="{ left: hoverPositionX + 'px', top: hoverPositionY + 'px' }"
+            class="hover-image"
+        />
         <h1 v-html="formatText('Wesley Klein')"></h1>
         <div class="category-container">
-            <div class="category">
+            <div class="category category-work">
                 <h2 class="category-title" v-html="formatText('Work')"></h2>
                 <div class="category-content">
                     <ul>
-                        <li v-for="work in works" :key="work.title">
+                        <li
+                            v-for="work in works"
+                            :key="work.title"
+                            @mouseenter="handleMouseEnter(work.image)"
+                            @mousemove="handleMouseOver($event)"
+                            @mouseleave="handleMouseLeave()"
+                        >
                             <router-link
                                 :to="work.routerLink"
                                 v-slot="{ href, navigate }"
@@ -98,6 +110,11 @@ import DynamicRouterLink from "@/components/DynamicRouterLink.vue";
     },
 })
 export default class Home extends Vue {
+    private showHoverImage = false;
+    private hoverImageUrl = "";
+    private hoverPositionX = 0;
+    private hoverPositionY = 0;
+
     private get works(): WorkThumbnailConfig[] {
         return workThumbnailConfigs();
     }
@@ -132,6 +149,20 @@ export default class Home extends Vue {
             html.push(perWordSpan(paragraph));
         }
         return html;
+    }
+
+    private handleMouseEnter(url: string): void {
+        this.showHoverImage = true;
+        this.hoverImageUrl = url;
+    }
+
+    private handleMouseOver(event: MouseEvent): void {
+        this.hoverPositionX = event.clientX - 40;
+        this.hoverPositionY = event.clientY - 150;
+    }
+
+    private handleMouseLeave(): void {
+        this.showHoverImage = false;
     }
 }
 </script>
@@ -201,6 +232,10 @@ export default class Home extends Vue {
     }
 }
 
+.category-work {
+    z-index: 2;
+}
+
 .category-content {
     p {
         display: flex;
@@ -233,6 +268,17 @@ a {
         height: 15px;
         margin-left: 10px;
         background-color: white;
+    }
+}
+
+.hover-image {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    display: none;
+
+    @media (min-width: $small-device-width) {
+        display: initial;
     }
 }
 </style>
