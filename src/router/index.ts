@@ -8,58 +8,44 @@ const routes: Array<RouteRecordRaw> = [
         component: Home,
     },
     {
-        path: "/about",
-        name: "About",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import(/* webpackChunkName: "about" */ "../views/About.vue"),
-    },
-    {
         path: "/animations",
         name: "Animations",
-        component: () => import("../views/WorkPages/Animations.vue"),
+        component: () => import("../views/workPages/Animations.vue"),
     },
     {
         path: "/branches",
         name: "Branches",
-        component: () => import("../views/WorkPages/Branches.vue"),
+        component: () => import("../views/workPages/Branches.vue"),
     },
     {
         path: "/creativeCoding",
         name: "CreativeCoding",
-        component: () => import("../views/WorkPages/CreativeCoding.vue"),
+        component: () => import("../views/workPages/CreativeCoding.vue"),
     },
     {
         path: "/cyclux",
         name: "Cyclux",
-        component: () => import("../views/WorkPages/Cyclux.vue"),
-    },
-    {
-        path: "/findNEO",
-        name: "FindNEO",
-        component: () => import("../views/WorkPages/FindNEO.vue"),
+        component: () => import("../views/workPages/Cyclux.vue"),
     },
     {
         path: "/illustrations",
         name: "Illustrations",
-        component: () => import("../views/WorkPages/Illustrations.vue"),
+        component: () => import("../views/workPages/Illustrations.vue"),
     },
     {
         path: "/lineCollection",
         name: "LineCollection",
-        component: () => import("../views/WorkPages/LineCollection.vue"),
+        component: () => import("../views/workPages/LineCollection.vue"),
     },
     {
         path: "/photography",
         name: "Photography",
-        component: () => import("../views/WorkPages/Photography.vue"),
+        component: () => import("../views/workPages/Photography.vue"),
     },
     {
         path: "/virtualFixtures",
         name: "VirtualFixtures",
-        component: () => import("../views/WorkPages/VirtualFixtures.vue"),
+        component: () => import("../views/workPages/VirtualFixtures.vue"),
     },
 ];
 

@@ -82,6 +82,8 @@ export default class CategoryWork extends Vue {
     z-index: 1;
     pointer-events: none;
     display: none;
+    width: 200px;
+    height: auto;
 
     @media (min-width: $small-device-width) {
         display: initial;

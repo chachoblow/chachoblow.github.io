@@ -1,20 +1,26 @@
 <template>
-    <work-page-images
+    <work-page-base
+        :title="title"
+        :details="details"
         :images="images"
-        :portait-aspect-ratio="false"
-    ></work-page-images>
+        :portaitAspectRatio="portaitAspectRatio"
+        :associatedWork="associatedWork"
+    ></work-page-base>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import WorkPageImages from "@/components/WorkPageImages.vue";
+import WorkPageBase from "@/components/work/WorkPageBase.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageImages,
+        WorkPageBase,
     },
 })
 export default class Illustrations extends Vue {
+    private title = "Illustrations";
+    private details = ["2018-present", "Digital"];
     private images = [
         require("../../assets/illustrations/bat-person-1080h.png"),
         require("../../assets/illustrations/breaking-bad-1500h.jpg"),
@@ -24,6 +30,8 @@ export default class Illustrations extends Vue {
         require("../../assets/illustrations/woman-cursive-900h.png"),
         require("../../assets/illustrations/yellow-vision-1800h.jpg"),
     ];
+    private portaitAspectRatio = true;
+    private associatedWork = Works.Illustrations;
 }
 </script>
 

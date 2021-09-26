@@ -1,23 +1,36 @@
 <template>
-    <div class="work-thumbnails-container">Line Collection</div>
+    <work-page-base
+        :title="title"
+        :details="details"
+        :images="images"
+        :portaitAspectRatio="portaitAspectRatio"
+        :associatedWork="associatedWork"
+    ></work-page-base>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import WorkPageBase from "@/components/work/WorkPageBase.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
-    components: {},
+    components: {
+        WorkPageBase,
+    },
 })
-export default class LineCollection extends Vue {}
+export default class LineCollection extends Vue {
+    private title = "Line collection";
+    private details = ["2018", "Digital, software, design"];
+    private images = [
+        require("../../assets/line-collection/arrange-circles.gif"),
+        require("../../assets/line-collection/line-collection-arrange.gif"),
+        require("../../assets/line-collection/watch-circles.gif"),
+        require("../../assets/line-collection/watch-squares.gif"),
+        require("../../assets/line-collection/watch-triangles.gif"),
+    ];
+    private portaitAspectRatio = false;
+    private associatedWork = Works.LineCollection;
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.work-thumbnails-container {
-    padding: 125px 25px 20px 25px;
-
-    @media (min-width: $small-device-width) {
-        padding: 125px 0 20px 0;
-    }
-}
-</style>
+<style lang="scss"></style>

@@ -3,7 +3,11 @@
         <div class="category-content">
             <ul>
                 <li>
-                    <a href="https://github.com/chachoblow" title="My Github">
+                    <a
+                        href="https://github.com/chachoblow"
+                        title="My Github"
+                        target="_blank"
+                    >
                         <div v-html="perWordSpan('Github')"></div>
                         <img
                             alt="External link"
@@ -15,6 +19,7 @@
                     <a
                         href="https://www.instagram.com/chachoblow"
                         title="My Instagram"
+                        target="_blank"
                     >
                         <div v-html="perWordSpan('Instagram')"></div>
                         <img
@@ -27,6 +32,7 @@
                     <a
                         href="https://www.linkedin.com/in/wesleyklein/"
                         title="My LinkedIn"
+                        target="_blank"
                     >
                         <div v-html="perWordSpan('LinkedIn')"></div>
                         <img

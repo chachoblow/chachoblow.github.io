@@ -1,23 +1,42 @@
 <template>
-    <div class="work-thumbnails-container">Photography</div>
+    <work-page-base
+        :title="title"
+        :details="details"
+        :images="images"
+        :portaitAspectRatio="portaitAspectRatio"
+        :associatedWork="associatedWork"
+    ></work-page-base>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import WorkPageBase from "@/components/work/WorkPageBase.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
-    components: {},
+    components: {
+        WorkPageBase,
+    },
 })
-export default class Photography extends Vue {}
+export default class Photography extends Vue {
+    private title = "Photography";
+    private details = ["2015-present", "Digital"];
+    private images = [
+        require("../../assets/photographs/brittany-driving-1000h.jpg"),
+        require("../../assets/photographs/dad-grandpa-1000h.jpg"),
+        require("../../assets/photographs/grandma-chandelier-1000h.jpg"),
+        require("../../assets/photographs/grandparents-window-1000h.jpg"),
+        require("../../assets/photographs/grapevine-1000h.jpg"),
+        require("../../assets/photographs/laguna-algea-1000h.jpg"),
+        require("../../assets/photographs/laguna-rock-1000h.jpg"),
+        require("../../assets/photographs/me-bathroom-1000h.jpg"),
+        require("../../assets/photographs/megan-dad-2-1000h.jpg"),
+        require("../../assets/photographs/slit-scanning-1-1000h.jpg"),
+        require("../../assets/photographs/slit-scanning-2-1000h.jpg"),
+    ];
+    private portaitAspectRatio = false;
+    private associatedWork = Works.Photography;
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.work-thumbnails-container {
-    padding: 125px 25px 20px 25px;
-
-    @media (min-width: $small-device-width) {
-        padding: 125px 0 20px 0;
-    }
-}
-</style>
+<style lang="scss"></style>

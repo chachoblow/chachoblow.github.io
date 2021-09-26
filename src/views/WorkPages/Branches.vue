@@ -1,20 +1,26 @@
 <template>
-    <work-page-images
+    <work-page-base
+        :title="title"
+        :details="details"
         :images="images"
-        :portait-aspect-ratio="false"
-    ></work-page-images>
+        :portaitAspectRatio="portaitAspectRatio"
+        :associatedWork="associatedWork"
+    ></work-page-base>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import WorkPageImages from "@/components/WorkPageImages.vue";
+import WorkPageBase from "@/components/work/WorkPageBase.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageImages,
+        WorkPageBase,
     },
 })
 export default class Branches extends Vue {
+    private title = "Branches";
+    private details = ["2018", "Digital", "12 pages"];
     private images = [
         require("../../assets/comics/branches/branches-page01.png"),
         require("../../assets/comics/branches/branches-page02.png"),
@@ -24,6 +30,8 @@ export default class Branches extends Vue {
         require("../../assets/comics/branches/branches-page06.png"),
         require("../../assets/comics/branches/branches-page07.png"),
     ];
+    private portaitAspectRatio = false;
+    private associatedWork = Works.Branches;
 }
 </script>
 

@@ -16,12 +16,14 @@ import { perWordSpan } from "@/helpers/text";
 import CategoryWork from "@/components/home/CategoryWork.vue";
 import CategoryInformation from "@/components/home/CategoryInformation.vue";
 import CategoryContact from "@/components/home/CategoryContact.vue";
+import WorkPageBase from "@/components/work/WorkPageBase.vue";
 
 @Options({
     components: {
         CategoryWork,
         CategoryInformation,
         CategoryContact,
+        WorkPageBase,
     },
 })
 export default class Home extends Vue {
@@ -67,5 +69,15 @@ export default class Home extends Vue {
     @media (min-width: $small-device-width) {
         flex-direction: row;
     }
+}
+
+.selected-work-container {
+    position: relative;
+}
+
+.fix-page {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 </style>

@@ -32,7 +32,7 @@ export default class CategoryFrame extends Vue.with(Props) {
 
 <style lang="scss">
 .category {
-    width: 100%;
+    width: 100vw;
     padding: 0;
 
     + .category {
@@ -40,7 +40,7 @@ export default class CategoryFrame extends Vue.with(Props) {
     }
 
     @media (min-width: $small-device-width) {
-        width: 25%;
+        width: 25vw;
         padding: 0 20px;
 
         &:first-of-type {
