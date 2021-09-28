@@ -5,7 +5,7 @@
         :associatedWork="associatedWork"
     >
         <slot>
-            <div :class="imageContainerClasses">
+            <div class="work-gallery-content">
                 <div v-for="image in images" :key="image">
                     <img :src="image" />
                 </div>
@@ -24,33 +24,23 @@ import WorkPageFrame from "@/components/work/WorkPageFrame.vue";
         WorkPageFrame,
     },
 })
-export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {
-    private get imageContainerClasses(): string[] {
-        let classes = ["work-gallery-content"];
-        classes = this.portaitAspectRatio
-            ? classes.concat("portait-aspect-ratio")
-            : classes.concat("landscape-aspect-ratio");
-        return classes;
-    }
-}
+export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {}
 </script>
 
 <style lang="scss">
 .work-gallery-content {
     display: flex;
     flex-direction: column;
-
-    .portait-aspect-ratio {
-        height: auto;
-    }
-
-    .landscape-aspect-ratio {
-        height: calc(100vh - 150px);
-    }
+    max-width: 800px;
+    width: 100%;
 
     div {
-        width: calc(100% - $large-device-content-width);
-        max-width: 800px;
+        width: 100%;
+        height: 100%;
+
+        @media (min-width: $small-device-width) {
+            max-height: 75vh;
+        }
     }
 
     img {

@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     ></work-page-gallery>
 </template>
@@ -36,7 +35,6 @@ export default class CreativeCoding extends Vue {
         require("../../assets/processing-sketches/examples/row-suns.gif"),
         require("../../assets/processing-sketches/examples/suns-colliding.gif"),
     ];
-    private portaitAspectRatio = false;
     private associatedWork = Works.CreativeCoding;
 }
 </script>

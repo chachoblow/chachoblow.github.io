@@ -11,5 +11,4 @@ export class WorkPageProps extends WorkPageNavigationProps {
 
 export class WorkPageGalleryProps extends WorkPageProps {
     images!: string[];
-    portaitAspectRatio!: boolean;
 }

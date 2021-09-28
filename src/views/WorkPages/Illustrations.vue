@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     ></work-page-gallery>
 </template>
@@ -30,7 +29,6 @@ export default class Illustrations extends Vue {
         require("../../assets/illustrations/woman-cursive-900h.png"),
         require("../../assets/illustrations/yellow-vision-1800h.jpg"),
     ];
-    private portaitAspectRatio = true;
     private associatedWork = Works.Illustrations;
 }
 </script>

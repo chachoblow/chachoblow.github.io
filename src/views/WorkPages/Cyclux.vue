@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     >
     </work-page-gallery>
@@ -30,7 +29,6 @@ export default class Cyclux extends Vue {
         require("../../assets/comics/cyclux/spread-5-1000.jpg"),
         require("../../assets/comics/cyclux/spread-6-1000.jpg"),
     ];
-    private portaitAspectRatio = false;
     private associatedWork = Works.Cyclux;
 }
 </script>

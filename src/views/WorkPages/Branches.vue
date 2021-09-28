@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     ></work-page-gallery>
 </template>
@@ -30,7 +29,6 @@ export default class Branches extends Vue {
         require("../../assets/comics/branches/branches-page06.png"),
         require("../../assets/comics/branches/branches-page07.png"),
     ];
-    private portaitAspectRatio = false;
     private associatedWork = Works.Branches;
 }
 </script>

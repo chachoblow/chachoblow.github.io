@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     ></work-page-gallery>
 </template>
@@ -35,7 +34,6 @@ export default class Animation extends Vue {
         require("../../assets/photographs/slit-scanning-1-1000h.jpg"),
         require("../../assets/photographs/slit-scanning-2-1000h.jpg"),
     ];
-    private portaitAspectRatio = false;
     private associatedWork = Works.Animations;
 }
 </script>

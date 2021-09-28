@@ -3,22 +3,22 @@
         <div class="router-navigation router-navigation-large">
             <div v-if="previousWorkRoute">
                 <router-link :to="previousWorkRoute">back</router-link>
-                &nbsp;/&nbsp;
+                &nbsp;<span>/</span>&nbsp;
             </div>
             <div v-if="nextWorkRoute">
                 <router-link :to="nextWorkRoute">next</router-link>
-                &nbsp;/&nbsp;
+                &nbsp;<span>/</span>&nbsp;
             </div>
             <router-link to="/">close</router-link>
         </div>
         <div class="router-navigation router-navigation-small">
             <div v-if="previousWorkRoute">
                 <router-link :to="previousWorkRoute">&#60;</router-link>
-                &nbsp;/&nbsp;
+                &nbsp;<span>/</span>&nbsp;
             </div>
             <div v-if="nextWorkRoute">
                 <router-link :to="nextWorkRoute">&#62;</router-link>
-                &nbsp;/&nbsp;
+                &nbsp;<span>/</span>&nbsp;
             </div>
             <router-link to="/">&#10005;</router-link>
         </div>
@@ -90,6 +90,11 @@ export default class WorkPageNavigation extends Vue.with(
     @media (min-width: $small-device-width) {
         right: 40px;
     }
+}
+
+a,
+span {
+    background-color: white;
 }
 
 a:hover {

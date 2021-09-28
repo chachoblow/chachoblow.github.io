@@ -3,7 +3,6 @@
         :title="title"
         :details="details"
         :images="images"
-        :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
     ></work-page-gallery>
 </template>
@@ -28,7 +27,6 @@ export default class LineCollection extends Vue {
         require("../../assets/line-collection/watch-squares.gif"),
         require("../../assets/line-collection/watch-triangles.gif"),
     ];
-    private portaitAspectRatio = false;
     private associatedWork = Works.LineCollection;
 }
 </script>
