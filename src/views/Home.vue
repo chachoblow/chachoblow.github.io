@@ -47,13 +47,10 @@ export default class Home extends Vue {}
 }
 
 .home-container {
-    text-align: left;
-    padding: 20px 20px 40px 20px;
-    font-family: "Space Mono", monospace;
-    font-size: 1rem;
+    padding: $view-container-padding-small;
 
     @media (min-width: $small-device-width) {
-        padding: 20px 40px 50px 40px;
+        padding: $view-container-padding-large;
     }
 }
 
@@ -64,15 +61,5 @@ export default class Home extends Vue {}
     @media (min-width: $small-device-width) {
         flex-direction: row;
     }
-}
-
-.selected-work-container {
-    position: relative;
-}
-
-.fix-page {
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 </style>

@@ -33,7 +33,6 @@ h2 {
     font-family: "Space Mono", monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
 }
 
 .app-container {
@@ -42,6 +41,6 @@ h2 {
 }
 
 .view-container {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 </style>

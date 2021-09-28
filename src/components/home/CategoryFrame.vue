@@ -29,7 +29,7 @@ export default class CategoryFrame extends Vue.with(Props) {
 
 <style lang="scss">
 .category {
-    width: 100vw;
+    width: 100%;
     padding: 0;
 
     + .category {
@@ -74,12 +74,6 @@ a {
 
     &:hover {
         font-style: italic;
-    }
-
-    img {
-        height: 15px;
-        margin-left: 10px;
-        background-color: white;
     }
 }
 

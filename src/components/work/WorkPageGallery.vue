@@ -36,9 +36,6 @@ export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {
 </script>
 
 <style lang="scss">
-$large-device-content-width: 350px;
-$orientation-switch-width: 1000px;
-
 .work-gallery-content {
     display: flex;
     flex-direction: column;

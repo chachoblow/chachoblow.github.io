@@ -1,10 +1,12 @@
 import { Works } from "./WorkConfig";
 
-export class WorkPageProps {
+export class WorkPageNavigationProps {
+    associatedWork!: Works;
+}
+
+export class WorkPageProps extends WorkPageNavigationProps {
     title!: string;
     details!: string[];
-    summary!: string[];
-    associatedWork!: Works;
 }
 
 export class WorkPageGalleryProps extends WorkPageProps {

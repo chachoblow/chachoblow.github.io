@@ -14,7 +14,6 @@ export enum Works {
 export interface WorkConfig {
     order: number;
     title: string;
-    description: string;
     image: string;
     routerLink: string;
     associatedWork: Works;
@@ -25,7 +24,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 10,
             title: "Cyclux",
-            description: "But what is the Cyclux?",
             image: require("../assets/menu/cyclux.png"),
             routerLink: "/cyclux",
             associatedWork: Works.Cyclux,
@@ -33,7 +31,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 20,
             title: "Branches",
-            description: "Branches, blowing in the wind.",
             image: require("../assets/menu/branches.png"),
             routerLink: "/branches",
             associatedWork: Works.Branches,
@@ -41,7 +38,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 30,
             title: "Illustrations",
-            description: "Can you hear me? Can I hear me?",
             image: require("../assets/menu/illustrations.png"),
             routerLink: "/illustrations",
             associatedWork: Works.Illustrations,
@@ -49,7 +45,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 40,
             title: "Animations",
-            description: "Have you ever woken up?",
             image: require("../assets/menu/animation.png"),
             routerLink: "/animations",
             associatedWork: Works.Animations,
@@ -57,8 +52,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 50,
             title: "Virtual fixtures",
-            description:
-                "It's you and your buddy against digital Ascii characters.",
             image: require("../assets/menu/virtual-fixtures.png"),
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
@@ -66,7 +59,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 60,
             title: "Line collection",
-            description: "Make art. Watch art. It's all lines anyways.",
             image: require("../assets/menu/line-collection.png"),
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
@@ -74,7 +66,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 70,
             title: "Photography",
-            description: "See title.",
             image: require("../assets/menu/photo.png"),
             routerLink: "/photography",
             associatedWork: Works.Photography,
@@ -82,7 +73,6 @@ export function workConfigs(): WorkConfig[] {
         {
             order: 80,
             title: "Creative coding",
-            description: "Wait, what is non-creative coding?",
             image: require("../assets/menu/processing-sketches.png"),
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,

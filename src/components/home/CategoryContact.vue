@@ -2,43 +2,14 @@
     <category-frame :title="'Contact'">
         <div class="category-content">
             <ul>
-                <li>
+                <li v-for="contact in contacts" :key="contact.label">
                     <a
-                        href="https://github.com/chachoblow"
-                        title="My Github"
+                        :href="contact.link"
+                        :title="contact.linkTitle"
                         target="_blank"
                     >
-                        <span>Github</span>
-                        <img
-                            alt="External link"
-                            src="../../assets/icons/external-link.jpg"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.instagram.com/chachoblow"
-                        title="My Instagram"
-                        target="_blank"
-                    >
-                        <span>Instagram</span>
-                        <img
-                            alt="External link"
-                            src="../../assets/icons/external-link.jpg"
-                        />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.linkedin.com/in/wesleyklein/"
-                        title="My LinkedIn"
-                        target="_blank"
-                    >
-                        <span>LinkedIn</span>
-                        <img
-                            alt="External link"
-                            src="../../assets/icons/external-link.jpg"
-                        />
+                        <span>{{ contact.label }}</span>
+                        <img alt="External link" :src="linkIcon" />
                     </a>
                 </li>
             </ul>
@@ -50,16 +21,47 @@
 import { Vue, Options } from "vue-class-component";
 import CategoryFrame from "@/components/home/CategoryFrame.vue";
 
+interface Contact {
+    link: string;
+    linkTitle: string;
+    label: string;
+}
+
 @Options({
     components: {
         CategoryFrame,
     },
 })
-export default class CategoryContact extends Vue {}
+export default class CategoryContact extends Vue {
+    private linkIcon = require("../../assets/icons/external-link.jpg");
+    private contacts: Contact[] = [
+        {
+            link: "https://github.com/chachoblow",
+            linkTitle: "My Github",
+            label: "Github",
+        },
+        {
+            link: "https://www.instagram.com/chachoblow",
+            linkTitle: "My Instagram",
+            label: "Instagram",
+        },
+        {
+            link: "https://www.linkedin.com/in/wesleyklein/",
+            linkTitle: "My LinkedIn",
+            label: "LinkedIn",
+        },
+    ];
+}
 </script>
 
 <style scoped lang="scss">
 span {
+    background-color: white;
+}
+
+img {
+    height: 15px;
+    margin-left: 10px;
     background-color: white;
 }
 </style>

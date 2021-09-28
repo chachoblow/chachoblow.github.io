@@ -21,7 +21,6 @@ import { Works } from "@/model/WorkConfig";
 export default class CreativeCoding extends Vue {
     private title = "Creative coding";
     private details = ["2018-present", "Digital, software, processing"];
-    // TODO: Upload actual sketches.
     private images = [
         require("../../assets/processing-sketches/examples/bobbing-ocean.gif"),
         require("../../assets/processing-sketches/examples/clicked-fireworks.gif"),

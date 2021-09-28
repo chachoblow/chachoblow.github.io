@@ -1,10 +1,9 @@
 import { WorkConfig, workConfigs, Works } from "@/model/WorkConfig";
-import { VuexModule, Module, Mutation } from "vuex-class-modules";
+import { VuexModule, Module } from "vuex-class-modules";
 
 @Module
 class WorkModule extends VuexModule {
     selectedWork = Works.None;
-    hoverWork = Works.None;
 
     get workConfigs(): WorkConfig[] {
         const configs = workConfigs();
@@ -15,26 +14,6 @@ class WorkModule extends VuexModule {
 
     get workConfigsLength(): number {
         return this.workConfigs.length;
-    }
-
-    @Mutation
-    setHoverWork(hoverWork: Works): void {
-        this.hoverWork = hoverWork;
-    }
-
-    @Mutation
-    clearHoverWork(): void {
-        this.hoverWork = Works.None;
-    }
-
-    @Mutation
-    setSelectedWork(selectedWork: Works): void {
-        this.selectedWork = selectedWork;
-    }
-
-    @Mutation
-    clearSelectedWork(): void {
-        this.selectedWork = Works.None;
     }
 }
 
