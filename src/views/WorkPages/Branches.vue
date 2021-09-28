@@ -1,21 +1,21 @@
 <template>
-    <work-page-base
+    <work-page-gallery
         :title="title"
         :details="details"
         :images="images"
         :portaitAspectRatio="portaitAspectRatio"
         :associatedWork="associatedWork"
-    ></work-page-base>
+    ></work-page-gallery>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import WorkPageBase from "@/components/work/WorkPageBase.vue";
+import { Vue, Options } from "vue-class-component";
+import WorkPageGallery from "@/components/work/WorkPageGallery.vue";
 import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageBase,
+        WorkPageGallery,
     },
 })
 export default class Branches extends Vue {

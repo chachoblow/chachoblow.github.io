@@ -13,6 +13,10 @@
     background-color: #ffef00;
 }
 
+:deep(.blend-difference .per-word-background) {
+    mix-blend-mode: difference;
+}
+
 :deep(.per-word-background > span:first-child) {
     background-color: white;
 }

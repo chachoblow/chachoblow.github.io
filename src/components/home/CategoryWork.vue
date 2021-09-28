@@ -1,16 +1,16 @@
 <template>
-    <img
+    <!-- <img
         v-show="showHoverImage"
         :src="hoverImageUrl"
         :style="{ left: hoverPositionX + 'px', top: hoverPositionY + 'px' }"
         class="hover-image"
-    />
+    /> -->
     <category-frame :title="'Work'" :extra-classes="['category-work']">
         <ul>
             <li
                 v-for="work in works"
                 :key="work.title"
-                @mouseenter="initializeImage(work.image)"
+                @mouseenter="initializeImage(work.image, work.associatedWork)"
                 @mousemove="updateImagePosition($event)"
                 @mouseleave="uninitializeImage()"
             >
@@ -33,7 +33,7 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 import CategoryFrame from "@/components/home/CategoryFrame.vue";
-import { WorkConfig } from "@/model/WorkConfig";
+import { WorkConfig, Works } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
 import { perWordSpan } from "@/helpers/text";
 
@@ -56,9 +56,10 @@ export default class CategoryWork extends Vue {
         return perWordSpan(text);
     }
 
-    private initializeImage(url: string): void {
+    private initializeImage(url: string, associatedWork: Works): void {
         this.showHoverImage = true;
         this.hoverImageUrl = url;
+        workModule.setHoverWork(associatedWork);
     }
 
     private updateImagePosition(event: MouseEvent): void {
@@ -68,6 +69,7 @@ export default class CategoryWork extends Vue {
 
     private uninitializeImage(): void {
         this.showHoverImage = false;
+        workModule.clearHoverWork();
     }
 }
 </script>

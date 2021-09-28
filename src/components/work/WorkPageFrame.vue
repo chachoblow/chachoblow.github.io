@@ -33,15 +33,8 @@
                             v-html="perWordSpan(detail)"
                         ></li>
                     </ul>
-                    <p v-for="paragraph in summary" :key="paragraph">
-                        {{ paragraph }}
-                    </p>
                 </div>
-                <div :class="imageContainerClasses">
-                    <div v-for="image in images" :key="image">
-                        <img :src="image" />
-                    </div>
-                </div>
+                <slot></slot>
             </div>
         </div>
     </div>
@@ -50,27 +43,10 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 import { perWordSpan } from "@/helpers/text";
-import { Works } from "@/model/WorkConfig";
+import { WorkPageProps } from "@/model/WorkPage";
 import { workModule } from "@/store/WorkModule";
 
-class Props {
-    title!: string;
-    details!: string[];
-    summary!: string[];
-    images!: string[];
-    portaitAspectRatio!: boolean;
-    associatedWork!: Works;
-}
-
-export default class WorkPageBase extends Vue.with(Props) {
-    private get imageContainerClasses(): string[] {
-        let classes = ["work-media-content"];
-        classes = this.portaitAspectRatio
-            ? classes.concat("portait-aspect-ratio")
-            : classes.concat("landscape-aspect-ratio");
-        return classes;
-    }
-
+export default class WorkPageFrame extends Vue.with(WorkPageProps) {
     private get currentWorkIndex(): number {
         // TODO: Error checking.
         let index = 0;
@@ -152,30 +128,6 @@ $orientation-switch-width: 1000px;
     }
 }
 
-.work-media-content {
-    display: flex;
-    flex-direction: column;
-
-    .portait-aspect-ratio {
-        height: auto;
-    }
-
-    .landscape-aspect-ratio {
-        height: calc(100vh - 150px);
-    }
-
-    div {
-        width: calc(100% - $large-device-content-width);
-        max-width: 800px;
-    }
-
-    img {
-        object-fit: contain;
-        max-height: 100%;
-        max-width: 100%;
-    }
-}
-
 li {
     display: flex;
     flex-wrap: wrap;
@@ -191,11 +143,6 @@ li {
     img {
         max-width: 100%;
     }
-}
-
-.work-page-summary {
-    display: flex;
-    flex-flow: wrap;
 }
 
 .router-navigation {
@@ -227,5 +174,9 @@ li {
     @media (min-width: $orientation-switch-width) {
         right: 40px;
     }
+}
+
+a:hover {
+    background-color: #ffef00;
 }
 </style>

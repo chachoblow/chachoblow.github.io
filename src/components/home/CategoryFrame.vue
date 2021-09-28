@@ -41,6 +41,7 @@ export default class CategoryFrame extends Vue.with(Props) {
 
     @media (min-width: $small-device-width) {
         width: 25vw;
+        max-width: 430px;
         padding: 0 20px;
 
         &:first-of-type {

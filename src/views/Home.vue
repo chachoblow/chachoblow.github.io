@@ -16,14 +16,12 @@ import { perWordSpan } from "@/helpers/text";
 import CategoryWork from "@/components/home/CategoryWork.vue";
 import CategoryInformation from "@/components/home/CategoryInformation.vue";
 import CategoryContact from "@/components/home/CategoryContact.vue";
-import WorkPageBase from "@/components/work/WorkPageBase.vue";
 
 @Options({
     components: {
         CategoryWork,
         CategoryInformation,
         CategoryContact,
-        WorkPageBase,
     },
 })
 export default class Home extends Vue {
@@ -43,11 +41,11 @@ export default class Home extends Vue {
     background-image: url("../assets/menu/leavesShadowInvert.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 90% auto;
+    background-size: calc(100% - 40px) auto;
     z-index: -1;
 
     @media (min-width: $small-device-width) {
-        background-size: 50% auto;
+        background-size: auto 50%;
     }
 }
 
