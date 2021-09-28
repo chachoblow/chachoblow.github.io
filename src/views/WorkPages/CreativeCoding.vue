@@ -1,23 +1,42 @@
 <template>
-    <div class="work-thumbnails-container">Creative Coding</div>
+    <work-page-gallery
+        :title="title"
+        :details="details"
+        :images="images"
+        :associatedWork="associatedWork"
+    ></work-page-gallery>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { Vue, Options } from "vue-class-component";
+import WorkPageGallery from "@/components/work/WorkPageGallery.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
-    components: {},
+    components: {
+        WorkPageGallery,
+    },
 })
-export default class CreativeCoding extends Vue {}
+export default class CreativeCoding extends Vue {
+    private title = "Creative coding";
+    private details = ["2018-present", "Digital, software, processing"];
+    private images = [
+        require("../../assets/processing-sketches/examples/bobbing-ocean.gif"),
+        require("../../assets/processing-sketches/examples/clicked-fireworks.gif"),
+        require("../../assets/processing-sketches/examples/collage.gif"),
+        require("../../assets/processing-sketches/examples/criss-cross.gif"),
+        require("../../assets/processing-sketches/examples/exploding-balls.gif"),
+        require("../../assets/processing-sketches/examples/game-of-life.gif"),
+        require("../../assets/processing-sketches/examples/ghost-webcam.gif"),
+        require("../../assets/processing-sketches/examples/make-shape.gif"),
+        require("../../assets/processing-sketches/examples/pointillism.gif"),
+        require("../../assets/processing-sketches/examples/random-chords.gif"),
+        require("../../assets/processing-sketches/examples/row-column-suns.gif"),
+        require("../../assets/processing-sketches/examples/row-suns.gif"),
+        require("../../assets/processing-sketches/examples/suns-colliding.gif"),
+    ];
+    private associatedWork = Works.CreativeCoding;
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.work-thumbnails-container {
-    padding: 125px 25px 20px 25px;
-
-    @media (min-width: $small-device-width) {
-        padding: 125px 0 20px 0;
-    }
-}
-</style>
+<style lang="scss"></style>

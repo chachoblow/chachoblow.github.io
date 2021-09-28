@@ -1,20 +1,25 @@
 <template>
-    <work-page-images
+    <work-page-gallery
+        :title="title"
+        :details="details"
         :images="images"
-        :portait-aspect-ratio="false"
-    ></work-page-images>
+        :associatedWork="associatedWork"
+    ></work-page-gallery>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import WorkPageImages from "@/components/WorkPageImages.vue";
+import { Vue, Options } from "vue-class-component";
+import WorkPageGallery from "@/components/work/WorkPageGallery.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageImages,
+        WorkPageGallery,
     },
 })
 export default class Illustrations extends Vue {
+    private title = "Illustrations";
+    private details = ["2018-present", "Digital"];
     private images = [
         require("../../assets/illustrations/bat-person-1080h.png"),
         require("../../assets/illustrations/breaking-bad-1500h.jpg"),
@@ -24,6 +29,7 @@ export default class Illustrations extends Vue {
         require("../../assets/illustrations/woman-cursive-900h.png"),
         require("../../assets/illustrations/yellow-vision-1800h.jpg"),
     ];
+    private associatedWork = Works.Illustrations;
 }
 </script>
 

@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+// TODO: I don't think I need this...there might be a better way to do this.
+// So that text has a per word white background, all text is manually wrapped in a span element
+//  with the below class. It is then added to the template via a v-html binding. The :deep binding
+//  is needed so that the styling applies correctly.
+// See the following link for more info: https://github.com/vuejs/vue-loader/issues/749
+:deep(a:hover span) {
+    background-color: #ffef00;
+}

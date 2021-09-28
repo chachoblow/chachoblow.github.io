@@ -1,6 +1,5 @@
 <template>
     <div class="app-container">
-        <app-header></app-header>
         <div class="view-container">
             <router-view />
         </div>
@@ -8,20 +7,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
-import AppHeader from "@/components/AppHeader.vue";
+import { Vue } from "vue-class-component";
 
-@Options({
-    components: {
-        AppHeader,
-    },
-})
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Space+Mono&display=swap");
 
 html,
 body {
@@ -30,12 +22,17 @@ body {
     box-sizing: content-box;
 }
 
+h1,
+h2 {
+    font-family: "Libre Baskerville", serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
 #app {
     font-family: "Space Mono", monospace;
-    font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
 }
 
 .app-container {
@@ -44,6 +41,6 @@ body {
 }
 
 .view-container {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 </style>

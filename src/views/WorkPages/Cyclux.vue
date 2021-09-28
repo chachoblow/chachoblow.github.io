@@ -1,20 +1,26 @@
 <template>
-    <work-page-images
+    <work-page-gallery
+        :title="title"
+        :details="details"
         :images="images"
-        :portait-aspect-ratio="true"
-    ></work-page-images>
+        :associatedWork="associatedWork"
+    >
+    </work-page-gallery>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import WorkPageImages from "@/components/WorkPageImages.vue";
+import { Vue, Options } from "vue-class-component";
+import WorkPageGallery from "@/components/work/WorkPageGallery.vue";
+import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageImages,
+        WorkPageGallery,
     },
 })
 export default class Cyclux extends Vue {
+    private title = "Cyclux";
+    private details = ["2018", "Pencil, highlighter, and collage", "12 pages"];
     private images = [
         require("../../assets/comics/cyclux/spread-1-1000.jpg"),
         require("../../assets/comics/cyclux/spread-2-1000.jpg"),
@@ -23,6 +29,7 @@ export default class Cyclux extends Vue {
         require("../../assets/comics/cyclux/spread-5-1000.jpg"),
         require("../../assets/comics/cyclux/spread-6-1000.jpg"),
     ];
+    private associatedWork = Works.Cyclux;
 }
 </script>
 
