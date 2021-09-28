@@ -22,12 +22,12 @@ export default class Cyclux extends Vue {
     private title = "Cyclux";
     private details = ["2018", "Pencil, highlighter, and collage", "12 pages"];
     private images = [
-        require("../../assets/comics/cyclux/spread-1-1000.jpg"),
-        require("../../assets/comics/cyclux/spread-2-1000.jpg"),
-        require("../../assets/comics/cyclux/spread-3-1000.jpg"),
-        require("../../assets/comics/cyclux/spread-4-1000.jpg"),
-        require("../../assets/comics/cyclux/spread-5-1000.jpg"),
-        require("../../assets/comics/cyclux/spread-6-1000.jpg"),
+        require("../../assets/comics/cyclux/cyclux-spread1.png"),
+        require("../../assets/comics/cyclux/cyclux-spread2.png"),
+        require("../../assets/comics/cyclux/cyclux-spread3.png"),
+        require("../../assets/comics/cyclux/cyclux-spread4.png"),
+        require("../../assets/comics/cyclux/cyclux-spread5.png"),
+        require("../../assets/comics/cyclux/cyclux-spread6.png"),
     ];
     private associatedWork = Works.Cyclux;
 }

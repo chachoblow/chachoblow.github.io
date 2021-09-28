@@ -21,13 +21,13 @@ export default class Branches extends Vue {
     private title = "Branches";
     private details = ["2018", "Digital", "12 pages"];
     private images = [
-        require("../../assets/comics/branches/branches-page01.png"),
-        require("../../assets/comics/branches/branches-page02.png"),
-        require("../../assets/comics/branches/branches-page03.png"),
-        require("../../assets/comics/branches/branches-page04.png"),
-        require("../../assets/comics/branches/branches-page05.png"),
-        require("../../assets/comics/branches/branches-page06.png"),
-        require("../../assets/comics/branches/branches-page07.png"),
+        require("../../assets/comics/branches/branches-page1.png"),
+        require("../../assets/comics/branches/branches-page2.png"),
+        require("../../assets/comics/branches/branches-page3.png"),
+        require("../../assets/comics/branches/branches-page4.png"),
+        require("../../assets/comics/branches/branches-page5.png"),
+        require("../../assets/comics/branches/branches-page6.png"),
+        require("../../assets/comics/branches/branches-page7.png"),
     ];
     private associatedWork = Works.Branches;
 }
