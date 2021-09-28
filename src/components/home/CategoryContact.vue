@@ -8,7 +8,7 @@
                         title="My Github"
                         target="_blank"
                     >
-                        <div v-html="perWordSpan('Github')"></div>
+                        <span>Github</span>
                         <img
                             alt="External link"
                             src="../../assets/icons/external-link.jpg"
@@ -21,7 +21,7 @@
                         title="My Instagram"
                         target="_blank"
                     >
-                        <div v-html="perWordSpan('Instagram')"></div>
+                        <span>Instagram</span>
                         <img
                             alt="External link"
                             src="../../assets/icons/external-link.jpg"
@@ -34,7 +34,7 @@
                         title="My LinkedIn"
                         target="_blank"
                     >
-                        <div v-html="perWordSpan('LinkedIn')"></div>
+                        <span>LinkedIn</span>
                         <img
                             alt="External link"
                             src="../../assets/icons/external-link.jpg"
@@ -49,18 +49,17 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 import CategoryFrame from "@/components/home/CategoryFrame.vue";
-import { perWordSpan } from "@/helpers/text";
 
 @Options({
     components: {
         CategoryFrame,
     },
 })
-export default class CategoryContact extends Vue {
-    private perWordSpan(text: string): string {
-        return perWordSpan(text);
-    }
-}
+export default class CategoryContact extends Vue {}
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+span {
+    background-color: white;
+}
+</style>

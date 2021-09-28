@@ -25,13 +25,11 @@
         <div class="work-container">
             <div class="work-content-container">
                 <div class="work-written-content">
-                    <h1 v-html="perWordSpan(title)"></h1>
+                    <h1>{{ title }}</h1>
                     <ul>
-                        <li
-                            v-for="detail in details"
-                            :key="detail"
-                            v-html="perWordSpan(detail)"
-                        ></li>
+                        <li v-for="detail in details" :key="detail">
+                            {{ detail }}
+                        </li>
                     </ul>
                 </div>
                 <slot></slot>
@@ -42,7 +40,6 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
-import { perWordSpan } from "@/helpers/text";
 import { WorkPageProps } from "@/model/WorkPage";
 import { workModule } from "@/store/WorkModule";
 
@@ -76,10 +73,6 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
 
         const nextWork = workModule.workConfigs[this.currentWorkIndex + 1];
         return nextWork.routerLink;
-    }
-
-    private perWordSpan(text: string): string {
-        return perWordSpan(text);
     }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
     <div :class="classes">
-        <h2 class="category-title" v-html="categoryTitle"></h2>
+        <h2 class="category-title">
+            <span>{{ title }}</span>
+        </h2>
         <div class="category-content">
             <slot></slot>
         </div>
@@ -9,7 +11,6 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
-import { perWordSpan } from "@/helpers/text";
 
 class Props {
     title!: string;
@@ -17,10 +18,6 @@ class Props {
 }
 
 export default class CategoryFrame extends Vue.with(Props) {
-    protected get categoryTitle(): string {
-        return perWordSpan(this.title);
-    }
-
     protected get classes(): string[] {
         const baseClasses = ["category"];
         return this.extraClasses
@@ -56,6 +53,10 @@ export default class CategoryFrame extends Vue.with(Props) {
             padding-top: 0;
         }
     }
+}
+
+.category-title span {
+    background-color: white;
 }
 
 .category-content {

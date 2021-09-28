@@ -1,7 +1,9 @@
 <template>
     <div class="home-container">
         <div class="background-image"></div>
-        <h1 v-html="perWordSpan('Wesley Klein')"></h1>
+        <h1>
+            <span>Wesley Klein</span>
+        </h1>
         <div class="category-container">
             <category-work></category-work>
             <category-information></category-information>
@@ -12,7 +14,6 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import { perWordSpan } from "@/helpers/text";
 import CategoryWork from "@/components/home/CategoryWork.vue";
 import CategoryInformation from "@/components/home/CategoryInformation.vue";
 import CategoryContact from "@/components/home/CategoryContact.vue";
@@ -24,11 +25,7 @@ import CategoryContact from "@/components/home/CategoryContact.vue";
         CategoryContact,
     },
 })
-export default class Home extends Vue {
-    private perWordSpan(text: string): string {
-        return perWordSpan(text);
-    }
-}
+export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">

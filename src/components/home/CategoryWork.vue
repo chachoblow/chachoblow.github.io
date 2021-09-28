@@ -19,11 +19,9 @@
                     v-slot="{ href, navigate }"
                     custom
                 >
-                    <a
-                        :href="href"
-                        @click="navigate"
-                        v-html="perWordSpan(work.title)"
-                    ></a>
+                    <a :href="href" @click="navigate">
+                        <span>{{ work.title }}</span>
+                    </a>
                 </router-link>
             </li>
         </ul>
@@ -35,7 +33,6 @@ import { Vue, Options } from "vue-class-component";
 import CategoryFrame from "@/components/home/CategoryFrame.vue";
 import { WorkConfig, Works } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
-import { perWordSpan } from "@/helpers/text";
 
 @Options({
     components: {
@@ -50,10 +47,6 @@ export default class CategoryWork extends Vue {
 
     private get works(): WorkConfig[] {
         return workModule.workConfigs;
-    }
-
-    private perWordSpan(text: string): string {
-        return perWordSpan(text);
     }
 
     private initializeImage(url: string, associatedWork: Works): void {
@@ -90,5 +83,9 @@ export default class CategoryWork extends Vue {
     @media (min-width: $small-device-width) {
         display: initial;
     }
+}
+
+span {
+    background-color: white;
 }
 </style>
