@@ -78,8 +78,8 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
 </script>
 
 <style lang="scss">
-$large-device-content-width: 350px;
-$orientation-switch-width: 1000px;
+$large-device-content-width: 250px;
+$orientation-switch-width: 800px;
 
 .work-container {
     display: flex;
@@ -117,13 +117,15 @@ $orientation-switch-width: 1000px;
 
     @media (min-width: $orientation-switch-width) {
         width: $large-device-content-width;
+        flex-shrink: 0;
         padding-right: 40px;
     }
 }
 
-li {
+ul li {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 10px;
 }
 
 .close-work-button {

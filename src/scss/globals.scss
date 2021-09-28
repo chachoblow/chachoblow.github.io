@@ -9,7 +9,7 @@
     background-color: white;
 }
 
-:deep(a:hover .per-word-background) {
+:deep(a:hover span) {
     background-color: #ffef00;
 }
 
