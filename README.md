@@ -1,5 +1,5 @@
 ---
-permalink: /src/main.ts
+permalink: ./src/main.ts
 ---
 
 # website-redesign
