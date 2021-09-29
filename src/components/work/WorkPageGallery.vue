@@ -38,6 +38,10 @@ export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {}
         width: 100%;
         height: 100%;
 
+        + div {
+            padding-top: 40px;
+        }
+
         @media (min-width: $small-device-width) {
             max-height: 75vh;
         }
