@@ -1,7 +1,3 @@
----
-permalink: ./src/main.ts
----
-
 # website-redesign
 
 ## Project setup
