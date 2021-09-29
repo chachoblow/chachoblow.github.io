@@ -31,7 +31,7 @@ export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {}
 .work-gallery-content {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 600px;
     width: 100%;
 
     div {
@@ -39,11 +39,7 @@ export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {}
         height: 100%;
 
         + div {
-            padding-top: 40px;
-        }
-
-        @media (min-width: $small-device-width) {
-            max-height: 75vh;
+            padding-top: 20px;
         }
     }
 

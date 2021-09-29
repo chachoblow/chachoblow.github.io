@@ -3,6 +3,9 @@
         <div class="view-container">
             <router-view />
         </div>
+        <p class="under-development">
+            This website is currently under development
+        </p>
     </div>
 </template>
 
@@ -42,5 +45,13 @@ h2 {
 
 .view-container {
     padding-bottom: 40px;
+}
+
+.under-development {
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    background-color: #f7e5d9;
 }
 </style>

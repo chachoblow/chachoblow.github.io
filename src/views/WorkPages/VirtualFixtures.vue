@@ -79,7 +79,7 @@ export default class VirtualFixtures extends Vue {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    max-width: 800px;
+    max-width: 600px;
 }
 
 img {
