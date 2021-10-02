@@ -1,6 +1,5 @@
 <template>
     <div class="home-container">
-        <div class="background-image"></div>
         <h1>
             <span>Wesley Klein</span>
         </h1>
@@ -29,25 +28,10 @@ export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">
-.background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../assets/menu/leavesShadowInvert.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: calc(100% - 40px) auto;
-    z-index: -1;
-
-    @media (min-width: $small-device-width) {
-        background-size: auto 50%;
-    }
-}
-
 .home-container {
     padding: $view-container-padding-small;
+    max-width: 1000px;
+    margin: auto;
 
     @media (min-width: $small-device-width) {
         padding: $view-container-padding-large;
@@ -57,9 +41,20 @@ export default class Home extends Vue {}
 .category-container {
     display: flex;
     flex-direction: column;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: 40px;
+    padding: 20px 0 40px 0;
+
+    span {
+        padding: 1px;
+        background-color: white;
+    }
 
     @media (min-width: $small-device-width) {
-        flex-direction: row;
+        margin-bottom: 90px;
     }
 }
 </style>

@@ -1,14 +1,15 @@
 <template>
     <category-frame :title="'Work'">
         <ul>
-            <li v-for="work in works" :key="work.title">
+            <li v-for="(work, index) in works" :key="work.title">
                 <router-link
                     :to="work.routerLink"
                     v-slot="{ href, navigate }"
                     custom
                 >
                     <a :href="href" @click="navigate">
-                        <span>{{ work.title }}</span>
+                        <span class="work-index">{{ index }}.</span>
+                        <span class="work-title">{{ work.title }}</span>
                     </a>
                 </router-link>
             </li>
@@ -37,5 +38,10 @@ export default class CategoryWork extends Vue {
 <style scoped lang="scss">
 span {
     background-color: white;
+}
+
+.work-index {
+    font-size: 0.75rem;
+    padding-right: 6px;
 }
 </style>

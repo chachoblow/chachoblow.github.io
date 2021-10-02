@@ -2,25 +2,34 @@
     <category-frame :title="'Information'">
         <p>
             <span>
-                Wesley Klein is an artist, maker, builder, and fixer. He
-                completed his mathematics and computer science degree at The
-                University of California, Berkeley. He is seeking oppurtunites
-                within the software engineering field. Specifically, he is
-                interested in virtual reality, agumented reality, creative
-                coding, web design, and in a broad sense, the intersection of
-                art and technology.
+                Hi, my name is Wesley Klein. I am currently based in Seattle, WA
+                where I work as a software engineer.
             </span>
         </p>
         <p>
             <span>
-                Apart from his studies, he enjoys making small, alternative
-                comics and illustrations. He is currently learning to animate as
-                well. He is highly interested in merging more traditional
-                artistic endevours, such as, drawing and illustration, with new
-                technologies. He is exploring the ways in which
+                As for my background, I hold a mathematics and computer science
+                degree from The University of California, Berkeley. More
+                importantly, I consider myself an artist, maker, builder, and
+                fixer. These are things I've done consistently throughout my
+                life and are core to my identity.
+            </span>
+        </p>
+        <p>
+            <span>
+                My interests include: virtual reality, creative coding,
+                animation, drawing, electronics, 3D printing - basically
+                anything that has a healthy mix of both the technical and
+                creative. I'm always exploring the ways in which
                 microcontrollers, web technologies, virtual reality, and
-                creative coding frameworks can be merged with alternative
-                comics, animation, and drawing.
+                creative coding frameworks can be merged with more traditional
+                artistic endeavours, such as comics, animation, and drawing.
+            </span>
+        </p>
+        <p>
+            <span>
+                Please feel free to contact me if you'd like to collaborate, or
+                even just say hi.
             </span>
         </p>
     </category-frame>
@@ -41,6 +50,11 @@ export default class CategoryInformation extends Vue {}
 <style scoped lang="scss">
 p {
     display: block;
+    margin: 0;
+
+    + p {
+        padding-top: 20px;
+    }
 
     span {
         padding: 1px;

@@ -31,27 +31,26 @@ export default class CategoryFrame extends Vue.with(Props) {
 .category {
     width: 100%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 
     + .category {
-        padding-top: 40px;
+        padding-top: 60px;
     }
 
     @media (min-width: $small-device-width) {
-        width: 25vw;
-        max-width: 430px;
-        padding: 0 20px;
+        max-width: 1000px;
+        flex-direction: row;
+    }
+}
 
-        &:first-of-type {
-            padding-left: 0;
-        }
+.category-title {
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0;
 
-        &:last-of-type {
-            padding-right: 0;
-        }
-
-        + .category {
-            padding-top: 0;
-        }
+    @media (min-width: $small-device-width) {
+        width: 35%;
     }
 }
 
@@ -60,6 +59,8 @@ export default class CategoryFrame extends Vue.with(Props) {
 }
 
 .category-content {
+    width: 100%;
+
     p {
         display: flex;
         flex-wrap: wrap;
