@@ -44,4 +44,14 @@ span {
     font-size: 0.75rem;
     padding-right: 6px;
 }
+
+li {
+    width: initial;
+    border-top: 1px solid black;
+    padding: 10px 0;
+
+    &:last-of-type {
+        border-bottom: 1px solid black;
+    }
+}
 </style>
