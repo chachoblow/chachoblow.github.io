@@ -1,5 +1,5 @@
 <template>
-    <category-frame :title="'Information'">
+    <div class="about-container">
         <p>
             <span>
                 Hi, my name is Wesley Klein. I am currently based in Seattle, WA
@@ -32,19 +32,13 @@
                 even just say hi.
             </span>
         </p>
-    </category-frame>
+    </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
-import CategoryFrame from "@/components/home/CategoryFrame.vue";
+import { Vue } from "vue-class-component";
 
-@Options({
-    components: {
-        CategoryFrame,
-    },
-})
-export default class CategoryInformation extends Vue {}
+export default class About extends Vue {}
 </script>
 
 <style scoped lang="scss">

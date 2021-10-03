@@ -1,27 +1,21 @@
 <template>
     <div class="home-container">
-        <h1>
-            <span>Wesley Klein</span>
-        </h1>
-        <div class="category-container">
-            <category-work></category-work>
-            <category-information></category-information>
-            <category-contact></category-contact>
+        <navigation-header></navigation-header>
+        <div class="work-container">
+            <works></works>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import CategoryWork from "@/components/home/CategoryWork.vue";
-import CategoryInformation from "@/components/home/CategoryInformation.vue";
-import CategoryContact from "@/components/home/CategoryContact.vue";
+import Works from "@/components/home/Works.vue";
+import NavigationHeader from "@/components/home/NavigationHeader.vue";
 
 @Options({
     components: {
-        CategoryWork,
-        CategoryInformation,
-        CategoryContact,
+        Works,
+        NavigationHeader,
     },
 })
 export default class Home extends Vue {}
@@ -29,32 +23,23 @@ export default class Home extends Vue {}
 
 <style scoped lang="scss">
 .home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.work-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: $view-container-padding-small;
-    max-width: 1000px;
-    margin: auto;
+    max-width: $desktop-max-width;
 
     @media (min-width: $small-device-width) {
         padding: $view-container-padding-large;
-    }
-}
-
-.category-container {
-    display: flex;
-    flex-direction: column;
-}
-
-h1 {
-    margin: 0;
-    margin-bottom: 40px;
-    padding: 20px 0 40px 0;
-
-    span {
-        padding: 1px;
-        background-color: white;
-    }
-
-    @media (min-width: $small-device-width) {
-        margin-bottom: 90px;
+        padding-top: $navigation-header-gap;
+        padding-bottom: $navigation-header-gap;
     }
 }
 </style>

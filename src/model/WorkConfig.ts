@@ -12,8 +12,10 @@ export enum Works {
 }
 
 export interface WorkConfig {
+    id: string;
     order: number;
     title: string;
+    description: string;
     image: string;
     routerLink: string;
     associatedWork: Works;
@@ -22,58 +24,74 @@ export interface WorkConfig {
 export function workConfigs(): WorkConfig[] {
     return [
         {
+            id: "cyclux",
             order: 10,
             title: "Cyclux",
-            image: require("../assets/menu/cyclux.png"),
+            description: "comic",
+            image: require("@/assets/menu/cyclux.png"),
             routerLink: "/cyclux",
             associatedWork: Works.Cyclux,
         },
         {
+            id: "branches",
             order: 20,
             title: "Branches",
-            image: require("../assets/menu/branches.png"),
+            description: "comic",
+            image: require("@/assets/menu/branches.png"),
             routerLink: "/branches",
             associatedWork: Works.Branches,
         },
         {
+            id: "illustrations",
             order: 30,
             title: "Illustrations",
-            image: require("../assets/menu/illustrations.png"),
+            description: "art",
+            image: require("@/assets/menu/illustrations.png"),
             routerLink: "/illustrations",
             associatedWork: Works.Illustrations,
         },
         {
+            id: "animations",
             order: 40,
             title: "Animations",
-            image: require("../assets/menu/animation.png"),
+            description: "art",
+            image: require("@/assets/menu/animation.png"),
             routerLink: "/animations",
             associatedWork: Works.Animations,
         },
         {
+            id: "virtualFixtures",
             order: 50,
             title: "Virtual fixtures",
-            image: require("../assets/menu/virtual-fixtures.png"),
+            description: "video game",
+            image: require("@/assets/menu/virtual-fixtures.png"),
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
         },
         {
+            id: "lineCollection",
             order: 60,
             title: "Line collection",
-            image: require("../assets/menu/line-collection.png"),
+            description: "design",
+            image: require("@/assets/menu/line-collection.png"),
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
         },
         {
+            id: "photography",
             order: 70,
             title: "Photography",
-            image: require("../assets/menu/photo.png"),
+            description: "art",
+            image: require("@/assets/menu/photo.png"),
             routerLink: "/photography",
             associatedWork: Works.Photography,
         },
         {
+            id: "creativeCoding",
             order: 80,
             title: "Creative coding",
-            image: require("../assets/menu/processing-sketches.png"),
+            description: "software, art",
+            image: require("@/assets/menu/processing-sketches.png"),
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,
         },
