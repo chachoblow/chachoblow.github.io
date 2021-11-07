@@ -22,6 +22,9 @@ export default class NavigationHeader extends Vue {}
 
 <style scoped lang="scss">
 .navigation-header-container {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,7 +1,11 @@
 <template>
     <div class="works-container">
         <ul class="work-items">
-            <li v-for="work in works" :key="work.title">
+            <li
+                v-for="work in works"
+                :key="work.title"
+                :id="work.id + 'Container'"
+            >
                 <router-link
                     :to="work.routerLink"
                     v-slot="{ href, navigate }"
@@ -10,8 +14,8 @@
                     <a
                         :href="href"
                         @click="navigate"
-                        @mouseenter="showImage(work)"
-                        @mouseleave="hideImage(work)"
+                        @mouseenter="handleMouseEnter(work)"
+                        @mouseleave="handleMouseLeave(work)"
                         @mousemove="updateImage(work)"
                         class="work-item"
                         :id="work.id"
@@ -71,6 +75,27 @@ export default class CategoryWork extends Vue {
 
     mounted(): void {
         this.showWorkItems();
+    }
+
+    private handleMouseEnter(work: WorkConfig): void {
+        // const workItems = document.querySelectorAll(".work-items li");
+        // for (const item of workItems) {
+        //     if (item.id !== work.id + "Container") {
+        //         item.classList.add("not-hovered");
+        //     }
+        // }
+
+        gsap.to(".work-items li", {
+            duration: 0.5, 
+            color: "lightgray",
+        });
+    }
+
+    private handleMouseLeave(work: WorkConfig): void {
+        const workItems = document.querySelectorAll(".work-items li");
+        for (const item of workItems) {
+            item.classList.remove("not-hovered");
+        }
     }
 
     private showWorkItems(): void {
@@ -146,8 +171,13 @@ a {
     align-items: baseline;
     padding: 10px 0;
 
-    span:first-of-type {
-        flex-grow: 2;
+    span {
+        &:first-of-type {
+            width: 55%;
+        }
+        &:nth-of-type(2) {
+            width: 25%;
+        }
     }
 }
 
@@ -162,6 +192,14 @@ a {
 
     &-icon img {
         height: 20px;
+    }
+}
+
+.not-hovered {
+    border-color: lighten(black, 80%);
+
+    a {
+        color: lighten(black, 80%);
     }
 }
 
