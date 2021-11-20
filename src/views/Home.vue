@@ -2,19 +2,19 @@
     <div class="home-container">
         <navigation-header></navigation-header>
         <div class="work-container">
-            <works></works>
+            <works-thumbnails></works-thumbnails>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import Works from "@/components/home/Works.vue";
+import WorksThumbnails from "@/components/home/WorksThumbnails.vue";
 import NavigationHeader from "@/components/home/NavigationHeader.vue";
 
 @Options({
     components: {
-        Works,
+        WorksThumbnails,
         NavigationHeader,
     },
 })
@@ -34,7 +34,6 @@ export default class Home extends Vue {}
     flex-direction: column;
     width: 100%;
     padding: $view-container-padding-small;
-    max-width: $desktop-max-width;
 
     @media (min-width: $small-device-width) {
         padding: $view-container-padding-large;
