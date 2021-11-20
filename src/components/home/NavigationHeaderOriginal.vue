@@ -1,17 +1,16 @@
 <template>
     <div class="navigation-header-container">
-        <div class="name-container">Wesley Klein</div>
-        <div class="links-container">
-            wesleyr.klein@gmail.com, linkedin, instagram, github
-        </div>
-        <div class="information-container">
-            Based in Seattle, WA. Working as a software engineer. Hold a
-            mathematics and computer science degree from The University of
-            California, Berkeley. Always exploring ways in which to merge more
-            traditional artistic endeavours with modern technologies, such as,
-            microcontrollers, web, virtual reality, and creative coding
-            frameworks.
-        </div>
+        <span>
+            <router-link to="/">
+                <span>
+                    <img src="@/assets/my-eyes-name-clear.png" />
+                </span>
+            </router-link>
+        </span>
+        <span class="navigation-links">
+            <router-link to="/">Work</router-link>
+            <router-link to="/information">Information</router-link>
+        </span>
     </div>
 </template>
 
@@ -29,13 +28,11 @@ export default class NavigationHeader extends Vue {}
     right: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    max-width: $desktop-max-width;
     margin: auto;
     padding: $view-container-padding-small;
-    font-size: 0.9rem;
-
-    > div {
-        width: 33%;
-    }
+    font-size: 1rem;
 
     @media (min-width: $small-device-width) {
         padding: $view-container-padding-large;

@@ -34,6 +34,7 @@ export default class NavigationHeader extends Vue {}
 
 .navigation-links {
     display: flex;
+    font-family: "Space Mono", monospace !important;
 
     a:first-of-type {
         margin-right: 30px;

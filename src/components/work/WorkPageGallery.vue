@@ -5,21 +5,12 @@
         :associatedWork="associatedWork"
     >
         <slot>
-            <div class="swiper-container">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div
-                            v-for="image in images"
-                            :key="image"
-                            class="swiper-slide"
-                        >
-                            <img :src="image" />
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
+            <div
+                v-for="image in images"
+                :key="image"
+                class="gallery-image-container"
+            >
+                <img :src="image" />
             </div>
         </slot>
     </work-page-frame>
@@ -29,80 +20,34 @@
 import { Vue, Options } from "vue-class-component";
 import { WorkPageGalleryProps } from "@/model/WorkPage";
 import WorkPageFrame from "@/components/work/WorkPageFrame.vue";
-import Swiper, { Navigation, Pagination } from "swiper";
-import "swiper/swiper-bundle.css";
-
-Swiper.use([Navigation, Pagination]);
 
 @Options({
     components: {
         WorkPageFrame,
     },
 })
-export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {
-    mounted(): void {
-        new Swiper(".swiper", {
-            spaceBetween: 400,
-            slidesPerView: 1,
-            allowTouchMove: false,
-            keyboard: {
-                enabled: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                type: "fraction",
-            },
-            navigation: {
-                prevEl: ".swiper-button-prev",
-                nextEl: ".swiper-button-next",
-            },
-        });
-    }
-}
+export default class WorkPageGallery extends Vue.with(WorkPageGalleryProps) {}
 </script>
 
 <style lang="scss">
-$max-image-width-large: 1000px;
-$max-image-height-large: 80vh;
-
-.swiper-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    max-width: $max-image-width-large;
-    max-height: $max-image-height-large;
-    padding: 40px 100px;
-}
-
-.swiper-wrapper {
-    align-items: center;
-}
-
-.swiper {
+.gallery-image-container {
     width: 100%;
-    user-select: none;
-}
+    height: 100%;
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    max-width: $max-image-width-large;
-    max-height: $max-image-height-large;
-}
+    @media (min-width: $small-device-width) {
+        max-height: 80vh;
+        max-width: 900px;
+    }
 
-.swiper-slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
+    + .gallery-image-container {
+        margin-top: 20px;
+    }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: black;
-}
-
-.swiper-button-disabled {
-    display: none;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: left;
+    }
 }
 </style>
