@@ -2,7 +2,23 @@
     <div class="navigation-header-container">
         <div class="name-container">Wesley Klein</div>
         <div class="links-container">
-            wesleyr.klein@gmail.com, linkedin, instagram, github
+            <a :href="github.link" :title="github.linkTitle" target="_blank">
+                {{ github.label }},&nbsp;
+            </a>
+            <a
+                :href="instagram.link"
+                :title="instagram.linkTitle"
+                target="_blank"
+            >
+                {{ instagram.label }},&nbsp;
+            </a>
+            <a
+                :href="linkedin.link"
+                :title="linkedin.linkTitle"
+                target="_blank"
+            >
+                {{ linkedin.label }}
+            </a>
         </div>
         <div class="information-container">
             Based in Seattle, WA. Working as a software engineer. Hold a
@@ -18,7 +34,29 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 
-export default class NavigationHeader extends Vue {}
+interface ContactConfig {
+    link: string;
+    linkTitle: string;
+    label: string;
+}
+
+export default class NavigationHeader extends Vue {
+    private github: ContactConfig = {
+        link: "https://github.com/chachoblow",
+        linkTitle: "My Github",
+        label: "github",
+    };
+    private instagram: ContactConfig = {
+        link: "https://www.instagram.com/chachoblow",
+        linkTitle: "My Instagram",
+        label: "instagram",
+    };
+    private linkedin: ContactConfig = {
+        link: "https://www.linkedin.com/in/wesleyklein/",
+        linkTitle: "My LinkedIn",
+        label: "linkedin",
+    };
+}
 </script>
 
 <style scoped lang="scss">
@@ -28,33 +66,39 @@ export default class NavigationHeader extends Vue {}
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin: auto;
     padding: $view-container-padding-small;
     font-size: 0.9rem;
 
     > div {
-        width: 33%;
+        width: 100%;
+
+        + div {
+            padding-top: 10px;
+        }
     }
 
     @media (min-width: $small-device-width) {
         padding: $view-container-padding-large;
+        justify-content: space-between;
+        flex-direction: row;
+
+        > div {
+            width: 33%;
+
+            + div {
+                padding-top: 0;
+            }
+        }
     }
 }
 
-.navigation-links {
+.links-container {
     display: flex;
 
-    a:first-of-type {
-        margin-right: 30px;
+    a {
+        height: fit-content;
     }
-}
-
-img {
-    height: 75px;
-}
-
-.navigation-links .router-link-active {
-    border-bottom: 1px solid;
 }
 </style>

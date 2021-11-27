@@ -1,10 +1,13 @@
 <template>
     <div class="works-container">
         <div v-for="work in works" :key="work.title" class="work-container">
-
-            <div class="work-title">
-                <span>{{ work.title }}</span>
-            </div>
+            <router-link
+                :to="work.routerLink"
+                v-slot="{ href, navigate }"
+                custom
+            >
+                <a :href="href" @click="navigate">{{ work.title }}</a>
+            </router-link>
         </div>
     </div>
 </template>
@@ -15,8 +18,6 @@ import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
 
 export default class CategoryWork extends Vue {
-    private workIcon = require("@/assets/icons/external-link.jpg");
-
     private get works(): WorkConfig[] {
         return workModule.workConfigs;
     }
