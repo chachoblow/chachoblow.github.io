@@ -32,12 +32,14 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {}
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: $view-container-padding-small;
 
     @media (min-width: $small-device-width) {
         flex-direction: row;
+        padding: $view-container-padding-large;
     }
 
-    > div {
+
         width: 100%;
         flex: 1;
 
