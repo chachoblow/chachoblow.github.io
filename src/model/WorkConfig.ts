@@ -16,6 +16,10 @@ export interface WorkConfig {
     order: number;
     title: string;
     description: string;
+    identifier: string;
+    media: string;
+    year: string;
+    summary: string;
     image: string;
     routerLink: string;
     associatedWork: Works;
@@ -28,7 +32,11 @@ export function workConfigs(): WorkConfig[] {
             id: "cyclux",
             order: 10,
             title: "Cyclux",
-            description: "ACA.2018.12.1",
+            description: "Short-form comic",
+            identifier: "1",
+            media: "Pen, pencil, highlighter, collage",
+            year: "2018",
+            summary: "A short-form comic initially made with pen, pencil, highlighter, and collage. It was later  transferred over to digitial. This is my first attempt at a comic.",
             image: require("@/assets/menu/cyclux.png"),
             routerLink: "/cyclux",
             associatedWork: Works.Cyclux,
@@ -45,7 +53,11 @@ export function workConfigs(): WorkConfig[] {
             id: "branches",
             order: 20,
             title: "Branches",
-            description: "ACA.2018.12.2",
+            description: "Short-form comic",
+            identifier: "2",
+            media: "Digital",
+            year: "2018",
+            summary: "A short-form comic made digitally with ProCreate on the iPad. This was later expanded into a larger project. Specifically, each page was engraved on acrylic and then bound in a larger, physical book. The expanded project is currently being documented and will be put on this website shortly.",
             image: require("@/assets/menu/branches.png"),
             routerLink: "/branches",
             associatedWork: Works.Branches,
@@ -63,7 +75,11 @@ export function workConfigs(): WorkConfig[] {
             id: "illustrations",
             order: 30,
             title: "Illustrations",
-            description: "AID.2018_2020",
+            description: "Collection of various illustrations",
+            identifier: "3",
+            media: "Digital",
+            year: "2018-present",
+            summary: "These are a collection of various illustrations I have made over the years. Everything was made with ProCreate on the iPad. Other works (both digital and analog) are being documented and will be up on the website shortly.",
             image: require("@/assets/menu/illustrations.png"),
             routerLink: "/illustrations",
             associatedWork: Works.Illustrations,
@@ -81,7 +97,11 @@ export function workConfigs(): WorkConfig[] {
             id: "animations",
             order: 40,
             title: "Animations",
-            description: "AAD.2018.3.1",
+            description: "Collection of various animations",
+            identifier: "4",
+            media: "Digital",
+            year: "2018",
+            summary: "These are a collection of various animations. Each animation is rotoscoped from various videos taken by me. To rotoscope and color, I used Photoshop and a Walcom tablet. The sound is from the original video, but augmented via Audacity.",
             image: require("@/assets/menu/animation.png"),
             routerLink: "/animations",
             associatedWork: Works.Animations,
@@ -99,7 +119,44 @@ export function workConfigs(): WorkConfig[] {
             id: "virtualFixtures",
             order: 50,
             title: "Virtual fixtures",
-            description: "ASD.2017.1",
+            description: "Video game",
+            identifier: "5",
+            media: "Software",
+            year: "2017",
+            summary: `
+                Virtual Fixtures is a roguelike cave exploration game developed
+                in Java. The game was inspired by the graphic novel series East
+                of West.
+
+                In Virtual Fixtures, you are trapped in a cave with your Buddy -
+                a hovering AI bot which can project the virtual world for you.
+                You need this projection in order to see where hidden energies
+                are. The downside is that when in the virtual world, you cannot
+                see the numreous traps that riddle the cave in the physical
+                world. Therefore, you must switch back and forth between the two
+                worlds - using one world to find the energies, and the other to
+                avoid traps.
+
+                When you start the game, you are placed in the middle of a
+                procedurally generated cave system. You can see this below. Note
+                that the HUD displays what your cursor is currently hovering
+                over.
+
+                A main feature that I implemented for this game was ray-casting.
+                You can only see parts of the cave that are within your current
+                line of sight (or parts that you have seen in the past). In
+                order to do this, I used Bresenham's line algorithm. This can be
+                seen below.
+
+                The main feature of the game is that you can switch between the
+                physical and virtual worlds. In doing this, you can avoid traps
+                while also searching for energies. Another caveat is that when
+                in the virtual world, you can no longer see remembered parts of
+                the cave. You are limited to what is currently in view only.
+                
+                If you would like to see a more in-depth explanation of the
+                game, please watch my video on YouTube.
+            `,
             image: require("@/assets/menu/virtual-fixtures.png"),
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
@@ -117,7 +174,11 @@ export function workConfigs(): WorkConfig[] {
             id: "lineCollection",
             order: 60,
             title: "Line collection",
-            description: "ASD.2018.1",
+            description: "Art tool made entirely of lines",
+            identifier: "6",
+            media: "Software",
+            year: "2018",
+            summary: "An art tool made with p5.js. Everything you see is made of entirely made of lines.",
             image: require("@/assets/menu/line-collection.png"),
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
@@ -135,7 +196,11 @@ export function workConfigs(): WorkConfig[] {
             id: "photography",
             order: 70,
             title: "Photography",
-            description: "AD.2017_2019.10.1",
+            description: "Collection of various photographs",
+            identifier: "7",
+            media: "Digital",
+            year: "2016-present",
+            summary: "A collection of various photographs I have made over the years. Everything you see is digital.",
             image: require("@/assets/menu/photo.png"),
             routerLink: "/photography",
             associatedWork: Works.Photography,
@@ -157,7 +222,11 @@ export function workConfigs(): WorkConfig[] {
             id: "creativeCoding",
             order: 80,
             title: "Creative coding",
-            description: "ASD.2018_2019.15.1",
+            description: "Collection of various creative coding sketches",
+            identifier: "8",
+            media: "Software",
+            year: "2018-present",
+            summary: "A collection of various creative coding sketches made with p5.js.",
             image: require("@/assets/menu/processing-sketches.png"),
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,

@@ -24,9 +24,11 @@ export default class Home extends Vue {}
 <style scoped lang="scss">
 .home-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    flex-direction: column;
+    
+    @media (min-width: $small-device-width) {
+        min-height: 100vh;
+    }
 }
 
 .work-container {
@@ -39,6 +41,8 @@ export default class Home extends Vue {}
         padding: $view-container-padding-large;
         padding-top: $navigation-header-gap;
         padding-bottom: $navigation-header-gap;
+        flex: 1;
+        justify-content: center;
     }
 }
 </style>

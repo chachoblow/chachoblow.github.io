@@ -21,12 +21,14 @@
             </a>
         </div>
         <div class="information-container">
-            Based in Seattle, WA. Working as a software engineer. Hold a
-            mathematics and computer science degree from The University of
-            California, Berkeley. Always exploring ways in which to merge more
-            traditional artistic endeavours with modern technologies, such as,
-            microcontrollers, web, virtual reality, and creative coding
-            frameworks.
+            <slot>
+                Based in Seattle, WA. Working as a software engineer. Hold a
+                mathematics and computer science degree from The University of
+                California, Berkeley. Always exploring ways in which to merge more
+                traditional artistic endeavours with modern technologies, such as,
+                microcontrollers, web, virtual reality, and creative coding
+                frameworks.
+            </slot>
         </div>
     </div>
 </template>
@@ -61,13 +63,8 @@ export default class NavigationHeader extends Vue {
 
 <style scoped lang="scss">
 .navigation-header-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
-    margin: auto;
     padding: $view-container-padding-small;
     font-size: 0.9rem;
 

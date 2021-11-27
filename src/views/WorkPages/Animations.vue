@@ -1,40 +1,8 @@
-<template>
-    <work-page-gallery
-        :title="title"
-        :details="details"
-        :images="images"
-        :associatedWork="associatedWork"
-    ></work-page-gallery>
-</template>
-
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
-import WorkPageGallery from "@/components/work/WorkPageGallery.vue";
-import { Works } from "@/model/WorkConfig";
+import WorkPageBase from "./WorkPageBase.vue";
 
-@Options({
-    components: {
-        WorkPageGallery,
-    },
-})
-export default class Animation extends Vue {
-    private title = "Animation";
-    private details = ["2018", "Digital, photoshop"];
-    // TODO: Upload actual videos.
-    private images = [
-        require("../../assets/photographs/brittany-driving-1000h.jpg"),
-        require("../../assets/photographs/dad-grandpa-1000h.jpg"),
-        require("../../assets/photographs/grandma-chandelier-1000h.jpg"),
-        require("../../assets/photographs/grandparents-window-1000h.jpg"),
-        require("../../assets/photographs/grapevine-1000h.jpg"),
-        require("../../assets/photographs/laguna-algea-1000h.jpg"),
-        require("../../assets/photographs/laguna-rock-1000h.jpg"),
-        require("../../assets/photographs/me-bathroom-1000h.jpg"),
-        require("../../assets/photographs/megan-dad-2-1000h.jpg"),
-        require("../../assets/photographs/slit-scanning-1-1000h.jpg"),
-        require("../../assets/photographs/slit-scanning-2-1000h.jpg"),
-    ];
-    private associatedWork = Works.Animations;
+export default class Animations extends WorkPageBase {
+    protected idInternal = "animations";
 }
 </script>
 

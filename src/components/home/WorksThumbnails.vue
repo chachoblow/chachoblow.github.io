@@ -52,4 +52,8 @@ export default class CategoryWork extends Vue {
         padding: 5px;
     }
 }
+
+a {
+    width: fit-content;
+}
 </style>
