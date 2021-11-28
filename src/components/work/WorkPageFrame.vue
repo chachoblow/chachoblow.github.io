@@ -175,16 +175,22 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
 .work-container {
     display: flex;
     flex-direction: column;
+    margin-bottom: -10px;
 
     @media (min-width: $small-device-width) {
         position: fixed;
         right: 0;
         padding: 0 10px;
         // TODO: Find a better way to do this.
-        height: calc(100% - 76px);
+        height: calc(100% - 46px);
         overflow: auto;
         box-sizing: border-box;
+        margin-bottom: 0;
     }
+}
+
+::v-deep(.image-container:last-child) {
+    padding-bottom: 10px;
 }
 
 .image-container {
