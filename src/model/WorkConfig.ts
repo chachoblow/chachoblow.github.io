@@ -48,7 +48,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/cyclux/cyclux-spread4.png"),
                 require("@/assets/comics/cyclux/cyclux-spread5.png"),
                 require("@/assets/comics/cyclux/cyclux-spread6.png"),
-            ]
+            ],
         },
         {
             id: "branches",
@@ -70,7 +70,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/branches/branches-page5.png"),
                 require("@/assets/comics/branches/branches-page6.png"),
                 require("@/assets/comics/branches/branches-page7.png"),
-            ]
+            ],
         },
         {
             id: "illustrations",
@@ -92,7 +92,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/illustrations/man-rock-900h.png"),
                 require("@/assets/illustrations/woman-cursive-900h.png"),
                 require("@/assets/illustrations/yellow-vision-1800h.jpg"),
-            ]
+            ],
         },
         {
             id: "animations",
@@ -109,9 +109,9 @@ export function workConfigs(): WorkConfig[] {
             images: [],
             customWorkHtml: `
                 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146757?h=84d1b63bdc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="i&amp;#039;m starting to feel something."></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-            `
+                <div style="padding:56.25% 0 0 0;position:relative;margin-top:10px;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                <div style="padding:56.25% 0 0 0;position:relative;margin-top:10px"><iframe src="https://player.vimeo.com/video/316146757?h=84d1b63bdc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="i&amp;#039;m starting to feel something."></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+            `,
         },
         {
             id: "virtualFixtures",
@@ -170,7 +170,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/virtual-fixtures/game-hud.gif"),
                 require("@/assets/virtual-fixtures/game-ray-casting.gif"),
                 require("@/assets/virtual-fixtures/game-switch-worlds.gif"),
-            ]
+            ],
         },
         {
             id: "lineCollection",
@@ -204,7 +204,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/line-collection/watch-circles-compressed.gif"),
                 require("@/assets/line-collection/watch-squares-compressed.gif"),
                 require("@/assets/line-collection/watch-triangles-compressed.gif"),
-            ]
+            ],
         },
         {
             id: "photography",
@@ -230,7 +230,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/photographs/megan-dad-2-1000h.jpg"),
                 require("@/assets/photographs/slit-scanning-1-1000h.jpg"),
                 require("@/assets/photographs/slit-scanning-2-1000h.jpg"),
-            ]
+            ],
         },
         {
             id: "creativeCoding",
@@ -258,7 +258,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/processing-sketches/examples/row-column-suns-compressed.gif"),
                 require("@/assets/processing-sketches/examples/row-suns-compressed.gif"),
                 require("@/assets/processing-sketches/examples/suns-colliding-compressed.gif"),
-            ]
+            ],
         },
     ];
 }

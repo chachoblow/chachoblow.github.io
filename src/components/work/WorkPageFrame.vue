@@ -1,6 +1,6 @@
 <template>
     <div>
-        <navigation-header>
+        <header-main>
             <div class="router-navigation">
                 <div v-if="nextWorkRoute">
                     <router-link :to="nextWorkRoute">next</router-link>
@@ -12,7 +12,7 @@
                 </div>
                 <router-link to="/">close</router-link>
             </div>
-        </navigation-header>
+        </header-main>
         <div class="content-container">
             <div class="details-container">
                 <slot name="details">
@@ -23,7 +23,9 @@
                         </div>
                         <div class="detail">
                             <div class="label">Description</div>
-                            <div class="description">{{ work.description }}</div>
+                            <div class="description">
+                                {{ work.description }}
+                            </div>
                         </div>
                         <div class="detail">
                             <div class="label">Media</div>
@@ -38,12 +40,19 @@
                             <div class="description">{{ work.identifier }}</div>
                         </div>
                     </div>
-                    <div class="full-description" v-if="work.summary" v-html="work.summary"></div>
+                    <div
+                        class="full-description"
+                        v-if="work.summary"
+                        v-html="work.summary"
+                    ></div>
                 </slot>
             </div>
             <div class="work-container">
                 <slot>
-                    <div v-if="work.customWorkHtml" v-html="work.customWorkHtml"></div>
+                    <div
+                        v-if="work.customWorkHtml"
+                        v-html="work.customWorkHtml"
+                    ></div>
                     <div
                         v-else
                         v-for="image in work.images"
@@ -52,7 +61,7 @@
                     >
                         <img :src="image" />
                     </div>
-            </slot>
+                </slot>
             </div>
         </div>
     </div>
@@ -62,31 +71,17 @@
 import { Vue, Options } from "vue-class-component";
 import { WorkPageProps } from "@/model/WorkPage";
 import { workModule } from "@/store/WorkModule";
-import WorkPageNavigation from "@/components/work/WorkPageNavigation.vue";
-import NavigationHeader from "@/components/home/NavigationHeader.vue";
+import HeaderMain from "@/components/HeaderMain.vue";
 import { Works } from "@/model/WorkConfig";
 
 @Options({
     components: {
-        WorkPageNavigation,
-        NavigationHeader,
+        HeaderMain,
     },
 })
 export default class WorkPageFrame extends Vue.with(WorkPageProps) {
     private get associatedWork(): Works {
         return this.work.associatedWork;
-    }
-    private get currentWorkIndex(): number {
-        // TODO: Error checking.
-        let index = 0;
-        for (let i = 0; i < workModule.workConfigsLength; i++) {
-            const config = workModule.workConfigs[i];
-            if (config.associatedWork === this.associatedWork) {
-                index = i;
-                break;
-            }
-        }
-        return index;
     }
 
     private get previousWorkRoute(): string {
@@ -100,6 +95,19 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
             ? ""
             : workModule.workConfigs[this.currentWorkIndex + 1].routerLink;
     }
+
+    private get currentWorkIndex(): number {
+        // TODO: Error checking.
+        let index = 0;
+        for (let i = 0; i < workModule.workConfigsLength; i++) {
+            const config = workModule.workConfigs[i];
+            if (config.associatedWork === this.associatedWork) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 }
 </script>
 
@@ -108,7 +116,6 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
     display: flex;
     flex-direction: column;
     width: inherit;
-    padding: $view-container-padding-small;
 
     > div {
         width: 100%;
@@ -120,25 +127,20 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
 
     @media (min-width: $small-device-width) {
         flex-direction: row;
-        padding: $view-container-padding-large;
     }
 }
 
 .details-container {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 
     @media (min-width: $small-device-width) {
-        padding-bottom: 0;
-        padding-right: 10px;
-    }
-
-    .details {
-        padding-bottom: 20px;
+        padding-bottom: 0px;
+        padding-right: 5px;
     }
 
     .detail {
         display: flex;
-        
+
         .label {
             width: 7rem;
         }
@@ -148,26 +150,41 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
         }
     }
 
-    ::v-deep a {
+    .full-description {
+        padding-top: 20px;
+
+        ::v-deep(p:first-child) {
+            margin-top: 0;
+        }
+
+        ::v-deep(p:last-child) {
+            margin-bottom: 0; 
+        }
+
+        ::v-deep(p) {
+            margin: 10px 0 10px 0;
+        }
+    }
+
+    ::v-deep(a) {
         display: inline;
-        text-decoration: underline; 
+        text-decoration: underline;
     }
 }
 
 .work-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 
     @media (min-width: $small-device-width) {
         position: fixed;
         right: 0;
-        height: 100%;
+        padding: 0 10px;
+        // TODO: Find a better way to do this.
+        height: calc(100% - 76px);
         overflow: auto;
-        padding: 0 20px 20px 10px;
         box-sizing: border-box;
     }
-
 }
 
 .image-container {
@@ -180,7 +197,7 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
     }
 
     + .image-container {
-        margin-top: 20px;
+        padding-top: 10px;
     }
 
     img {

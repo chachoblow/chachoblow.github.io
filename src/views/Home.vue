@@ -1,6 +1,6 @@
 <template>
     <div class="home-container">
-        <navigation-header></navigation-header>
+        <header-main></header-main>
         <div class="work-container">
             <works-thumbnails></works-thumbnails>
         </div>
@@ -10,12 +10,12 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 import WorksThumbnails from "@/components/home/WorksThumbnails.vue";
-import NavigationHeader from "@/components/home/NavigationHeader.vue";
+import HeaderMain from "@/components/HeaderMain.vue";
 
 @Options({
     components: {
         WorksThumbnails,
-        NavigationHeader,
+        HeaderMain,
     },
 })
 export default class Home extends Vue {}
@@ -25,7 +25,7 @@ export default class Home extends Vue {}
 .home-container {
     display: flex;
     flex-direction: column;
-    
+
     @media (min-width: $small-device-width) {
         min-height: 100vh;
     }
@@ -35,12 +35,8 @@ export default class Home extends Vue {}
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: $view-container-padding-small;
 
     @media (min-width: $small-device-width) {
-        padding: $view-container-padding-large;
-        padding-top: $navigation-header-gap;
-        padding-bottom: $navigation-header-gap;
         flex: 1;
         justify-content: center;
     }

@@ -24,10 +24,10 @@
             <slot>
                 Based in Seattle, WA. Working as a software engineer. Hold a
                 mathematics and computer science degree from The University of
-                California, Berkeley. Always exploring ways in which to merge more
-                traditional artistic endeavours with modern technologies, such as,
-                microcontrollers, web, virtual reality, and creative coding
-                frameworks.
+                California, Berkeley. Always exploring ways in which to merge
+                more traditional artistic endeavours with modern technologies,
+                such as, microcontrollers, web, virtual reality, and creative
+                coding frameworks.
             </slot>
         </div>
     </div>
@@ -42,7 +42,7 @@ interface ContactConfig {
     label: string;
 }
 
-export default class NavigationHeader extends Vue {
+export default class HeaderMainHea extends Vue {
     private github: ContactConfig = {
         link: "https://github.com/chachoblow",
         linkTitle: "My Github",
@@ -65,19 +65,18 @@ export default class NavigationHeader extends Vue {
 .navigation-header-container {
     display: flex;
     flex-direction: column;
-    padding: $view-container-padding-small;
+    padding: 0 0 20px 0;
     font-size: 0.9rem;
 
     > div {
         width: 100%;
 
         + div {
-            padding-top: 10px;
+            padding-top: 5px;
         }
     }
 
     @media (min-width: $small-device-width) {
-        padding: $view-container-padding-large;
         justify-content: space-between;
         flex-direction: row;
 

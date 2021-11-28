@@ -37,7 +37,7 @@ export default class CategoryWork extends Vue {
     flex-wrap: nowrap;
 
     + .work-container {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 }
 
@@ -49,7 +49,6 @@ export default class CategoryWork extends Vue {
     img {
         height: 150px;
         width: auto;
-        padding: 5px;
     }
 }
 
