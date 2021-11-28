@@ -158,7 +158,7 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
         }
 
         ::v-deep(p:last-child) {
-            margin-bottom: 0; 
+            margin-bottom: 0;
         }
 
         ::v-deep(p) {
