@@ -28,7 +28,6 @@ export default class WorkPageBase extends Vue {
             throw Error(`Work with ID [${this.id}] not found.`);
         }
         return work;
-
     }
 }
 </script>

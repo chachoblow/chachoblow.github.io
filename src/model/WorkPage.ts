@@ -1,8 +1,4 @@
-import { WorkConfig, Works } from "./WorkConfig";
-
-export class WorkPageNavigationProps {
-    associatedWork!: Works;
-}
+import { WorkConfig } from "./WorkConfig";
 
 export class WorkPageProps {
     work!: WorkConfig;
