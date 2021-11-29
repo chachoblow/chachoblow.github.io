@@ -24,6 +24,7 @@ export interface WorkConfig {
     routerLink: string;
     associatedWork: Works;
     images: string[];
+    customWorkHtml?: string;
 }
 
 export function workConfigs(): WorkConfig[] {
@@ -36,7 +37,7 @@ export function workConfigs(): WorkConfig[] {
             identifier: "1",
             media: "Pen, pencil, highlighter, collage",
             year: "2018",
-            summary: "A short-form comic initially made with pen, pencil, highlighter, and collage. It was later  transferred over to digitial. This is my first attempt at a comic.",
+            summary: "",
             image: require("@/assets/menu/cyclux.png"),
             routerLink: "/cyclux",
             associatedWork: Works.Cyclux,
@@ -57,7 +58,7 @@ export function workConfigs(): WorkConfig[] {
             identifier: "2",
             media: "Digital",
             year: "2018",
-            summary: "A short-form comic made digitally with ProCreate on the iPad. This was later expanded into a larger project. Specifically, each page was engraved on acrylic and then bound in a larger, physical book. The expanded project is currently being documented and will be put on this website shortly.",
+            summary: "",
             image: require("@/assets/menu/branches.png"),
             routerLink: "/branches",
             associatedWork: Works.Branches,
@@ -79,7 +80,7 @@ export function workConfigs(): WorkConfig[] {
             identifier: "3",
             media: "Digital",
             year: "2018-present",
-            summary: "These are a collection of various illustrations I have made over the years. Everything was made with ProCreate on the iPad. Other works (both digital and analog) are being documented and will be up on the website shortly.",
+            summary: "",
             image: require("@/assets/menu/illustrations.png"),
             routerLink: "/illustrations",
             associatedWork: Works.Illustrations,
@@ -101,19 +102,16 @@ export function workConfigs(): WorkConfig[] {
             identifier: "4",
             media: "Digital",
             year: "2018",
-            summary: "These are a collection of various animations. Each animation is rotoscoped from various videos taken by me. To rotoscope and color, I used Photoshop and a Walcom tablet. The sound is from the original video, but augmented via Audacity.",
+            summary: "",
             image: require("@/assets/menu/animation.png"),
             routerLink: "/animations",
             associatedWork: Works.Animations,
-            images: [
-                require("@/assets/illustrations/bat-person-1080h.png"),
-                require("@/assets/illustrations/breaking-bad-1500h.jpg"),
-                require("@/assets/illustrations/can-you-hear-me-1800h.jpg"),
-                require("@/assets/illustrations/fried-1381h.jpg"),
-                require("@/assets/illustrations/man-rock-900h.png"),
-                require("@/assets/illustrations/woman-cursive-900h.png"),
-                require("@/assets/illustrations/yellow-vision-1800h.jpg"),
-            ]
+            images: [],
+            customWorkHtml: `
+                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146757?h=84d1b63bdc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="i&amp;#039;m starting to feel something."></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+            `
         },
         {
             id: "virtualFixtures",
@@ -124,50 +122,54 @@ export function workConfigs(): WorkConfig[] {
             media: "Software",
             year: "2017",
             summary: `
-                Virtual Fixtures is a roguelike cave exploration game developed
-                in Java. The game was inspired by the graphic novel series East
-                of West.
-
-                In Virtual Fixtures, you are trapped in a cave with your Buddy -
-                a hovering AI bot which can project the virtual world for you.
-                You need this projection in order to see where hidden energies
-                are. The downside is that when in the virtual world, you cannot
-                see the numreous traps that riddle the cave in the physical
-                world. Therefore, you must switch back and forth between the two
-                worlds - using one world to find the energies, and the other to
-                avoid traps.
-
-                When you start the game, you are placed in the middle of a
-                procedurally generated cave system. You can see this below. Note
-                that the HUD displays what your cursor is currently hovering
-                over.
-
-                A main feature that I implemented for this game was ray-casting.
-                You can only see parts of the cave that are within your current
-                line of sight (or parts that you have seen in the past). In
-                order to do this, I used Bresenham's line algorithm. This can be
-                seen below.
-
-                The main feature of the game is that you can switch between the
-                physical and virtual worlds. In doing this, you can avoid traps
-                while also searching for energies. Another caveat is that when
-                in the virtual world, you can no longer see remembered parts of
-                the cave. You are limited to what is currently in view only.
-                
-                If you would like to see a more in-depth explanation of the
-                game, please watch my video on YouTube.
+                <p>
+                    Virtual Fixtures is a roguelike cave exploration game developed in Java. The game was inspired by the graphic novel series 
+                    <a href="https://en.wikipedia.org/wiki/East_of_West" title="Wikipedia entry for East of West" target="_blank">East of West</a>.
+                </p>
+                <p>
+                    In Virtual Fixtures, you are trapped in a cave with your Buddy -
+                    a hovering AI bot which can project the virtual world for you.
+                    You need this projection in order to see where hidden energies
+                    are. The downside is that when in the virtual world, you cannot
+                    see the numreous traps that riddle the cave in the physical
+                    world. Therefore, you must switch back and forth between the two
+                    worlds - using one world to find the energies, and the other to
+                    avoid traps.
+                </p>
+                <p>
+                    When you start the game, you are placed in the middle of a
+                    procedurally generated cave system. You can see this below. Note
+                    that the HUD displays what your cursor is currently hovering
+                    over.
+                </p>
+                <p>
+                    A main feature that I implemented for this game was ray-casting.
+                    You can only see parts of the cave that are within your current
+                    line of sight (or parts that you have seen in the past). In
+                    order to do this, I used 
+                    <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm" title="Wikipedia entry for Bresenham's line algorithm" target="_blank">Bresenham's line algorithm</a>. 
+                    This can be seen below.
+                </p>
+                <p>
+                    The main feature of the game is that you can switch between the
+                    physical and virtual worlds. In doing this, you can avoid traps
+                    while also searching for energies. Another caveat is that when
+                    in the virtual world, you can no longer see remembered parts of
+                    the cave. You are limited to what is currently in view only.
+                </p>
+                <p> 
+                    If you would like to see a more in-depth explanation of the
+                    game, please watch 
+                    <a href="https://youtu.be/C-yfkUNuN_M" title="YouTube link to game walkthrough" target="_blank">my video on YouTube</a>.
+                </p>
             `,
             image: require("@/assets/menu/virtual-fixtures.png"),
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
             images: [
-                require("@/assets/illustrations/bat-person-1080h.png"),
-                require("@/assets/illustrations/breaking-bad-1500h.jpg"),
-                require("@/assets/illustrations/can-you-hear-me-1800h.jpg"),
-                require("@/assets/illustrations/fried-1381h.jpg"),
-                require("@/assets/illustrations/man-rock-900h.png"),
-                require("@/assets/illustrations/woman-cursive-900h.png"),
-                require("@/assets/illustrations/yellow-vision-1800h.jpg"),
+                require("@/assets/virtual-fixtures/game-hud.gif"),
+                require("@/assets/virtual-fixtures/game-ray-casting.gif"),
+                require("@/assets/virtual-fixtures/game-switch-worlds.gif"),
             ]
         },
         {
@@ -178,18 +180,30 @@ export function workConfigs(): WorkConfig[] {
             identifier: "6",
             media: "Software",
             year: "2018",
-            summary: "An art tool made with p5.js. Everything you see is made of entirely made of lines.",
+            summary: `
+                <p>
+                    I wanted to make something that only used collections of lines for visuals.
+                    Everything within this application (even the text) is simply a 
+                    specifically placed line collection.
+                </p>
+                <p>
+                    In the main menu, you can choose to either arrange or watch 3 different 
+                    shapes: a circle, a square, and a triangle. While in the arrange portion, 
+                    you can use the mouse wheel to make the shape's size different.
+                </p>
+                <p>
+                    The application was made with JavaScript. More specifically, it used the p5.js 
+                    library.
+                </p>
+            `,
             image: require("@/assets/menu/line-collection.png"),
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
             images: [
-                require("@/assets/illustrations/bat-person-1080h.png"),
-                require("@/assets/illustrations/breaking-bad-1500h.jpg"),
-                require("@/assets/illustrations/can-you-hear-me-1800h.jpg"),
-                require("@/assets/illustrations/fried-1381h.jpg"),
-                require("@/assets/illustrations/man-rock-900h.png"),
-                require("@/assets/illustrations/woman-cursive-900h.png"),
-                require("@/assets/illustrations/yellow-vision-1800h.jpg"),
+                require("@/assets/line-collection/arrange-circles-compressed.gif"),
+                require("@/assets/line-collection/watch-circles-compressed.gif"),
+                require("@/assets/line-collection/watch-squares-compressed.gif"),
+                require("@/assets/line-collection/watch-triangles-compressed.gif"),
             ]
         },
         {
@@ -200,7 +214,7 @@ export function workConfigs(): WorkConfig[] {
             identifier: "7",
             media: "Digital",
             year: "2016-present",
-            summary: "A collection of various photographs I have made over the years. Everything you see is digital.",
+            summary: "",
             image: require("@/assets/menu/photo.png"),
             routerLink: "/photography",
             associatedWork: Works.Photography,
@@ -226,18 +240,24 @@ export function workConfigs(): WorkConfig[] {
             identifier: "8",
             media: "Software",
             year: "2018-present",
-            summary: "A collection of various creative coding sketches made with p5.js.",
+            summary: "",
             image: require("@/assets/menu/processing-sketches.png"),
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,
             images: [
-                require("@/assets/illustrations/bat-person-1080h.png"),
-                require("@/assets/illustrations/breaking-bad-1500h.jpg"),
-                require("@/assets/illustrations/can-you-hear-me-1800h.jpg"),
-                require("@/assets/illustrations/fried-1381h.jpg"),
-                require("@/assets/illustrations/man-rock-900h.png"),
-                require("@/assets/illustrations/woman-cursive-900h.png"),
-                require("@/assets/illustrations/yellow-vision-1800h.jpg"),
+                require("@/assets/processing-sketches/examples/bobbing-ocean-compressed.gif"),
+                require("@/assets/processing-sketches/examples/clicked-fireworks-compressed.gif"),
+                require("@/assets/processing-sketches/examples/collage-compressed.gif"),
+                require("@/assets/processing-sketches/examples/criss-cross-compressed.gif"),
+                require("@/assets/processing-sketches/examples/exploding-balls-compressed.gif"),
+                require("@/assets/processing-sketches/examples/game-of-life-compressed.gif"),
+                require("@/assets/processing-sketches/examples/ghost-webcam-compressed.gif"),
+                require("@/assets/processing-sketches/examples/make-shape-compressed.gif"),
+                require("@/assets/processing-sketches/examples/pointillism-compressed.gif"),
+                require("@/assets/processing-sketches/examples/random-chords-compressed.gif"),
+                require("@/assets/processing-sketches/examples/row-column-suns-compressed.gif"),
+                require("@/assets/processing-sketches/examples/row-suns-compressed.gif"),
+                require("@/assets/processing-sketches/examples/suns-colliding-compressed.gif"),
             ]
         },
     ];

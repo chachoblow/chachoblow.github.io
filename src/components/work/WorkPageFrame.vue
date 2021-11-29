@@ -2,20 +2,17 @@
     <div>
         <navigation-header>
             <div class="router-navigation">
-                <div v-if="previousWorkRoute">
-                    <router-link :to="previousWorkRoute">back</router-link>
-                    &nbsp;<span>/</span>&nbsp;
-                </div>
                 <div v-if="nextWorkRoute">
                     <router-link :to="nextWorkRoute">next</router-link>
+                    &nbsp;<span>/</span>&nbsp;
+                </div>
+                <div v-if="previousWorkRoute">
+                    <router-link :to="previousWorkRoute">back</router-link>
                     &nbsp;<span>/</span>&nbsp;
                 </div>
                 <router-link to="/">close</router-link>
             </div>
         </navigation-header>
-        <!-- <work-page-navigation
-            :associatedWork="associatedWork"
-        ></work-page-navigation> -->
         <div class="content-container">
             <div class="details-container">
                 <slot name="details">
@@ -29,10 +26,6 @@
                             <div class="description">{{ work.description }}</div>
                         </div>
                         <div class="detail">
-                            <div class="label">ID</div>
-                            <div class="description">{{ work.identifier }}</div>
-                        </div>
-                        <div class="detail">
                             <div class="label">Media</div>
                             <div class="description">{{ work.media }}</div>
                         </div>
@@ -40,13 +33,19 @@
                             <div class="label">Year</div>
                             <div class="description">{{ work.year }}</div>
                         </div>
+                        <div class="detail">
+                            <div class="label">ID</div>
+                            <div class="description">{{ work.identifier }}</div>
+                        </div>
                     </div>
-                    <div class="full-description">{{ work.summary }}</div>
+                    <div class="full-description" v-if="work.summary" v-html="work.summary"></div>
                 </slot>
             </div>
             <div class="work-container">
                 <slot>
+                    <div v-if="work.customWorkHtml" v-html="work.customWorkHtml"></div>
                     <div
+                        v-else
                         v-for="image in work.images"
                         :key="image"
                         class="image-container"
@@ -143,6 +142,15 @@ export default class WorkPageFrame extends Vue.with(WorkPageProps) {
         .label {
             width: 7rem;
         }
+
+        .description {
+            width: calc(100% - 7rem);
+        }
+    }
+
+    ::v-deep a {
+        display: inline;
+        text-decoration: underline; 
     }
 }
 
