@@ -12,6 +12,8 @@ import { WorkConfig, workConfigs } from "@/model/WorkConfig";
         WorkPageFrame,
     },
 })
+// TODO: Have other work pages extend this component. For some reason, I was getting errors when 
+//  trying to do this.
 export default class WorkPageBase extends Vue {
     protected idInternal: string | null = null;
 
