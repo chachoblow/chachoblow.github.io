@@ -2,19 +2,19 @@
     <div class="home-container">
         <header-main></header-main>
         <div class="work-container">
-            <works-thumbnails></works-thumbnails>
+            <work-selections></work-selections>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import WorksThumbnails from "@/components/home/WorksThumbnails.vue";
+import WorkSelections from "@/components/WorkSelections.vue";
 import HeaderMain from "@/components/HeaderMain.vue";
 
 @Options({
     components: {
-        WorksThumbnails,
+        WorkSelections,
         HeaderMain,
     },
 })
