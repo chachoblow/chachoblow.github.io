@@ -27,7 +27,7 @@ export default class Home extends Vue {}
     flex-direction: column;
 
     @media (min-width: $small-device-width) {
-        min-height: 100vh;
+        //min-height: 100vh;
     }
 }
 
@@ -35,10 +35,5 @@ export default class Home extends Vue {}
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    @media (min-width: $small-device-width) {
-        flex: 1;
-        justify-content: center;
-    }
 }
 </style>
