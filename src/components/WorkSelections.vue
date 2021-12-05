@@ -40,7 +40,7 @@ import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
 
 export default class CategoryWork extends Vue {
-    private thumbnailImage = this.works[3].imageMenuFull;
+    private thumbnailImage = "";
     private headerHeight = 100;
 
     private get works(): WorkConfig[] {
