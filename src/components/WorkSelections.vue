@@ -41,7 +41,7 @@ import { workModule } from "@/store/WorkModule";
 
 export default class CategoryWork extends Vue {
     private thumbnailImage = "";
-    private headerHeight = 100;
+    private headerHeight = 0;
 
     private get works(): WorkConfig[] {
         return workModule.workConfigs;
