@@ -15,7 +15,7 @@
                         :href="href"
                         @click="navigate"
                         @mouseover="handleMouseOver(work)"
-                        @mouseleave="handleMouseLeave()"
+                        @mouseleave="handleMouseLeave(work)"
                         >{{ work.title }}</a
                     >
                 </router-link>
@@ -26,9 +26,12 @@
             :style="{ height: `calc(100vh - ${headerHeight}px - 20px)` }"
         >
             <img
-                v-if="thumbnailImage"
+                v-for="work in works"
+                :key="work.id"
+                :id="'image' + work.id"
                 class="work-thumbnail"
-                :src="thumbnailImage"
+                :src="work.imageMenuFull"
+                rel="preload"
             />
         </div>
     </div>
@@ -38,6 +41,7 @@
 import { Vue } from "vue-class-component";
 import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
+import { gsap } from "gsap";
 
 export default class CategoryWork extends Vue {
     private thumbnailImage = "";
@@ -57,10 +61,29 @@ export default class CategoryWork extends Vue {
             "navigation-header-container"
         )[0];
         this.headerHeight = header.clientHeight;
+
+        const t1 = gsap.timeline();
+
+        t1.set(`.work-thumbnail-container #image${work.id}`, {
+            display: "block",
+            opacity: 0,
+        });
+
+        t1.to(`.work-thumbnail-container #image${work.id}`, {
+            duration: 0.5,
+            ease: "easeOut",
+            opacity: 1,
+        });
     }
 
-    private handleMouseLeave(): void {
+    private handleMouseLeave(work: WorkConfig): void {
         this.thumbnailImage = "";
+
+        const t1 = gsap.timeline();
+
+        t1.set(`.work-thumbnail-container #image${work.id}`, {
+            display: "none",
+        });
     }
 }
 </script>
@@ -94,7 +117,6 @@ a {
     flex-grow: 2;
     max-height: calc(66vw * 0.66);
     width: 66%;
-    display: none;
 
     @media (min-width: $small-device-width) {
         display: block;
@@ -106,5 +128,6 @@ a {
     height: 100%;
     object-fit: contain;
     object-position: top left;
+    display: none;
 }
 </style>
