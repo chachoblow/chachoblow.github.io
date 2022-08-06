@@ -1,50 +1,59 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import Home from "@/views/Home.vue";
+import Animations from "@/views/workPages/Animations.vue";
+import Branches from "@/views/workPages/Branches.vue";
+import CreativeCoding from "@/views/workPages/CreativeCoding.vue";
+import Cyclux from "@/views/workPages/Cyclux.vue";
+import Illustrations from "@/views/workPages/Illustrations.vue";
+import LineCollection from "@/views/workPages/LineCollection.vue";
+import Photography from "@/views/workPages/Photography.vue";
+import VirtualFixtures from "@/views/workPages/VirtualFixtures.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "Home",
-        component: () => import("@/views/Home.vue"),
+        component: Home,
     },
     {
         path: "/animations",
         name: "Animations",
-        component: () => import("@/views/workPages/Animations.vue"),
+        component: Animations,
     },
     {
         path: "/branches",
         name: "Branches",
-        component: () => import("@/views/workPages/Branches.vue"),
+        component: Branches,
     },
     {
         path: "/creativeCoding",
         name: "CreativeCoding",
-        component: () => import("@/views/workPages/CreativeCoding.vue"),
+        component: CreativeCoding,
     },
     {
         path: "/cyclux",
         name: "Cyclux",
-        component: () => import("@/views/workPages/Cyclux.vue"),
+        component: Cyclux,
     },
     {
         path: "/illustrations",
         name: "Illustrations",
-        component: () => import("@/views/workPages/Illustrations.vue"),
+        component: Illustrations,
     },
     {
         path: "/lineCollection",
         name: "LineCollection",
-        component: () => import("@/views/workPages/LineCollection.vue"),
+        component: LineCollection,
     },
     {
         path: "/photography",
         name: "Photography",
-        component: () => import("@/views/workPages/Photography.vue"),
+        component: Photography,
     },
     {
         path: "/virtualFixtures",
         name: "VirtualFixtures",
-        component: () => import("@/views/workPages/VirtualFixtures.vue"),
+        component: VirtualFixtures,
     },
 ];
 

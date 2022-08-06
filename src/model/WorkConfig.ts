@@ -20,7 +20,8 @@ export interface WorkConfig {
     media: string;
     year: string;
     summary: string;
-    image: string;
+    imageMenuCropped: string;
+    imageMenuFull: string;
     routerLink: string;
     associatedWork: Works;
     images: string[];
@@ -38,7 +39,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Pen, pencil, highlighter, collage",
             year: "2018",
             summary: "",
-            image: require("@/assets/menu/cyclux.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/cyclux.png"),
+            imageMenuFull: require("@/assets/menu/full/cyclux.png"),
             routerLink: "/cyclux",
             associatedWork: Works.Cyclux,
             images: [
@@ -59,7 +61,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Digital",
             year: "2018",
             summary: "",
-            image: require("@/assets/menu/branches.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/branches.png"),
+            imageMenuFull: require("@/assets/menu/full/branches.png"),
             routerLink: "/branches",
             associatedWork: Works.Branches,
             images: [
@@ -81,7 +84,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Digital",
             year: "2018-present",
             summary: "",
-            image: require("@/assets/menu/illustrations.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/illustrations.png"),
+            imageMenuFull: require("@/assets/menu/full/illustrations.png"),
             routerLink: "/illustrations",
             associatedWork: Works.Illustrations,
             images: [
@@ -103,7 +107,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Digital",
             year: "2018",
             summary: "",
-            image: require("@/assets/menu/animation.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/animation.png"),
+            imageMenuFull: require("@/assets/menu/full/animations.png"),
             routerLink: "/animations",
             associatedWork: Works.Animations,
             images: [],
@@ -163,7 +168,8 @@ export function workConfigs(): WorkConfig[] {
                     <a href="https://youtu.be/C-yfkUNuN_M" title="YouTube link to game walkthrough" target="_blank">my video on YouTube</a>.
                 </p>
             `,
-            image: require("@/assets/menu/virtual-fixtures.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/virtual-fixtures.png"),
+            imageMenuFull: require("@/assets/menu/full/virtual-fixtures.png"),
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
             images: [
@@ -196,7 +202,8 @@ export function workConfigs(): WorkConfig[] {
                     library.
                 </p>
             `,
-            image: require("@/assets/menu/line-collection.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/line-collection.png"),
+            imageMenuFull: require("@/assets/menu/full/line-collection.png"),
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
             images: [
@@ -215,7 +222,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Digital",
             year: "2016-present",
             summary: "",
-            image: require("@/assets/menu/photo.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/photo.png"),
+            imageMenuFull: require("@/assets/menu/full/photography.jpg"),
             routerLink: "/photography",
             associatedWork: Works.Photography,
             images: [
@@ -241,7 +249,8 @@ export function workConfigs(): WorkConfig[] {
             media: "Software",
             year: "2018-present",
             summary: "",
-            image: require("@/assets/menu/processing-sketches.png"),
+            imageMenuCropped: require("@/assets/menu/cropped/processing-sketches.png"),
+            imageMenuFull: require("@/assets/menu/full/creative-coding.jpg"),
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,
             images: [

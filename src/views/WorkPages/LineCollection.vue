@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import WorkPageFrame from "@/components/work/WorkPageFrame.vue";
+import WorkPageFrame from "@/components/WorkPageFrame.vue";
 import { WorkConfig, workConfigs } from "@/model/WorkConfig";
 
 @Options({

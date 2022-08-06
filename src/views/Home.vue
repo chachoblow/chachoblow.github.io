@@ -2,43 +2,49 @@
     <div class="home-container">
         <header-main></header-main>
         <div class="work-container">
-            <works-thumbnails></works-thumbnails>
+            <work-selections></work-selections>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import WorksThumbnails from "@/components/home/WorksThumbnails.vue";
+import WorkSelections from "@/components/WorkSelections.vue";
 import HeaderMain from "@/components/HeaderMain.vue";
+import { gsap } from "gsap";
 
 @Options({
     components: {
-        WorksThumbnails,
+        WorkSelections,
         HeaderMain,
     },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+    mounted(): void {
+        const t1 = gsap.timeline();
+
+        t1.set(".work-router-link", {
+            opacity: 0,
+        });
+
+        t1.to(".work-router-link", {
+            opacity: 1,
+            duration: 0.5,
+            delay: (pos) => pos * 0.1,
+        });
+    }
+}
 </script>
 
 <style scoped lang="scss">
 .home-container {
     display: flex;
     flex-direction: column;
-
-    @media (min-width: $small-device-width) {
-        min-height: 100vh;
-    }
 }
 
 .work-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    @media (min-width: $small-device-width) {
-        flex: 1;
-        justify-content: center;
-    }
 }
 </style>
