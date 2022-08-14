@@ -65,7 +65,7 @@ export default class HeaderMainHea extends Vue {
 .navigation-header-container {
     display: flex;
     flex-direction: column;
-    padding: 0 0 20px 0;
+    padding: 0 0 40px 0;
     font-size: 0.9rem;
 
     > div {

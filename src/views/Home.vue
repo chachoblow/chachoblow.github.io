@@ -1,39 +1,27 @@
 <template>
     <div class="home-container">
         <header-main></header-main>
-        <div class="work-container">
-            <work-selections></work-selections>
+        <div class="home-main-content">
+            <work-router-links></work-router-links>
+            <work-mosaic></work-mosaic>
         </div>
     </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import WorkSelections from "@/components/WorkSelections.vue";
+import WorkRouterLinks from "@/components/WorkRouterLinks.vue";
+import WorkMosaic from "@/components/WorkMosaic.vue";
 import HeaderMain from "@/components/HeaderMain.vue";
-import { gsap } from "gsap";
 
 @Options({
     components: {
-        WorkSelections,
+        WorkRouterLinks,
         HeaderMain,
+        WorkMosaic,
     },
 })
-export default class Home extends Vue {
-    mounted(): void {
-        const t1 = gsap.timeline();
-
-        t1.set(".work-router-link", {
-            opacity: 0,
-        });
-
-        t1.to(".work-router-link", {
-            opacity: 1,
-            duration: 0.5,
-            delay: (pos) => pos * 0.1,
-        });
-    }
-}
+export default class Home extends Vue {}
 </script>
 
 <style scoped lang="scss">
@@ -42,9 +30,17 @@ export default class Home extends Vue {
     flex-direction: column;
 }
 
-.work-container {
+.home-main-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
+
+    .work-router-links {
+        width: 33%;
+    }
+
+    .work-mosaic {
+        width: 66%;
+    }
 }
 </style>
