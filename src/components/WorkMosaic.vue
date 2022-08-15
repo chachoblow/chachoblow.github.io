@@ -2,7 +2,7 @@
     <div class="work-mosaic">
         <div v-for="work in works" :key="work.id">
             <div
-                v-for="image in work.images"
+                v-for="image in work.thumbnails"
                 :key="image"
                 class="image-container"
             >

@@ -25,6 +25,7 @@ export interface WorkConfig {
     routerLink: string;
     associatedWork: Works;
     images: string[];
+    thumbnails: string[];
     customWorkHtml?: string;
 }
 
@@ -51,6 +52,14 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/cyclux/cyclux-spread5.png"),
                 require("@/assets/comics/cyclux/cyclux-spread6.png"),
             ],
+            thumbnails: [
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread1.png"),
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread2.png"),
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread3.png"),
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread4.png"),
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread5.png"),
+                require("@/assets/comics/cyclux//lowRes/cyclux-spread6.png"),
+            ]
         },
         {
             id: "branches",
@@ -74,6 +83,15 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/branches/branches-page6.png"),
                 require("@/assets/comics/branches/branches-page7.png"),
             ],
+            thumbnails: [
+                require("@/assets/comics/branches/lowRes/branches-page1.png"),
+                require("@/assets/comics/branches/lowRes/branches-page2.png"),
+                require("@/assets/comics/branches/lowRes/branches-page3.png"),
+                require("@/assets/comics/branches/lowRes/branches-page4.png"),
+                require("@/assets/comics/branches/lowRes/branches-page5.png"),
+                require("@/assets/comics/branches/lowRes/branches-page6.png"),
+                require("@/assets/comics/branches/lowRes/branches-page7.png"),
+            ]
         },
         {
             id: "illustrations",
@@ -97,6 +115,15 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/illustrations/woman-cursive-900h.png"),
                 require("@/assets/illustrations/yellow-vision-1800h.jpg"),
             ],
+            thumbnails: [
+                require("@/assets/illustrations/lowRes/bat-person-375w.png"),
+                require("@/assets/illustrations/lowRes/breaking-bad-375w.jpg"),
+                require("@/assets/illustrations/lowRes/can-you-hear-me-375w.jpg"),
+                require("@/assets/illustrations/lowRes/fried-375w.jpg"),
+                require("@/assets/illustrations/lowRes/man-rock-375w.png"),
+                require("@/assets/illustrations/lowRes/woman-cursive-375w.png"),
+                require("@/assets/illustrations/lowRes/yellow-vision-375w.jpg"),
+            ]
         },
         {
             id: "animations",
@@ -112,6 +139,11 @@ export function workConfigs(): WorkConfig[] {
             routerLink: "/animations",
             associatedWork: Works.Animations,
             images: [],
+            thumbnails: [
+                require("@/assets/animations/lowRes/feeling-something.png"),
+                require("@/assets/animations/lowRes/ice-cream.png"),
+                require("@/assets/animations/lowRes/walking.png"),
+            ],
             customWorkHtml: `
                 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
                 <div style="padding:56.25% 0 0 0;position:relative;margin-top:10px;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
@@ -177,6 +209,11 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/virtual-fixtures/game-ray-casting.gif"),
                 require("@/assets/virtual-fixtures/game-switch-worlds.gif"),
             ],
+            thumbnails: [
+                require("@/assets/virtual-fixtures/lowRes/game-hud.png"),
+                require("@/assets/virtual-fixtures/lowRes/game-ray-casting.png"),
+                require("@/assets/virtual-fixtures/lowRes/game-switch-worlds.png"),
+            ]
         },
         {
             id: "lineCollection",
@@ -212,6 +249,12 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/line-collection/watch-squares-compressed.gif"),
                 require("@/assets/line-collection/watch-triangles-compressed.gif"),
             ],
+            thumbnails: [
+                require("@/assets/line-collection/lowRes/arrange-circles-compressed.png"),
+                require("@/assets/line-collection/lowRes/watch-circles-compressed.png"),
+                require("@/assets/line-collection/lowRes/watch-squares-compressed.png"),
+                require("@/assets/line-collection/lowRes/watch-triangles-compressed.png"),
+            ]
         },
         {
             id: "photography",
@@ -238,6 +281,19 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/photographs/megan-dad-2-1000h.jpg"),
                 require("@/assets/photographs/slit-scanning-1-1000h.jpg"),
                 require("@/assets/photographs/slit-scanning-2-1000h.jpg"),
+            ],
+            thumbnails: [
+                require("@/assets/photographs/lowRes/brittany-driving.jpg"),
+                require("@/assets/photographs/lowRes/dad-grandpa.jpg"),
+                require("@/assets/photographs/lowRes/grandma-chandelier.jpg"),
+                require("@/assets/photographs/lowRes/grandparents-window.jpg"),
+                require("@/assets/photographs/lowRes/grapevine.jpg"),
+                require("@/assets/photographs/lowRes/laguna-algea.jpg"),
+                require("@/assets/photographs/lowRes/laguna-ripples.jpg"),
+                require("@/assets/photographs/lowRes/me-bathroom.jpg"),
+                require("@/assets/photographs/lowRes/megan-dad-2.jpg"),
+                require("@/assets/photographs/lowRes/slit-scanning-1.jpg"),
+                require("@/assets/photographs/lowRes/slit-scanning-2.jpg"),
             ],
         },
         {
@@ -268,6 +324,21 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/processing-sketches/examples/row-suns-compressed.gif"),
                 require("@/assets/processing-sketches/examples/suns-colliding-compressed.gif"),
             ],
+            thumbnails: [
+                require("@/assets/processing-sketches/lowRes/bobbing-ocean.jpg"),
+                require("@/assets/processing-sketches/lowRes/clicked-fireworks.jpg"),
+                require("@/assets/processing-sketches/lowRes/collage.jpg"),
+                require("@/assets/processing-sketches/lowRes/criss-cross.jpg"),
+                require("@/assets/processing-sketches/lowRes/exploding-balls.jpg"),
+                require("@/assets/processing-sketches/lowRes/game-of-life.jpg"),
+                require("@/assets/processing-sketches/lowRes/ghost-webcam.jpg"),
+                require("@/assets/processing-sketches/lowRes/make-shape.jpg"),
+                require("@/assets/processing-sketches/lowRes/pointillism.jpg"),
+                require("@/assets/processing-sketches/lowRes/random-chords.jpg"),
+                require("@/assets/processing-sketches/lowRes/row-column-suns.jpg"),
+                require("@/assets/processing-sketches/lowRes/row-suns.jpg"),
+                require("@/assets/processing-sketches/lowRes/suns-colliding.jpg"),
+            ]
         },
     ];
 }
