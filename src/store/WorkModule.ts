@@ -1,9 +1,10 @@
 import { WorkConfig, workConfigs, Works } from "@/model/WorkConfig";
-import { VuexModule, Module } from "vuex-class-modules";
+import { VuexModule, Module, Mutation } from "vuex-class-modules";
 
 @Module
 class WorkModule extends VuexModule {
     selectedWork = Works.None;
+    workId = "";
 
     get workConfigs(): WorkConfig[] {
         const configs = workConfigs();
@@ -15,6 +16,12 @@ class WorkModule extends VuexModule {
     get workConfigsLength(): number {
         return this.workConfigs.length;
     }
+
+    @Mutation
+    setWorkId(id: string) {
+        this.workId = id;
+    }
+
 }
 
 import store from "./index";

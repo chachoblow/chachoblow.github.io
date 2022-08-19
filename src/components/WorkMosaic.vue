@@ -1,14 +1,20 @@
 <template>
     <div class="work-mosaic">
-        <div v-for="work in works" :key="work.id">
+        <template v-for="work in works" :key="work.id">
             <div
                 v-for="image in work.thumbnails"
                 :key="image"
                 class="image-container"
+                @mouseenter="handleMouseEnter(work.id)"
+                @mouseleave="handleMouseLeave"
             >
-                <img :src="image" rel="preload" />
+                <img
+                    :src="image"
+                    :style="workContainerStyle(work.id)"
+                    rel="preload"
+                />
             </div>
-        </div>
+        </template>
     </div>
 </template>
 
@@ -18,15 +24,26 @@ import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
 
 export default class CategoryWork extends Vue {
-    private thumbnailImage = "";
-    private headerHeight = 0;
-
     private get works(): WorkConfig[] {
         return workModule.workConfigs;
     }
 
-    private get thumbnailBackground(): string {
-        return this.thumbnailImage ? `url("${this.thumbnailImage}")` : "none";
+    private workContainerStyle(workId: string): object {
+        const styleObject = {
+            filter: "",
+        };
+        if (workModule.workId === workId) {
+            styleObject.filter = "blur(4px)";
+        }
+        return styleObject;
+    }
+
+    private handleMouseEnter(workId: string): void {
+        workModule.setWorkId(workId);
+    }
+
+    private handleMouseLeave(): void {
+        workModule.setWorkId("");
     }
 }
 </script>
@@ -37,7 +54,6 @@ export default class CategoryWork extends Vue {
     flex-wrap: wrap;
 
     > div {
-        display: contents;
         line-height: 0;
     }
 }
@@ -47,5 +63,9 @@ img {
     width: 100%;
     object-fit: contain;
     object-position: top left;
+}
+
+.work-hover::v-deep {
+    filter: blur(4px);
 }
 </style>
