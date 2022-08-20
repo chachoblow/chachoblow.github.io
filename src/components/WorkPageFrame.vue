@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-main>
+        <HeaderMain>
             <div class="router-navigation">
                 <div v-if="nextWorkRoute">
                     <router-link :to="nextWorkRoute">next</router-link>
@@ -12,7 +12,7 @@
                 </div>
                 <router-link to="/">close</router-link>
             </div>
-        </header-main>
+        </HeaderMain>
         <div class="content-container">
             <div class="details-container">
                 <slot name="details">
@@ -68,47 +68,51 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
-import { WorkPageProps } from "@/model/WorkPage";
+import { defineComponent, PropType } from "vue";
 import { workModule } from "@/store/WorkModule";
 import HeaderMain from "@/components/HeaderMain.vue";
-import { Works } from "@/model/WorkConfig";
+import { WorkConfig, Works } from "@/model/WorkConfig";
 
-@Options({
+export default defineComponent({
     components: {
         HeaderMain,
     },
-})
-export default class WorkPageFrame extends Vue.with(WorkPageProps) {
-    private get associatedWork(): Works {
-        return this.work.associatedWork;
-    }
-
-    private get previousWorkRoute(): string {
-        const index = this.currentWorkIndex;
-        return index === 0 ? "" : workModule.workConfigs[index - 1].routerLink;
-    }
-
-    private get nextWorkRoute(): string {
-        const index = this.currentWorkIndex;
-        return index === workModule.workConfigsLength - 1
-            ? ""
-            : workModule.workConfigs[this.currentWorkIndex + 1].routerLink;
-    }
-
-    private get currentWorkIndex(): number {
-        // TODO: Error checking.
-        let index = 0;
-        for (let i = 0; i < workModule.workConfigsLength; i++) {
-            const config = workModule.workConfigs[i];
-            if (config.associatedWork === this.associatedWork) {
-                index = i;
-                break;
+    props: {
+        work: {
+            type: Object as PropType<WorkConfig>,
+            required: true,
+        },
+    },
+    computed: {
+        associatedWork(): Works {
+            return this.work.associatedWork;
+        },
+        previousWorkRoute(): string {
+            const index = this.currentWorkIndex;
+            return index === 0
+                ? ""
+                : workModule.workConfigs[index - 1].routerLink;
+        },
+        nextWorkRoute(): string {
+            const index = this.currentWorkIndex;
+            return index === workModule.workConfigsLength - 1
+                ? ""
+                : workModule.workConfigs[this.currentWorkIndex + 1].routerLink;
+        },
+        currentWorkIndex(): number {
+            // TODO: Error checking.
+            let index = 0;
+            for (let i = 0; i < workModule.workConfigsLength; i++) {
+                const config = workModule.workConfigs[i];
+                if (config.associatedWork === this.associatedWork) {
+                    index = i;
+                    break;
+                }
             }
-        }
-        return index;
-    }
-}
+            return index;
+        },
+    },
+});
 </script>
 
 <style scoped lang="scss">

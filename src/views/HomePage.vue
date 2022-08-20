@@ -1,27 +1,26 @@
 <template>
     <div class="home-container">
-        <header-main></header-main>
+        <HeaderMain></HeaderMain>
         <div class="home-main-content">
-            <work-router-links></work-router-links>
-            <work-mosaic></work-mosaic>
+            <WorkRouterLinks></WorkRouterLinks>
+            <WorkMosaic></WorkMosaic>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
+import { defineComponent } from "vue";
 import WorkRouterLinks from "@/components/WorkRouterLinks.vue";
 import WorkMosaic from "@/components/WorkMosaic.vue";
 import HeaderMain from "@/components/HeaderMain.vue";
 
-@Options({
+export default defineComponent({
     components: {
         WorkRouterLinks,
         HeaderMain,
         WorkMosaic,
     },
-})
-export default class Home extends Vue {}
+});
 </script>
 
 <style scoped lang="scss">

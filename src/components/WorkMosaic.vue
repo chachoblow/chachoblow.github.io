@@ -19,36 +19,37 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
 import gsap from "gsap";
-import { Vue, Options } from "vue-class-component";
 
-export default class CategoryWork extends Vue {
-    private get works(): WorkConfig[] {
-        return workModule.workConfigs;
-    }
-
-    private workContainerStyle(workId: string): object {
-        const styleObject = {
-            filter: "",
-        };
-        if (workModule.workId === workId) {
-            styleObject.filter = "blur(4px)";
-        }
-        return styleObject;
-    }
-
-    private handleMouseEnter(workId: string): void {
-        workModule.setWorkId(workId);
-        gsap.to(".router-work-link", { opacity: 0.15, duration: 0.25 });
-    }
-
-    private handleMouseLeave(workId: string): void {
-        workModule.setWorkId("");
-        gsap.to(".router-work-link", { opacity: 1, duration: 0.25 });
-    }
-}
+export default defineComponent({
+    computed: {
+        works(): WorkConfig[] {
+            return workModule.workConfigs;
+        },
+    },
+    methods: {
+        workContainerStyle(workId: string): object {
+            const styleObject = {
+                filter: "",
+            };
+            if (workModule.workId === workId) {
+                styleObject.filter = "blur(4px)";
+            }
+            return styleObject;
+        },
+        handleMouseEnter(workId: string): void {
+            workModule.setWorkId(workId);
+            gsap.to(".router-work-link", { opacity: 0.15, duration: 0.25 });
+        },
+        handleMouseLeave(): void {
+            workModule.setWorkId("");
+            gsap.to(".router-work-link", { opacity: 1, duration: 0.25 });
+        },
+    },
+});
 </script>
 
 <style scoped lang="scss">

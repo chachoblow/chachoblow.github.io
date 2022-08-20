@@ -15,38 +15,35 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from "vue-class-component";
+import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
-import gsap from "gsap";
 
-export default class CategoryWork extends Vue {
-    private get works(): WorkConfig[] {
-        return workModule.workConfigs;
-    }
-
-    private get hoveredWork(): string {
-        return workModule.workId;
-    }
-
-    private linkClasses(workId: string): string[] {
-        const classes: string[] = [];
-        if (workModule.workId !== "" && workModule.workId !== workId) {
-            classes.push("thumbnail-not-hovering");
-        }
-        return classes;
-    }
-
-    private handleHoveredWorkChange(workId: string): void {}
-
-    // private handleMouseEnter(elementId: string): void {
-    //     gsap.to("#" + elementId, { opacity: 0.25, duration: 1 });
-    // }
-
-    // private handleMouseLeave(elementId: string): void {
-    //     gsap.to("#" + elementId, { opacity: 1, duration: 1 });
-    // }
-}
+export default defineComponent({
+    computed: {
+        works(): WorkConfig[] {
+            return workModule.workConfigs;
+        },
+        hoveredWork(): string {
+            return workModule.workId;
+        },
+    },
+    methods: {
+        linkClasses(workId: string): string[] {
+            const classes: string[] = [];
+            if (workModule.workId !== "" && workModule.workId !== workId) {
+                classes.push("thumbnail-not-hovering");
+            }
+            return classes;
+        },
+        // handleMouseEnter(elementId: string): void {
+        //     gsap.to("#" + elementId, { opacity: 0.25, duration: 1 });
+        // },
+        // handleMouseLeave(elementId: string): void {
+        //     gsap.to("#" + elementId, { opacity: 1, duration: 1 });
+        // },
+    },
+});
 </script>
 
 <style scoped lang="scss">

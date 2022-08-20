@@ -59,7 +59,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/cyclux//lowRes/cyclux-spread4.png"),
                 require("@/assets/comics/cyclux//lowRes/cyclux-spread5.png"),
                 require("@/assets/comics/cyclux//lowRes/cyclux-spread6.png"),
-            ]
+            ],
         },
         {
             id: "branches",
@@ -91,7 +91,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/comics/branches/lowRes/branches-page5.png"),
                 require("@/assets/comics/branches/lowRes/branches-page6.png"),
                 require("@/assets/comics/branches/lowRes/branches-page7.png"),
-            ]
+            ],
         },
         {
             id: "illustrations",
@@ -123,7 +123,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/illustrations/lowRes/man-rock-375w.png"),
                 require("@/assets/illustrations/lowRes/woman-cursive-375w.png"),
                 require("@/assets/illustrations/lowRes/yellow-vision-375w.jpg"),
-            ]
+            ],
         },
         {
             id: "animations",
@@ -213,7 +213,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/virtual-fixtures/lowRes/game-hud.png"),
                 require("@/assets/virtual-fixtures/lowRes/game-ray-casting.png"),
                 require("@/assets/virtual-fixtures/lowRes/game-switch-worlds.png"),
-            ]
+            ],
         },
         {
             id: "lineCollection",
@@ -254,7 +254,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/line-collection/lowRes/watch-circles-compressed.png"),
                 require("@/assets/line-collection/lowRes/watch-squares-compressed.png"),
                 require("@/assets/line-collection/lowRes/watch-triangles-compressed.png"),
-            ]
+            ],
         },
         {
             id: "photography",
@@ -338,7 +338,7 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/processing-sketches/lowRes/row-column-suns.jpg"),
                 require("@/assets/processing-sketches/lowRes/row-suns.jpg"),
                 require("@/assets/processing-sketches/lowRes/suns-colliding.jpg"),
-            ]
+            ],
         },
     ];
 }

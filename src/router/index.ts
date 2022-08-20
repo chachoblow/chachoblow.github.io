@@ -1,59 +1,59 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "@/views/Home.vue";
-import Animations from "@/views/workPages/Animations.vue";
-import Branches from "@/views/workPages/Branches.vue";
-import CreativeCoding from "@/views/workPages/CreativeCoding.vue";
-import Cyclux from "@/views/workPages/Cyclux.vue";
-import Illustrations from "@/views/workPages/Illustrations.vue";
-import LineCollection from "@/views/workPages/LineCollection.vue";
-import Photography from "@/views/workPages/Photography.vue";
-import VirtualFixtures from "@/views/workPages/VirtualFixtures.vue";
+import HomePage from "@/views/HomePage.vue";
+import WorkPageAnimations from "@/views/workPages/WorkPageAnimations.vue";
+import WorkPageBranches from "@/views/workPages/WorkPageBranches.vue";
+import WorkPageCreativeCoding from "@/views/workPages/WorkPageCreativeCoding.vue";
+import WorkPageCyclux from "@/views/workPages/WorkPageCyclux.vue";
+import WorkPageIllustrations from "@/views/workPages/WorkPageIllustrations.vue";
+import WorkPageLineCollection from "@/views/workPages/WorkPageLineCollection.vue";
+import WorkPagePhotography from "@/views/workPages/WorkPagePhotography.vue";
+import WorkPageVirtualFixtures from "@/views/workPages/WorkPageVirtualFixtures.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "Home",
-        component: Home,
+        component: HomePage,
     },
     {
         path: "/animations",
         name: "Animations",
-        component: Animations,
+        component: WorkPageAnimations,
     },
     {
         path: "/branches",
         name: "Branches",
-        component: Branches,
+        component: WorkPageBranches,
     },
     {
         path: "/creativeCoding",
         name: "CreativeCoding",
-        component: CreativeCoding,
+        component: WorkPageCreativeCoding,
     },
     {
         path: "/cyclux",
         name: "Cyclux",
-        component: Cyclux,
+        component: WorkPageCyclux,
     },
     {
         path: "/illustrations",
         name: "Illustrations",
-        component: Illustrations,
+        component: WorkPageIllustrations,
     },
     {
         path: "/lineCollection",
         name: "LineCollection",
-        component: LineCollection,
+        component: WorkPageLineCollection,
     },
     {
         path: "/photography",
         name: "Photography",
-        component: Photography,
+        component: WorkPagePhotography,
     },
     {
         path: "/virtualFixtures",
         name: "VirtualFixtures",
-        component: VirtualFixtures,
+        component: WorkPageVirtualFixtures,
     },
 ];
 

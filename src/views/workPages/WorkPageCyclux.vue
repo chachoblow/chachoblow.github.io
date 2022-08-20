@@ -7,15 +7,13 @@ import { defineComponent } from "vue";
 import WorkPageFrame from "@/components/WorkPageFrame.vue";
 import { WorkConfig, workConfigs } from "@/model/WorkConfig";
 
-// TODO: Have other work pages extend this component. For some reason, I was getting errors when
-//  trying to do this.
 export default defineComponent({
     components: {
         WorkPageFrame,
     },
     data() {
         return {
-            idInternal: null as string | null,
+            idInternal: "cyclux" as string | null,
         };
     },
     computed: {

@@ -21,7 +21,6 @@ class WorkModule extends VuexModule {
     setWorkId(id: string) {
         this.workId = id;
     }
-
 }
 
 import store from "./index";

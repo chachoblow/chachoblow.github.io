@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { defineComponent } from "vue";
 
 interface ContactConfig {
     link: string;
@@ -42,23 +42,27 @@ interface ContactConfig {
     label: string;
 }
 
-export default class HeaderMainHea extends Vue {
-    private github: ContactConfig = {
-        link: "https://github.com/chachoblow",
-        linkTitle: "My Github",
-        label: "github",
-    };
-    private instagram: ContactConfig = {
-        link: "https://www.instagram.com/chachoblow",
-        linkTitle: "My Instagram",
-        label: "instagram",
-    };
-    private linkedin: ContactConfig = {
-        link: "https://www.linkedin.com/in/wesleyklein/",
-        linkTitle: "My LinkedIn",
-        label: "linkedin",
-    };
-}
+export default defineComponent({
+    data() {
+        return {
+            github: {
+                link: "https://github.com/chachoblow",
+                linkTitle: "My Github",
+                label: "github",
+            } as ContactConfig,
+            instagram: {
+                link: "https://www.instagram.com/chachoblow",
+                linkTitle: "My Instagram",
+                label: "instagram",
+            } as ContactConfig,
+            linkedin: {
+                link: "https://www.linkedin.com/in/wesleyklein/",
+                linkTitle: "My LinkedIn",
+                label: "linkedin",
+            } as ContactConfig,
+        };
+    },
+});
 </script>
 
 <style scoped lang="scss">
