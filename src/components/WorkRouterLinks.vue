@@ -17,21 +17,26 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
-import { workModule } from "@/store/WorkModule";
+import { mapStores } from "pinia";
+import { useWorkStore } from "@/stores/work";
 
 export default defineComponent({
     computed: {
         works(): WorkConfig[] {
-            return workModule.workConfigs;
+            return this.workStore.workConfigs;
         },
         hoveredWork(): string {
-            return workModule.workId;
+            return this.workStore.workId;
         },
+        ...mapStores(useWorkStore),
     },
     methods: {
         linkClasses(workId: string): string[] {
             const classes: string[] = [];
-            if (workModule.workId !== "" && workModule.workId !== workId) {
+            if (
+                this.workStore.workId !== "" &&
+                this.workStore.workId !== workId
+            ) {
                 classes.push("thumbnail-not-hovering");
             }
             return classes;

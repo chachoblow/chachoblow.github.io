@@ -69,9 +69,10 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { workModule } from "@/store/WorkModule";
 import HeaderMain from "@/components/HeaderMain.vue";
 import { WorkConfig, Works } from "@/model/WorkConfig";
+import { mapStores } from "pinia";
+import { useWorkStore } from "@/stores/work";
 
 export default defineComponent({
     components: {
@@ -91,19 +92,20 @@ export default defineComponent({
             const index = this.currentWorkIndex;
             return index === 0
                 ? ""
-                : workModule.workConfigs[index - 1].routerLink;
+                : this.workStore.workConfigs[index - 1].routerLink;
         },
         nextWorkRoute(): string {
             const index = this.currentWorkIndex;
-            return index === workModule.workConfigsLength - 1
+            return index === this.workStore.workConfigsLength - 1
                 ? ""
-                : workModule.workConfigs[this.currentWorkIndex + 1].routerLink;
+                : this.workStore.workConfigs[this.currentWorkIndex + 1]
+                      .routerLink;
         },
         currentWorkIndex(): number {
             // TODO: Error checking.
             let index = 0;
-            for (let i = 0; i < workModule.workConfigsLength; i++) {
-                const config = workModule.workConfigs[i];
+            for (let i = 0; i < this.workStore.workConfigsLength; i++) {
+                const config = this.workStore.workConfigs[i];
                 if (config.associatedWork === this.associatedWork) {
                     index = i;
                     break;
@@ -111,6 +113,7 @@ export default defineComponent({
             }
             return index;
         },
+        ...mapStores(useWorkStore),
     },
 });
 </script>

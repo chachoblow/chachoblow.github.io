@@ -21,31 +21,33 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
-import { workModule } from "@/store/WorkModule";
+import { mapStores } from "pinia";
+import { useWorkStore } from "@/stores/work";
 import gsap from "gsap";
 
 export default defineComponent({
     computed: {
         works(): WorkConfig[] {
-            return workModule.workConfigs;
+            return this.workStore.workConfigs;
         },
+        ...mapStores(useWorkStore),
     },
     methods: {
         workContainerStyle(workId: string): object {
             const styleObject = {
                 filter: "",
             };
-            if (workModule.workId === workId) {
+            if (this.workStore.workId === workId) {
                 styleObject.filter = "blur(4px)";
             }
             return styleObject;
         },
         handleMouseEnter(workId: string): void {
-            workModule.setWorkId(workId);
+            this.workStore.setWorkId(workId);
             gsap.to(".router-work-link", { opacity: 0.15, duration: 0.25 });
         },
         handleMouseLeave(): void {
-            workModule.setWorkId("");
+            this.workStore.setWorkId("");
             gsap.to(".router-work-link", { opacity: 1, duration: 0.25 });
         },
     },
