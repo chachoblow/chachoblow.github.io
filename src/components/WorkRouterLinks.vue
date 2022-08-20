@@ -50,7 +50,7 @@ export default defineComponent({
         mosaicHover(newValue: string) {
             if (newValue) {
                 gsap.to(`.router-work-link:not(#${newValue}RouterLink)`, {
-                    opacity: 0.15,
+                    opacity: 0.1,
                     duration: 0.5,
                 });
             } else {

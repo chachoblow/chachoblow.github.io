@@ -2,15 +2,16 @@
     <div class="work-mosaic">
         <template v-for="work in works" :key="work.id">
             <RouterLink
-                v-for="image in work.thumbnails"
+                v-for="(image, index) in work.thumbnails"
                 :key="image"
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
                 custom
-                :class="imageContainerClasses(work.id)"
             >
                 <a
+                    :id="`mosaicImage-${work.id}-${index}`"
                     :href="href"
+                    :class="imageContainerClasses(work.id)"
                     @click="navigate"
                     @mouseenter="handleMouseEnter(work.id)"
                     @mouseleave="handleMouseLeave(work.id)"
@@ -28,6 +29,7 @@ import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
 import gsap from "gsap";
+import { ScrollToPlugin, Linear } from "gsap/all";
 
 export default defineComponent({
     props: {
@@ -49,36 +51,20 @@ export default defineComponent({
     },
     watch: {
         routerLinkHover(newValue: string) {
+            gsap.registerPlugin(ScrollToPlugin);
             if (newValue) {
                 const t1 = gsap.timeline();
-
-                t1.to(`.image-container:not(.image-container-${newValue})`, {
-                    opacity: 0,
-                    duration: 0.5,
+                gsap.to(`.image-container:not(.image-container-${newValue})`, {
+                    opacity: 0.1,
+                    duration: 1.5,
                 });
-                t1.to(`.image-container-${newValue}`, {
-                    x: () => window.innerWidth / 2,
-                    y: () => window.innerHeight / 2,
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: { y: `#mosaicImage-${newValue}-0`, offsetY: 135 },
+                    ease: "power2.inOut",
                 });
-                // t1.to(`.image-container-${newValue}`, {
-                //     position: "absolute",
-                //     duration: 5,
-                // });
-                // gsap.to(`.image-container:not(.image-container-${newValue})`, {
-                //     opacity: 0,
-                //     duration: 0.5,
-                // });
-                // gsap.to(`.image-container-${newValue}`, {
-                //     position: "absolute",
-                //     duration: 5,
-                // });
             } else {
-                gsap.to(".image-container", {
-                    opacity: 1,
-                    duration: 0.5,
-                    position: "static",
-                    display: "block",
-                });
+                gsap.to(".image-container", { opacity: 1, duration: 1.5 });
             }
         },
     },
@@ -111,7 +97,7 @@ export default defineComponent({
 }
 
 img {
-    height: 125px;
+    height: 115px;
     width: 100%;
     object-fit: contain;
     object-position: top left;

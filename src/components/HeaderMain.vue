@@ -68,11 +68,13 @@ export default defineComponent({
 <style scoped lang="scss">
 .navigation-header-container {
     position: sticky;
-    top: 0;
+    top: 10px;
     display: flex;
     flex-direction: column;
     padding: 0 0 40px 0;
     font-size: 0.9rem;
+    z-index: 2;
+    background: white;
 
     > div {
         width: 100%;
