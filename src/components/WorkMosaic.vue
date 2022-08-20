@@ -1,19 +1,23 @@
 <template>
     <div class="work-mosaic">
         <template v-for="work in works" :key="work.id">
-            <div
+            <RouterLink
                 v-for="image in work.thumbnails"
                 :key="image"
-                class="image-container"
-                @mouseenter="handleMouseEnter(work.id)"
-                @mouseleave="handleMouseLeave(work.id)"
+                :to="work.routerLink"
+                v-slot="{ href, navigate }"
+                custom
+                :class="imageContainerClasses(work.id)"
             >
-                <img
-                    :src="image"
-                    :style="workContainerStyle(work.id)"
-                    rel="preload"
-                />
-            </div>
+                <a
+                    :href="href"
+                    @click="navigate"
+                    @mouseenter="handleMouseEnter(work.id)"
+                    @mouseleave="handleMouseLeave(work.id)"
+                >
+                    <img :src="image" rel="preload" />
+                </a>
+            </RouterLink>
         </template>
     </div>
 </template>
@@ -26,29 +30,69 @@ import { useWorkStore } from "@/stores/work";
 import gsap from "gsap";
 
 export default defineComponent({
+    props: {
+        routerLinkHover: {
+            type: String,
+            required: true,
+        },
+    },
+    emits: {
+        mosaicHover(payload: { workId: string }) {
+            return payload.workId.length >= 0;
+        },
+    },
     computed: {
         works(): WorkConfig[] {
             return this.workStore.workConfigs;
         },
         ...mapStores(useWorkStore),
     },
-    methods: {
-        workContainerStyle(workId: string): object {
-            const styleObject = {
-                filter: "",
-            };
-            if (this.workStore.workId === workId) {
-                styleObject.filter = "blur(4px)";
+    watch: {
+        routerLinkHover(newValue: string) {
+            if (newValue) {
+                const t1 = gsap.timeline();
+
+                t1.to(`.image-container:not(.image-container-${newValue})`, {
+                    opacity: 0,
+                    duration: 0.5,
+                });
+                t1.to(`.image-container-${newValue}`, {
+                    x: () => window.innerWidth / 2,
+                    y: () => window.innerHeight / 2,
+                });
+                // t1.to(`.image-container-${newValue}`, {
+                //     position: "absolute",
+                //     duration: 5,
+                // });
+                // gsap.to(`.image-container:not(.image-container-${newValue})`, {
+                //     opacity: 0,
+                //     duration: 0.5,
+                // });
+                // gsap.to(`.image-container-${newValue}`, {
+                //     position: "absolute",
+                //     duration: 5,
+                // });
+            } else {
+                gsap.to(".image-container", {
+                    opacity: 1,
+                    duration: 0.5,
+                    position: "static",
+                    display: "block",
+                });
             }
-            return styleObject;
+        },
+    },
+    methods: {
+        imageContainerClasses(workId: string): string[] {
+            return ["image-container", `image-container-${workId}`];
         },
         handleMouseEnter(workId: string): void {
             this.workStore.setWorkId(workId);
-            gsap.to(".router-work-link", { opacity: 0.15, duration: 0.25 });
+            this.$emit("mosaicHover", { workId: workId });
         },
         handleMouseLeave(): void {
             this.workStore.setWorkId("");
-            gsap.to(".router-work-link", { opacity: 1, duration: 0.25 });
+            this.$emit("mosaicHover", { workId: "" });
         },
     },
 });

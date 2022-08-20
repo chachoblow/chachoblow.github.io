@@ -6,9 +6,16 @@
                 v-slot="{ href, navigate }"
                 custom
             >
-                <a :href="href" class="router-work-link" @click="navigate">{{
-                    work.title
-                }}</a>
+                <a
+                    :id="`${work.id}RouterLink`"
+                    :href="href"
+                    class="router-work-link"
+                    @click="navigate"
+                    @mouseenter="handleMouseEnter(work.id)"
+                    @mouseleave="handleMouseLeave(work.id)"
+                >
+                    {{ work.title }}
+                </a>
             </RouterLink>
         </div>
     </div>
@@ -19,34 +26,50 @@ import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
+import gsap from "gsap";
 
 export default defineComponent({
+    props: {
+        mosaicHover: {
+            type: String,
+            required: true,
+        },
+    },
+    emits: {
+        routerLinkHover(payload: { workId: string }) {
+            return payload.workId.length >= 0;
+        },
+    },
     computed: {
         works(): WorkConfig[] {
             return this.workStore.workConfigs;
         },
-        hoveredWork(): string {
-            return this.workStore.workId;
-        },
         ...mapStores(useWorkStore),
     },
-    methods: {
-        linkClasses(workId: string): string[] {
-            const classes: string[] = [];
-            if (
-                this.workStore.workId !== "" &&
-                this.workStore.workId !== workId
-            ) {
-                classes.push("thumbnail-not-hovering");
+    watch: {
+        mosaicHover(newValue: string) {
+            if (newValue) {
+                gsap.to(`.router-work-link:not(#${newValue}RouterLink)`, {
+                    opacity: 0.15,
+                    duration: 0.5,
+                });
+            } else {
+                gsap.to(".router-work-link", {
+                    opacity: 1,
+                    duration: 0.5,
+                });
             }
-            return classes;
         },
-        // handleMouseEnter(elementId: string): void {
-        //     gsap.to("#" + elementId, { opacity: 0.25, duration: 1 });
-        // },
-        // handleMouseLeave(elementId: string): void {
-        //     gsap.to("#" + elementId, { opacity: 1, duration: 1 });
-        // },
+    },
+    methods: {
+        handleMouseEnter(workId: string): void {
+            this.workStore.setWorkId(workId);
+            this.$emit("routerLinkHover", { workId: workId });
+        },
+        handleMouseLeave(): void {
+            this.workStore.setWorkId("");
+            this.$emit("routerLinkHover", { workId: "" });
+        },
     },
 });
 </script>

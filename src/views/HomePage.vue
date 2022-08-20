@@ -2,8 +2,16 @@
     <div class="home-container">
         <HeaderMain></HeaderMain>
         <div class="home-main-content">
-            <WorkRouterLinks></WorkRouterLinks>
-            <WorkMosaic></WorkMosaic>
+            <WorkRouterLinks
+                @routerLinkHover="
+                    (payload) => (routerLinkHover = payload.workId)
+                "
+                :mosaicHover="mosaicHover"
+            ></WorkRouterLinks>
+            <WorkMosaic
+                @mosaicHover="(payload) => (mosaicHover = payload.workId)"
+                :routerLinkHover="routerLinkHover"
+            ></WorkMosaic>
         </div>
     </div>
 </template>
@@ -19,6 +27,12 @@ export default defineComponent({
         WorkRouterLinks,
         HeaderMain,
         WorkMosaic,
+    },
+    data() {
+        return {
+            mosaicHover: "",
+            routerLinkHover: "",
+        };
     },
 });
 </script>
