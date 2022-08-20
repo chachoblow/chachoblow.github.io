@@ -1,7 +1,7 @@
 <template>
     <div class="work-router-links">
         <div v-for="work in works" :key="work.title" class="work-router-link">
-            <router-link
+            <RouterLink
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
                 custom
@@ -9,7 +9,7 @@
                 <a :href="href" class="router-work-link" @click="navigate">{{
                     work.title
                 }}</a>
-            </router-link>
+            </RouterLink>
         </div>
     </div>
 </template>

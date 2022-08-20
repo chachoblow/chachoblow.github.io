@@ -3,14 +3,14 @@
         <HeaderMain>
             <div class="router-navigation">
                 <div v-if="nextWorkRoute">
-                    <router-link :to="nextWorkRoute">next</router-link>
+                    <RouterLink :to="nextWorkRoute">next</RouterLink>
                     &nbsp;<span>/</span>&nbsp;
                 </div>
                 <div v-if="previousWorkRoute">
-                    <router-link :to="previousWorkRoute">back</router-link>
+                    <RouterLink :to="previousWorkRoute">back</RouterLink>
                     &nbsp;<span>/</span>&nbsp;
                 </div>
-                <router-link to="/">close</router-link>
+                <RouterLink to="/">close</RouterLink>
             </div>
         </HeaderMain>
         <div class="content-container">
