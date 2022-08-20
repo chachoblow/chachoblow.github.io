@@ -29,7 +29,5 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 0.9rem;
-
-    padding: 10px;
 }
 </style>

@@ -53,14 +53,19 @@ export default defineComponent({
         routerLinkHover(newValue: string) {
             gsap.registerPlugin(ScrollToPlugin);
             if (newValue) {
-                const t1 = gsap.timeline();
                 gsap.to(`.image-container:not(.image-container-${newValue})`, {
                     opacity: 0.1,
                     duration: 1.5,
                 });
+                const offsetY =
+                    document.getElementById("navigationHeader")?.offsetHeight ??
+                    0;
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: `#mosaicImage-${newValue}-0`, offsetY: 135 },
+                    scrollTo: {
+                        y: `#mosaicImage-${newValue}-0`,
+                        offsetY: offsetY,
+                    },
                     ease: "power2.inOut",
                 });
             } else {
@@ -88,8 +93,7 @@ export default defineComponent({
 .work-mosaic {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 50px;
-    padding-left: 33%;
+    padding: 0 $page-padding 50px 33%;
 
     > div {
         line-height: 0;
@@ -98,7 +102,6 @@ export default defineComponent({
 
 img {
     height: 115px;
-    width: 100%;
     object-fit: contain;
     object-position: top left;
 }

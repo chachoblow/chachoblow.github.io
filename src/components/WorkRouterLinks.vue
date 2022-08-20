@@ -77,6 +77,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .work-router-links {
     position: fixed;
+    padding-left: $page-padding;
 }
 
 .work-router-link {

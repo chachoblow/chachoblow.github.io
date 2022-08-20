@@ -1,5 +1,5 @@
 <template>
-    <div class="navigation-header-container">
+    <div id="navigationHeader" class="navigation-header-container">
         <div class="name-container">Wesley Klein</div>
         <div class="links-container">
             <a :href="github.link" :title="github.linkTitle" target="_blank">
@@ -68,10 +68,10 @@ export default defineComponent({
 <style scoped lang="scss">
 .navigation-header-container {
     position: sticky;
-    top: 10px;
+    top: 0;
     display: flex;
     flex-direction: column;
-    padding: 0 0 40px 0;
+    padding: $page-padding $page-padding 40px $page-padding;
     font-size: 0.9rem;
     z-index: 2;
     background: white;
