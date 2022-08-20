@@ -63,6 +63,8 @@ export default class HeaderMainHea extends Vue {
 
 <style scoped lang="scss">
 .navigation-header-container {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: column;
     padding: 0 0 40px 0;

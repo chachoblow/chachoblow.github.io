@@ -6,7 +6,7 @@
                 :key="image"
                 class="image-container"
                 @mouseenter="handleMouseEnter(work.id)"
-                @mouseleave="handleMouseLeave"
+                @mouseleave="handleMouseLeave(work.id)"
             >
                 <img
                     :src="image"
@@ -19,9 +19,10 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
 import { WorkConfig } from "@/model/WorkConfig";
 import { workModule } from "@/store/WorkModule";
+import gsap from "gsap";
+import { Vue, Options } from "vue-class-component";
 
 export default class CategoryWork extends Vue {
     private get works(): WorkConfig[] {
@@ -40,10 +41,12 @@ export default class CategoryWork extends Vue {
 
     private handleMouseEnter(workId: string): void {
         workModule.setWorkId(workId);
+        gsap.to(".router-work-link", { opacity: 0.15, duration: 0.25 });
     }
 
-    private handleMouseLeave(): void {
+    private handleMouseLeave(workId: string): void {
         workModule.setWorkId("");
+        gsap.to(".router-work-link", { opacity: 1, duration: 0.25 });
     }
 }
 </script>
@@ -52,6 +55,8 @@ export default class CategoryWork extends Vue {
 .work-mosaic {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 50px;
+    padding-left: 33%;
 
     > div {
         line-height: 0;
@@ -63,9 +68,5 @@ img {
     width: 100%;
     object-fit: contain;
     object-position: top left;
-}
-
-.work-hover::v-deep {
-    filter: blur(4px);
 }
 </style>
