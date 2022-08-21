@@ -78,6 +78,7 @@ export default defineComponent({
 .work-router-links {
     position: fixed;
     padding-left: $page-padding;
+    font-size: 4rem;
 }
 
 .work-router-link {
