@@ -90,12 +90,8 @@ export default defineComponent({
         justify-content: space-between;
         flex-direction: row;
 
-        > div {
-            width: 33%;
-
-            + div {
-                padding-top: 0;
-            }
+        > div + div {
+            padding-top: 0;
         }
     }
 }

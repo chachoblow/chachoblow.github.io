@@ -100,6 +100,10 @@ export default defineComponent({
     }
 }
 
+.image-container {
+    margin: 30px;
+}
+
 img {
     height: 115px;
     object-fit: contain;
