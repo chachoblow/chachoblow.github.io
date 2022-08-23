@@ -65,7 +65,6 @@ export default defineComponent({
 .work-router-links {
     display: flex;
     flex-direction: column;
-    padding-left: $page-padding;
 }
 
 .work-router-link {
@@ -85,6 +84,7 @@ export default defineComponent({
 .work-title {
     width: 100%;
     padding-bottom: 10px;
+    padding-left: $page-padding;
 
     @media (min-width: $small-device-width) {
         width: 25%;
@@ -101,9 +101,11 @@ export default defineComponent({
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    padding-left: $page-padding;
 
     @media (min-width: $small-device-width) {
         width: 75%;
+        padding-left: 0;
     }
 
     img {

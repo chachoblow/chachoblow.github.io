@@ -71,7 +71,7 @@ export default defineComponent({
     top: 0;
     display: flex;
     flex-direction: column;
-    padding: $page-padding $page-padding 40px $page-padding;
+    padding: $page-padding 0 40px 0;
     font-size: 0.9rem;
     z-index: 2;
     background: white;
@@ -84,19 +84,28 @@ export default defineComponent({
         }
     }
 
+    .name-container,
+    .links-container,
+    .information-container {
+        padding-left: $page-padding;
+    }
+
     @media (min-width: $small-device-width) {
         justify-content: space-between;
         flex-direction: row;
-        .name-container {
-            width: 25%;
+
+        .information-container {
+            width: 50%;
         }
 
+        .name-container,
         .links-container {
             width: 25%;
         }
 
+        .links-container,
         .information-container {
-            width: 50%;
+            padding-left: 0;
         }
 
         > div + div {
