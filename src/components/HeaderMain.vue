@@ -72,11 +72,9 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     padding: $page-padding $page-padding 40px $page-padding;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     z-index: 2;
     background: white;
-    font-family: "IBM Plex Sans", sans-serif;
-    //font-family: "NeueMontreal", sans-serif;
 
     > div {
         width: 100%;
@@ -89,6 +87,17 @@ export default defineComponent({
     @media (min-width: $small-device-width) {
         justify-content: space-between;
         flex-direction: row;
+        .name-container {
+            width: 25%;
+        }
+
+        .links-container {
+            width: 25%;
+        }
+
+        .information-container {
+            width: 50%;
+        }
 
         > div + div {
             padding-top: 0;

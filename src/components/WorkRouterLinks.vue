@@ -1,21 +1,37 @@
 <template>
     <div class="work-router-links">
-        <div v-for="work in works" :key="work.title" class="work-router-link">
+        <div
+            v-for="(work, index) in works"
+            :key="work.title"
+            class="work-router-link"
+        >
             <RouterLink
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
                 custom
             >
-                <a
-                    :id="`${work.id}RouterLink`"
-                    :href="href"
-                    class="router-work-link"
-                    @click="navigate"
-                    @mouseenter="handleMouseEnter(work.id)"
-                    @mouseleave="handleMouseLeave(work.id)"
-                >
-                    {{ work.title }}
-                </a>
+                <div class="work-title">
+                    <a
+                        :href="href"
+                        @click="navigate"
+                        @mouseenter="handleMouseEnter(work.id)"
+                        @mouseleave="handleMouseLeave(work.id)"
+                    >
+                        <span class="work-title-index">0{{ index }}</span>
+                        <span class="work-title-text">{{ work.title }}</span>
+                    </a>
+                </div>
+                <div class="work-images">
+                    <a
+                        v-for="image in work.thumbnails"
+                        :key="image"
+                        :href="href"
+                        @mouseenter="handleMouseEnter(work.id)"
+                        @mouseleave="handleMouseLeave(work.id)"
+                    >
+                        <img :src="image" rel="preload" />
+                    </a>
+                </div>
             </RouterLink>
         </div>
     </div>
@@ -26,49 +42,20 @@ import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
-import gsap from "gsap";
 
 export default defineComponent({
-    props: {
-        mosaicHover: {
-            type: String,
-            required: true,
-        },
-    },
-    emits: {
-        routerLinkHover(payload: { workId: string }) {
-            return payload.workId.length >= 0;
-        },
-    },
     computed: {
         works(): WorkConfig[] {
             return this.workStore.workConfigs;
         },
         ...mapStores(useWorkStore),
     },
-    watch: {
-        mosaicHover(newValue: string) {
-            if (newValue) {
-                gsap.to(`.router-work-link:not(#${newValue}RouterLink)`, {
-                    opacity: 0.1,
-                    duration: 0.5,
-                });
-            } else {
-                gsap.to(".router-work-link", {
-                    opacity: 1,
-                    duration: 0.5,
-                });
-            }
-        },
-    },
     methods: {
         handleMouseEnter(workId: string): void {
             this.workStore.setWorkId(workId);
-            this.$emit("routerLinkHover", { workId: workId });
         },
         handleMouseLeave(): void {
             this.workStore.setWorkId("");
-            this.$emit("routerLinkHover", { workId: "" });
         },
     },
 });
@@ -76,9 +63,9 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .work-router-links {
-    position: fixed;
+    display: flex;
+    flex-direction: column;
     padding-left: $page-padding;
-    font-size: 4rem;
 }
 
 .work-router-link {
@@ -87,7 +74,41 @@ export default defineComponent({
     flex-wrap: nowrap;
 
     + .work-router-link {
-        padding-top: 10px;
+        padding-top: 50px;
+    }
+
+    @media (min-width: $small-device-width) {
+        flex-direction: row;
+    }
+}
+
+.work-title {
+    width: 100%;
+    padding-bottom: 10px;
+
+    @media (min-width: $small-device-width) {
+        width: 25%;
+        padding-bottom: 0;
+    }
+
+    .work-title-index {
+        color: lightgray;
+        padding-right: 32px;
+    }
+}
+
+.work-images {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media (min-width: $small-device-width) {
+        width: 75%;
+    }
+
+    img {
+        height: 75px;
+        padding: 0 4px 4px 0;
     }
 }
 
