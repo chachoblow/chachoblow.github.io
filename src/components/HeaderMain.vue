@@ -67,8 +67,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .navigation-header-container {
-    position: sticky;
-    top: 0;
     display: flex;
     flex-direction: column;
     padding: $page-padding 0 40px 0;
@@ -76,22 +74,9 @@ export default defineComponent({
     z-index: 2;
     background: white;
 
-    > div {
-        width: 100%;
-
-        + div {
-            padding-top: 5px;
-        }
-    }
-
-    .name-container,
-    .links-container,
-    .information-container {
-        padding-left: $page-padding;
-    }
-
     @media (min-width: $small-device-width) {
-        justify-content: space-between;
+        position: sticky;
+        top: 0;
         flex-direction: row;
 
         .information-container {
@@ -111,6 +96,20 @@ export default defineComponent({
         > div + div {
             padding-top: 0;
         }
+    }
+
+    > div {
+        width: 100%;
+
+        + div {
+            padding-top: 5px;
+        }
+    }
+
+    .name-container,
+    .links-container,
+    .information-container {
+        padding-left: $page-padding;
     }
 }
 

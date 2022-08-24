@@ -17,7 +17,7 @@
                         @mouseenter="handleMouseEnter(work.id)"
                         @mouseleave="handleMouseLeave(work.id)"
                     >
-                        <span class="work-title-index">0{{ index }}</span>
+                        <span class="work-title-index">0{{ index + 1 }}</span>
                         <span class="work-title-text">{{ work.title }}</span>
                     </a>
                 </div>
@@ -104,6 +104,7 @@ export default defineComponent({
     padding-left: $page-padding;
 
     @media (min-width: $small-device-width) {
+        flex-wrap: wrap;
         width: 75%;
         padding-left: 0;
     }
@@ -111,6 +112,10 @@ export default defineComponent({
     img {
         height: 75px;
         padding: 0 4px 4px 0;
+
+        @media (min-width: $small-device-width) {
+            height: 100px;
+        }
     }
 }
 
