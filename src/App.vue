@@ -27,6 +27,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+    height: 100%;
 }
 
 #app {
