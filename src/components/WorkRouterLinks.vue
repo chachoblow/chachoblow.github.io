@@ -1,10 +1,6 @@
 <template>
     <div class="work-router-links">
-        <div
-            v-for="(work, index) in works"
-            :key="work.title"
-            class="work-router-link"
-        >
+        <div v-for="work in works" :key="work.title" class="work-router-link">
             <RouterLink
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
@@ -17,8 +13,7 @@
                         @mouseenter="handleMouseEnter(work.id)"
                         @mouseleave="handleMouseLeave(work.id)"
                     >
-                        <span class="work-title-index">0{{ index + 1 }}</span>
-                        <span class="work-title-text">{{ work.title }}</span>
+                        <span>{{ work.title }}</span>
                     </a>
                 </div>
                 <div class="work-images">
@@ -90,11 +85,6 @@ export default defineComponent({
         width: 25%;
         padding-bottom: 0;
     }
-
-    .work-title-index {
-        color: lightgray;
-        padding-right: 32px;
-    }
 }
 
 .work-images {
@@ -110,11 +100,11 @@ export default defineComponent({
     }
 
     img {
-        height: 75px;
+        height: 50px;
         padding: 0 4px 4px 0;
 
         @media (min-width: $small-device-width) {
-            height: 100px;
+            height: 75px;
         }
     }
 }
