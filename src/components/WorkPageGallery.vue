@@ -11,7 +11,11 @@
                     :key="thumbnail"
                     :class="thumbnailContainerClasses(index)"
                 >
-                    <img :src="thumbnail" rel="preload" />
+                    <img
+                        :src="thumbnail"
+                        rel="preload"
+                        @click="handleThumbnailClick(index)"
+                    />
                 </div>
             </div>
         </div>
@@ -23,8 +27,9 @@
                 ></div>
                 <div
                     v-else
-                    v-for="image in work.images"
+                    v-for="(image, index) in work.images"
                     :key="image"
+                    :id="`imageContainer${index}`"
                     class="image-container"
                 >
                     <img :src="image" />
@@ -41,6 +46,7 @@ import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export default defineComponent({
     props: {
@@ -67,6 +73,7 @@ export default defineComponent({
         window.onscroll = this.scrollHandler;
 
         gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollToPlugin);
 
         this.images = gsap.utils.toArray(".image-container");
         this.currentImage = this.images[0];
@@ -78,58 +85,37 @@ export default defineComponent({
 
         this.images.forEach((image, i) => {
             ScrollTrigger.create({
-                // use dynamic scroll positions based on the window height (offset by half to make it feel natural)
                 start: () => (i - 0.5) * innerHeight,
                 end: () => (i + 0.5) * innerHeight,
-                // when a new section activates (from either direction), set the section accordinglyl.
                 onToggle: (self) => {
-                    self.isActive && this.setImage(image, i);
+                    self.isActive && this.setWorkImage(image, i);
                 },
-                snap: 1 / (this.images.length - 1),
             });
-            // gsap.from(image as any, {
-            //     scrollTrigger: {
-            //         trigger: image as any,
-            //         scrub: true,
-            //         start: () => (i - 0.5) * innerHeight,
-            //         end: () => ((i + 0.5) * innerHeight) / 2,
-            //     },
-            //     opacity: 0,
-            // });
-            // gsap.to(image as any, {
-            //     scrollTrigger: {
-            //         trigger: image as any,
-            //         scrub: true,
-            //         start: () => (i - 0.5) * innerHeight,
-            //         end: () => (i + 0.5) * innerHeight,
-            //     },
-            //     opacity: 1,
-            // });
         });
     },
     methods: {
         scrollHandler() {
-            const scrollTop =
-                document.body.scrollTop || document.documentElement.scrollTop;
-            const height =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-            const windowScrolled = scrollTop / height;
-
-            const galleryThumbnailsElement =
-                document.getElementById("galleryThumbnails")!;
-            const galleryThumbnailsHeight =
-                galleryThumbnailsElement.scrollHeight ||
-                galleryThumbnailsElement.clientHeight;
-            const galleryThumbnailScrollEquivalent =
-                (galleryThumbnailsHeight * windowScrolled) / 2;
-
+            const pageScrolled = this.getPageScrolled();
+            const thumbnailHeight = this.getThumbnailHeight();
+            const thumbnailScroll = (thumbnailHeight * pageScrolled) / 2;
             gsap.to("#galleryThumbnails", {
-                y: -galleryThumbnailScrollEquivalent,
+                y: -thumbnailScroll,
                 duration: 0.5,
             });
         },
-        setImage(newImage: unknown, index: number) {
+        getPageScrolled(): number {
+            const scrollTop =
+                document.body.scrollTop || document.documentElement.scrollTop;
+            const pageHeight =
+                document.documentElement.scrollHeight ||
+                document.documentElement.clientHeight;
+            return scrollTop / pageHeight;
+        },
+        getThumbnailHeight(): number {
+            const element = document.getElementById("galleryThumbnails")!;
+            return element.scrollHeight || element.clientHeight;
+        },
+        setWorkImage(newImage: unknown, index: number) {
             if (newImage != this.currentImage) {
                 this.currentIndex = index;
                 gsap.to(this.currentImage as any, {
@@ -146,6 +132,16 @@ export default defineComponent({
                 classes.push("viewed");
             }
             return classes;
+        },
+        handleThumbnailClick(index: number): void {
+            const pageHeight =
+                document.documentElement.scrollHeight ||
+                document.documentElement.clientHeight;
+            const scroll = (pageHeight / this.images.length) * index;
+            gsap.to(window, {
+                duration: 0.75,
+                scrollTo: { y: scroll },
+            });
         },
     },
 });
@@ -179,6 +175,10 @@ export default defineComponent({
 
     &.viewed {
         opacity: 1;
+    }
+
+    img {
+        cursor: pointer;
     }
 }
 
