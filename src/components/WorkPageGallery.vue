@@ -70,7 +70,7 @@ export default defineComponent({
         ...mapStores(useWorkStore),
     },
     mounted() {
-        window.onscroll = this.scrollHandler;
+        window.addEventListener("scroll", this.scrollHandler);
 
         gsap.registerPlugin(ScrollTrigger);
         gsap.registerPlugin(ScrollToPlugin);
@@ -92,6 +92,10 @@ export default defineComponent({
                 },
             });
         });
+    },
+    unmounted() {
+        gsap.set("body", { height: "100%" });
+        window.removeEventListener("scroll", this.scrollHandler);
     },
     methods: {
         scrollHandler() {
