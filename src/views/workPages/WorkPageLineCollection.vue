@@ -1,15 +1,37 @@
 <template>
-    <WorkPageFrame :work="work"></WorkPageFrame>
+    <WorkPageProject :work="work">
+        <p>
+            I wanted to make something that only used collections of lines for
+            visuals. Everything within this application (even the text) is
+            simply a specifically placed line collection.
+        </p>
+        <p>
+            In the main menu, you can choose to either arrange or watch 3
+            different shapes: a circle, a square, and a triangle. While in the
+            arrange portion, you can use the mouse wheel to make the shape's
+            size different.
+        </p>
+        <p>
+            The application was made with JavaScript. More specifically, it used
+            the p5.js library.
+        </p>
+        <img
+            v-for="image in work.images"
+            :key="image"
+            :src="image"
+            rel="preload"
+        />
+    </WorkPageProject>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import WorkPageFrame from "@/components/WorkPageFrame.vue";
+import WorkPageProject from "@/components/WorkPageProject.vue";
 import { WorkConfig, workConfigs } from "@/model/WorkConfig";
 
 export default defineComponent({
     components: {
-        WorkPageFrame,
+        WorkPageProject,
     },
     data() {
         return {
