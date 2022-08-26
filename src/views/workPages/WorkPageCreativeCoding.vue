@@ -1,15 +1,15 @@
 <template>
-    <WorkPageFrame :work="work"></WorkPageFrame>
+    <WorkPageGallery :work="work"></WorkPageGallery>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import WorkPageFrame from "@/components/WorkPageFrame.vue";
+import WorkPageGallery from "@/components/WorkPageGallery.vue";
 import { WorkConfig, workConfigs } from "@/model/WorkConfig";
 
 export default defineComponent({
     components: {
-        WorkPageFrame,
+        WorkPageGallery,
     },
     data() {
         return {
