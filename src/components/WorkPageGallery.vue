@@ -12,8 +12,8 @@
                     <slot name="work-page-text-right"></slot>
                 </div>
             </div>
-            <div :class="galleryContainerClasses">
-                <div id="galleryThumbnails" class="gallery-thumbnails">
+            <div class="gallery-container">
+                <div id="galleryThumbnails" :class="galleryThumbnailsClasses">
                     <div
                         v-for="(thumbnail, index) in work.thumbnails"
                         :key="thumbnail"
@@ -78,8 +78,8 @@ export default defineComponent({
         };
     },
     computed: {
-        galleryContainerClasses(): string[] {
-            const classes = ["gallery-container"];
+        galleryThumbnailsClasses(): string[] {
+            const classes = ["gallery-thumbnails"];
             if (this.enableGallery) {
                 classes.push("enable-gallery");
             }
@@ -99,12 +99,6 @@ export default defineComponent({
         const textHeight = this.getWorkTextHeight();
 
         gsap.defaults({ overwrite: "auto", duration: 0.3 });
-        gsap.set(".image-container", { opacity: 0 });
-        gsap.set(this.currentImage as any, { opacity: 1 });
-        // TODO: Calculate this on resize.
-        gsap.set("body", {
-            height: `calc(${this.images.length * 100}% + ${textHeight}px`,
-        });
 
         this.images.forEach((image, i) => {
             ScrollTrigger.create({
@@ -159,11 +153,6 @@ export default defineComponent({
         setWorkImage(newImage: unknown, index: number) {
             if (newImage != this.currentImage) {
                 this.currentIndex = index;
-                gsap.to(this.currentImage as any, {
-                    opacity: 0,
-                    duration: 0.25,
-                });
-                gsap.to(newImage as any, { opacity: 1, duration: 0.25 });
                 this.currentImage = newImage;
             }
         },
@@ -220,20 +209,22 @@ export default defineComponent({
 .gallery-container {
     position: relative;
     top: 0;
-    height: 100vh;
     width: 100%;
-
-    &.enable-gallery {
-        position: fixed;
-    }
 }
 
 .gallery-thumbnails {
+    position: relative;
     width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: calc(50vh - 50px);
+
+    &.enable-gallery {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
 }
 
 .thumbnail-container {
@@ -269,11 +260,11 @@ img {
 
 .image-container {
     height: 100vh;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // right: 0;
+    // width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
