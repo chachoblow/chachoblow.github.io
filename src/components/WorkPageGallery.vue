@@ -3,38 +3,47 @@
         <div class="work-page-header">
             <RouterLink to="/">Close</RouterLink>
         </div>
-        <div class="work-page-content"></div>
-        <div class="content-container">
-            <div id="galleryThumbnails" class="gallery-thumbnails">
-                <div
-                    v-for="(thumbnail, index) in work.thumbnails"
-                    :key="thumbnail"
-                    :class="thumbnailContainerClasses(index)"
-                >
-                    <img
-                        :src="thumbnail"
-                        rel="preload"
-                        @click="handleThumbnailClick(index)"
-                    />
+        <div>
+            <div id="workPageText" class="work-page-text">
+                <div>
+                    <slot name="work-page-text-left"></slot>
+                </div>
+                <div>
+                    <slot name="work-page-text-right"></slot>
                 </div>
             </div>
-        </div>
-        <div class="gallery">
-            <slot>
-                <div
-                    v-if="work.customWorkHtml"
-                    v-html="work.customWorkHtml"
-                ></div>
-                <div
-                    v-else
-                    v-for="(image, index) in work.images"
-                    :key="image"
-                    :id="`imageContainer${index}`"
-                    class="image-container"
-                >
-                    <img :src="image" />
+            <div :class="galleryContainerClasses">
+                <div id="galleryThumbnails" class="gallery-thumbnails">
+                    <div
+                        v-for="(thumbnail, index) in work.thumbnails"
+                        :key="thumbnail"
+                        :class="thumbnailContainerClasses(index)"
+                    >
+                        <img
+                            :src="thumbnail"
+                            rel="preload"
+                            @click="handleThumbnailClick(index)"
+                        />
+                    </div>
                 </div>
-            </slot>
+                <div class="gallery">
+                    <slot>
+                        <div
+                            v-if="work.customWorkHtml"
+                            v-html="work.customWorkHtml"
+                        ></div>
+                        <div
+                            v-else
+                            v-for="(image, index) in work.images"
+                            :key="image"
+                            :id="`imageContainer${index}`"
+                            class="image-container"
+                        >
+                            <img :src="image" />
+                        </div>
+                    </slot>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -59,14 +68,23 @@ export default defineComponent({
         const images: unknown[] = [];
         const currentImage: unknown = null;
         const currentIndex = 0;
+        const enableGallery = false;
 
         return {
             images: images,
             currentImage: currentImage,
             currentIndex: currentIndex,
+            enableGallery: enableGallery,
         };
     },
     computed: {
+        galleryContainerClasses(): string[] {
+            const classes = ["gallery-container"];
+            if (this.enableGallery) {
+                classes.push("enable-gallery");
+            }
+            return classes;
+        },
         ...mapStores(useWorkStore),
     },
     mounted() {
@@ -78,15 +96,20 @@ export default defineComponent({
         this.images = gsap.utils.toArray(".image-container");
         this.currentImage = this.images[0];
 
+        const textHeight = this.getWorkTextHeight();
+
         gsap.defaults({ overwrite: "auto", duration: 0.3 });
         gsap.set(".image-container", { opacity: 0 });
         gsap.set(this.currentImage as any, { opacity: 1 });
-        gsap.set("body", { height: this.images.length * 100 + "%" });
+        // TODO: Calculate this on resize.
+        gsap.set("body", {
+            height: `calc(${this.images.length * 100}% + ${textHeight}px`,
+        });
 
         this.images.forEach((image, i) => {
             ScrollTrigger.create({
-                start: () => (i - 0.5) * innerHeight,
-                end: () => (i + 0.5) * innerHeight,
+                start: () => (i - 0.5) * innerHeight + textHeight,
+                end: () => (i + 0.5) * innerHeight + textHeight,
                 onToggle: (self) => {
                     self.isActive && this.setWorkImage(image, i);
                 },
@@ -98,22 +121,36 @@ export default defineComponent({
         window.removeEventListener("scroll", this.scrollHandler);
     },
     methods: {
-        scrollHandler() {
-            const pageScrolled = this.getPageScrolled();
-            const thumbnailHeight = this.getThumbnailHeight();
-            const thumbnailScroll = (thumbnailHeight * pageScrolled) / 2;
-            gsap.to("#galleryThumbnails", {
-                y: -thumbnailScroll,
-                duration: 0.5,
-            });
+        getWorkTextHeight(): number {
+            const workTextElement = document.getElementById("workPageText")!;
+            return workTextElement.scrollHeight || workTextElement.clientHeight;
         },
-        getPageScrolled(): number {
+        scrollHandler() {
+            const galleryScrolled = this.getGalleryScrolled();
+            this.enableGallery = galleryScrolled > 0;
+            if (this.enableGallery) {
+                const thumbnailHeight = this.getThumbnailHeight();
+                const thumbnailScroll = (thumbnailHeight * galleryScrolled) / 2;
+                gsap.to("#galleryThumbnails", {
+                    y: -thumbnailScroll,
+                    duration: 0.5,
+                });
+            }
+        },
+        getGalleryScrolled(): number {
+            const workTextHeight = this.getWorkTextHeight();
             const scrollTop =
                 document.body.scrollTop || document.documentElement.scrollTop;
-            const pageHeight =
+
+            if (scrollTop < workTextHeight) {
+                return 0;
+            }
+
+            let pageHeight =
                 document.documentElement.scrollHeight ||
                 document.documentElement.clientHeight;
-            return scrollTop / pageHeight;
+            pageHeight -= workTextHeight;
+            return (scrollTop - workTextHeight) / (pageHeight - workTextHeight);
         },
         getThumbnailHeight(): number {
             const element = document.getElementById("galleryThumbnails")!;
@@ -138,10 +175,12 @@ export default defineComponent({
             return classes;
         },
         handleThumbnailClick(index: number): void {
+            const workTextHeight = this.getWorkTextHeight();
             const pageHeight =
                 document.documentElement.scrollHeight ||
                 document.documentElement.clientHeight;
-            const scroll = (pageHeight / this.images.length) * index;
+            const scroll =
+                (pageHeight / this.images.length) * index + workTextHeight;
             gsap.to(window, {
                 duration: 0.75,
                 scrollTo: { y: scroll },
@@ -159,12 +198,36 @@ export default defineComponent({
     z-index: 2;
 }
 
-.content-container {
+.work-page-text {
     display: flex;
+
+    > div {
+        width: 50%;
+
+        &:first-child {
+            padding-left: $page-padding;
+            padding-right: calc($page-padding / 2);
+        }
+
+        &:nth-child(2) {
+            padding-right: $page-padding;
+            padding-left: calc($page-padding / 2);
+        }
+    }
+}
+
+.gallery-container {
+    position: relative;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+
+    &.enable-gallery {
+        position: fixed;
+    }
 }
 
 .gallery-thumbnails {
-    position: fixed;
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -195,6 +258,7 @@ img {
 
 .gallery {
     position: absolute;
+    top: 0;
     left: 25%;
     width: 75%;
     display: flex;
@@ -204,11 +268,11 @@ img {
 
 .image-container {
     height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
