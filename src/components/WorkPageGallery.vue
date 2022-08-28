@@ -200,6 +200,7 @@ export default defineComponent({
 
 .work-page-text {
     display: flex;
+    font-size: 1.5rem;
 
     > div {
         width: 50%;

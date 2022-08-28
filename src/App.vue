@@ -22,11 +22,6 @@ export default defineComponent({});
     src: url("assets/fonts/PPMori-Regular.otf") format("opentype");
 }
 
-// @font-face {
-//     font-family: Mondwest;
-//     src: url("assets/fonts/PPMondwest-Regular.otf") format("opentype");
-// }
-
 html,
 body {
     margin: 0;
@@ -38,7 +33,6 @@ body {
 #app {
     // font-family: "Work Sans", sans-serif;
     font-family: "Mori", sans-serif;
-    //font-family: "Mondwest", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 0.9rem;
