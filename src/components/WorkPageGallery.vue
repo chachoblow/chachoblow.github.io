@@ -66,14 +66,12 @@ export default defineComponent({
     },
     data() {
         const images: unknown[] = [];
-        const currentImage: unknown = null;
-        const currentIndex = 0;
+        const currentImageIndex = 0;
         const enableGallery = false;
 
         return {
             images: images,
-            currentImage: currentImage,
-            currentIndex: currentIndex,
+            currentImageIndex: currentImageIndex,
             enableGallery: enableGallery,
         };
     },
@@ -94,18 +92,14 @@ export default defineComponent({
         gsap.registerPlugin(ScrollToPlugin);
 
         this.images = gsap.utils.toArray(".image-container");
-        this.currentImage = this.images[0];
-
         const textHeight = this.getWorkTextHeight();
-
-        gsap.defaults({ overwrite: "auto", duration: 0.3 });
 
         this.images.forEach((image, i) => {
             ScrollTrigger.create({
                 start: () => (i - 0.5) * innerHeight + textHeight,
                 end: () => (i + 0.5) * innerHeight + textHeight,
                 onToggle: (self) => {
-                    self.isActive && this.setWorkImage(image, i);
+                    self.isActive && this.setWorkImage(i);
                 },
             });
         });
@@ -135,30 +129,24 @@ export default defineComponent({
             const workTextHeight = this.getWorkTextHeight();
             const scrollTop =
                 document.body.scrollTop || document.documentElement.scrollTop;
-
             if (scrollTop < workTextHeight) {
                 return 0;
             }
-
-            let pageHeight =
+            const pageHeight =
                 document.documentElement.scrollHeight ||
                 document.documentElement.clientHeight;
-            pageHeight -= workTextHeight;
             return (scrollTop - workTextHeight) / (pageHeight - workTextHeight);
         },
         getThumbnailHeight(): number {
             const element = document.getElementById("galleryThumbnails")!;
             return element.scrollHeight || element.clientHeight;
         },
-        setWorkImage(newImage: unknown, index: number) {
-            if (newImage != this.currentImage) {
-                this.currentIndex = index;
-                this.currentImage = newImage;
-            }
+        setWorkImage(index: number) {
+            this.currentImageIndex = index;
         },
         thumbnailContainerClasses(index: number): string[] {
             const classes = ["thumbnail-container"];
-            if (index === this.currentIndex) {
+            if (index === this.currentImageIndex) {
                 classes.push("viewed");
             }
             return classes;
@@ -260,11 +248,6 @@ img {
 
 .image-container {
     height: 100vh;
-    // position: absolute;
-    // top: 0;
-    // bottom: 0;
-    // right: 0;
-    // width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
