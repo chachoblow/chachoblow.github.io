@@ -117,13 +117,7 @@ export default defineComponent({
             const galleryScrolled = this.getGalleryScrolled();
             this.enableGallery = galleryScrolled > 0;
             if (this.enableGallery) {
-                const thumbnailsHeight = this.getThumbnailsHeight();
-                const thumbnailsScroll =
-                    (thumbnailsHeight * galleryScrolled) / 2;
-                gsap.to("#galleryThumbnails", {
-                    y: -thumbnailsScroll,
-                    duration: 0.5,
-                });
+                this.setThumbnailsScroll(galleryScrolled);
             }
         },
         getGalleryScrolled(): number {
@@ -137,6 +131,14 @@ export default defineComponent({
                 document.documentElement.scrollHeight ||
                 document.documentElement.clientHeight;
             return (scrollTop - workTextHeight) / (pageHeight - workTextHeight);
+        },
+        setThumbnailsScroll(galleryScrolled: number): void {
+            const thumbnailsHeight = this.getThumbnailsHeight();
+            const thumbnailsScroll = (thumbnailsHeight * galleryScrolled) / 2;
+            gsap.to("#galleryThumbnails", {
+                y: -thumbnailsScroll,
+                duration: 0.5,
+            });
         },
         getThumbnailsHeight(): number {
             const element = document.getElementById("galleryThumbnails")!;
