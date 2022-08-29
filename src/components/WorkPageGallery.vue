@@ -117,10 +117,11 @@ export default defineComponent({
             const galleryScrolled = this.getGalleryScrolled();
             this.enableGallery = galleryScrolled > 0;
             if (this.enableGallery) {
-                const thumbnailHeight = this.getThumbnailHeight();
-                const thumbnailScroll = (thumbnailHeight * galleryScrolled) / 2;
+                const thumbnailsHeight = this.getThumbnailsHeight();
+                const thumbnailsScroll =
+                    (thumbnailsHeight * galleryScrolled) / 2;
                 gsap.to("#galleryThumbnails", {
-                    y: -thumbnailScroll,
+                    y: -thumbnailsScroll,
                     duration: 0.5,
                 });
             }
@@ -137,7 +138,7 @@ export default defineComponent({
                 document.documentElement.clientHeight;
             return (scrollTop - workTextHeight) / (pageHeight - workTextHeight);
         },
-        getThumbnailHeight(): number {
+        getThumbnailsHeight(): number {
             const element = document.getElementById("galleryThumbnails")!;
             return element.scrollHeight || element.clientHeight;
         },
@@ -196,29 +197,30 @@ export default defineComponent({
 
 .gallery-container {
     position: relative;
-    top: 0;
-    width: 100%;
 }
 
 .gallery-thumbnails {
-    position: relative;
     width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: calc(50vh - 50px);
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 0;
 
     &.enable-gallery {
         position: fixed;
         top: 0;
-        left: 0;
     }
 }
 
 .thumbnail-container {
     width: 100px;
-    padding-bottom: 10px;
     opacity: 0.25;
+
+    + .thumbnail-container {
+        padding-top: 10px;
+    }
 
     &.viewed {
         opacity: 1;
