@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { WorkConfig, Works } from "@/model/WorkConfig";
+import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
 

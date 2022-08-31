@@ -107,6 +107,7 @@ export default defineComponent({
     },
     methods: {
         getWorkTextHeight(): number {
+            // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
             const workTextElement = document.getElementById("workPageText")!;
             return workTextElement.scrollHeight || workTextElement.clientHeight;
         },
@@ -138,6 +139,7 @@ export default defineComponent({
             });
         },
         getThumbnailsHeight(): number {
+            // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
             const element = document.getElementById("galleryThumbnails")!;
             return element.scrollHeight || element.clientHeight;
         },
