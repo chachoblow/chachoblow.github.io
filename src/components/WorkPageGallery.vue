@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="work-page-header">
-            <RouterLink to="/">Close</RouterLink>
-        </div>
         <div>
             <div id="workPageText" class="work-page-text">
                 <div>
@@ -172,13 +169,6 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.work-page-header {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 2;
-}
-
 .work-page-text {
     display: flex;
     font-size: 1.5rem;
@@ -189,6 +179,9 @@ export default defineComponent({
     }
 
     > div {
+        margin-top: -1em;
+        padding-top: $page-padding;
+
         @media (min-width: $small-device-width) {
             width: 50%;
         }
@@ -206,12 +199,10 @@ export default defineComponent({
         &:nth-child(2) {
             padding-right: $page-padding;
             padding-left: $page-padding;
-            margin-top: -1em;
 
             @media (min-width: $small-device-width) {
                 padding-right: $page-padding;
                 padding-left: calc($page-padding / 2);
-                margin-top: 0;
             }
         }
     }
@@ -257,11 +248,14 @@ export default defineComponent({
     }
 }
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: left;
+.thumbnail-container,
+.image-container {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: left;
+    }
 }
 
 .gallery {
@@ -272,11 +266,12 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    padding: 10px 0;
 
     @media (min-width: $small-device-width) {
         left: 25%;
         width: 75%;
+        padding: 0;
     }
 }
 

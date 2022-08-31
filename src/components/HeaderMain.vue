@@ -48,17 +48,17 @@ export default defineComponent({
             github: {
                 link: "https://github.com/chachoblow",
                 linkTitle: "My Github",
-                label: "github",
+                label: "Github",
             } as ContactConfig,
             instagram: {
                 link: "https://www.instagram.com/chachoblow",
                 linkTitle: "My Instagram",
-                label: "instagram",
+                label: "Instagram",
             } as ContactConfig,
             linkedin: {
                 link: "https://www.linkedin.com/in/wesleyklein/",
                 linkTitle: "My LinkedIn",
-                label: "linkedin",
+                label: "LinkedIn",
             } as ContactConfig,
         };
     },
