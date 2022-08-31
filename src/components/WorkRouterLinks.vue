@@ -60,6 +60,14 @@ export default defineComponent({
 .work-router-links {
     display: flex;
     flex-direction: column;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 .work-router-link {
