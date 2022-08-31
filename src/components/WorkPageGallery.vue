@@ -160,7 +160,8 @@ export default defineComponent({
                 document.documentElement.scrollHeight ||
                 document.documentElement.clientHeight;
             const scroll =
-                (pageHeight / this.images.length) * index + workTextHeight;
+                ((pageHeight - workTextHeight) / this.images.length) * index +
+                workTextHeight;
             gsap.to(window, {
                 duration: 0.75,
                 scrollTo: { y: scroll },
