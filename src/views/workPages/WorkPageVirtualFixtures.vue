@@ -9,9 +9,8 @@
                     title="Wikipedia entry for East of West"
                     target="_blank"
                 >
-                    East of West
-                </a>
-                .
+                    East of West</a
+                >.
             </p>
             <p>
                 In Virtual Fixtures, you are trapped in a cave with your Buddy -
@@ -41,9 +40,8 @@
                     title="Wikipedia entry for Bresenham's line algorithm"
                     target="_blank"
                 >
-                    Bresenham's line algorithm
-                </a>
-                . This can be seen below.
+                    Bresenham's line algorithm</a
+                >. This can be seen below.
             </p>
             <p>
                 The main feature of the game is that you can switch between the
@@ -60,9 +58,8 @@
                     title="YouTube link to game walkthrough"
                     target="_blank"
                 >
-                    my video on YouTube
-                </a>
-                .
+                    my video on YouTube</a
+                >.
             </p>
         </template>
     </WorkPageGallery>

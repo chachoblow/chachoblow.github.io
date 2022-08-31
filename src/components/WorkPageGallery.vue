@@ -182,18 +182,37 @@ export default defineComponent({
 .work-page-text {
     display: flex;
     font-size: 1.5rem;
+    flex-direction: column;
+
+    @media (min-width: $small-device-width) {
+        flex-direction: row;
+    }
 
     > div {
-        width: 50%;
+        @media (min-width: $small-device-width) {
+            width: 50%;
+        }
 
         &:first-child {
             padding-left: $page-padding;
-            padding-right: calc($page-padding / 2);
+            padding-right: $page-padding;
+
+            @media (min-width: $small-device-width) {
+                padding-left: $page-padding;
+                padding-right: calc($page-padding / 2);
+            }
         }
 
         &:nth-child(2) {
             padding-right: $page-padding;
-            padding-left: calc($page-padding / 2);
+            padding-left: $page-padding;
+            margin-top: -1em;
+
+            @media (min-width: $small-device-width) {
+                padding-right: $page-padding;
+                padding-left: calc($page-padding / 2);
+                margin-top: 0;
+            }
         }
     }
 }
@@ -203,13 +222,17 @@ export default defineComponent({
 }
 
 .gallery-thumbnails {
+    display: none;
     width: 25%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     padding: 40px 0;
+
+    @media (min-width: $small-device-width) {
+        display: flex;
+    }
 
     &.enable-gallery {
         position: fixed;
@@ -244,18 +267,32 @@ img {
 .gallery {
     position: absolute;
     top: 0;
-    left: 25%;
-    width: 75%;
+    left: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 40px 0;
+
+    @media (min-width: $small-device-width) {
+        left: 25%;
+        width: 75%;
+    }
 }
 
 .image-container {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 $page-padding;
+
+    + .image-container {
+        padding-top: $page-padding;
+    }
+
+    @media (min-width: $small-device-width) {
+        height: 100vh;
+    }
 
     img {
         max-width: 900px;
