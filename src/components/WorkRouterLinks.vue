@@ -14,17 +14,10 @@
                         @mouseleave="handleMouseLeave(work.id)"
                     >
                         <span>{{ work.title }}</span>
-                    </a>
-                </div>
-                <div class="work-images">
-                    <a
-                        v-for="image in work.thumbnails"
-                        :key="image"
-                        :href="href"
-                        @mouseenter="handleMouseEnter(work.id)"
-                        @mouseleave="handleMouseLeave(work.id)"
-                    >
-                        <img :src="image" rel="preload" />
+                        <img
+                            src="@/assets/icons/right-arrow-thin.svg"
+                            rel="preload"
+                        />
                     </a>
                 </div>
             </RouterLink>
@@ -60,6 +53,7 @@ export default defineComponent({
 .work-router-links {
     display: flex;
     flex-direction: column;
+    margin: 0 $page-padding;
 
     a {
         text-decoration: none;
@@ -71,53 +65,26 @@ export default defineComponent({
 }
 
 .work-router-link {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    border-bottom: 1px solid;
 
-    + .work-router-link {
-        padding-top: 50px;
-    }
-
-    @media (min-width: $small-device-width) {
-        flex-direction: row;
+    &:first-of-type {
+        border-top: 1px solid;
     }
 }
 
 .work-title {
     width: 100%;
-    padding-bottom: 10px;
-    padding-left: $page-padding;
+    font-size: 3rem;
 
-    @media (min-width: $small-device-width) {
-        width: 25%;
-        padding-bottom: 0;
-    }
-}
-
-.work-images {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-left: $page-padding;
-
-    @media (min-width: $small-device-width) {
-        flex-wrap: wrap;
-        width: 75%;
-        padding-left: 0;
+    a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
     }
 
     img {
-        height: 50px;
-        padding: 0 4px 4px 0;
-
-        @media (min-width: $small-device-width) {
-            height: 75px;
-        }
+        height: 40px;
     }
-}
-
-a {
-    width: fit-content;
 }
 </style>

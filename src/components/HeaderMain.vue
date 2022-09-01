@@ -1,34 +1,13 @@
 <template>
     <div id="navigationHeader" class="navigation-header-container">
-        <div class="name-container">Wesley Klein</div>
-        <div class="links-container">
-            <a :href="github.link" :title="github.linkTitle" target="_blank">
-                {{ github.label }},&nbsp;
-            </a>
-            <a
-                :href="instagram.link"
-                :title="instagram.linkTitle"
-                target="_blank"
-            >
-                {{ instagram.label }},&nbsp;
-            </a>
-            <a
-                :href="linkedin.link"
-                :title="linkedin.linkTitle"
-                target="_blank"
-            >
-                {{ linkedin.label }}
-            </a>
+        <div class="name-container">
+            <img src="@/assets/my-eyes-name-clear.png" rel="preload" />
         </div>
-        <div class="information-container">
-            <slot>
-                Based in Seattle, WA. Working as a software engineer. Hold a
-                mathematics and computer science degree from The University of
-                California, Berkeley. Always exploring ways in which to merge
-                more traditional artistic endeavours with modern technologies,
-                such as, microcontrollers, web, virtual reality, and creative
-                coding frameworks.
-            </slot>
+        <div class="navigation-links">
+            <div class="links-container">Work</div>
+            <div class="information-container">
+                <slot> Information </slot>
+            </div>
         </div>
     </div>
 </template>
@@ -68,53 +47,25 @@ export default defineComponent({
 <style scoped lang="scss">
 .navigation-header-container {
     display: flex;
-    flex-direction: column;
-    padding: $page-padding 0 40px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $page-padding;
     font-size: 0.9rem;
     z-index: 2;
     background: white;
+}
 
-    @media (min-width: $small-device-width) {
-        position: sticky;
-        top: 0;
-        flex-direction: row;
+.navigation-links {
+    display: flex;
+}
 
-        .information-container {
-            width: 50%;
-        }
-
-        .name-container,
-        .links-container {
-            width: 25%;
-        }
-
-        .links-container,
-        .information-container {
-            padding-left: 0;
-        }
-
-        > div + div {
-            padding-top: 0;
-        }
-    }
-
-    > div {
-        width: 100%;
-
-        + div {
-            padding-top: 5px;
-        }
-    }
-
-    .name-container,
-    .links-container,
-    .information-container {
-        padding-left: $page-padding;
-    }
+.name-container img {
+    height: 60px;
 }
 
 .links-container {
     display: flex;
+    padding-right: $page-padding;
 
     a {
         height: fit-content;
