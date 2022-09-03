@@ -21,6 +21,15 @@ export const useWorkStore = defineStore("work", {
         workConfigsLength(): number {
             return this.workConfigs.length;
         },
+        work: () => {
+            return (workId: string) => {
+                const work = workConfigs().find((work) => work.id === workId);
+                if (work === undefined) {
+                    throw Error(`Work with ID [${workId}] not found.`);
+                }
+                return work;
+            }
+        },
     },
     actions: {
         setWorkId(id: string): void {

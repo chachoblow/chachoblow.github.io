@@ -26,7 +26,7 @@ export interface WorkConfig {
     associatedWork: Works;
     images: string[];
     thumbnails: string[];
-    customWorkHtml?: string;
+    customWorkHtml?: string[];
 }
 
 export function workConfigs(): WorkConfig[] {
@@ -125,31 +125,31 @@ export function workConfigs(): WorkConfig[] {
                 require("@/assets/illustrations/lowRes/yellow-vision-375w.jpg"),
             ],
         },
-        // {
-        //     id: "animations",
-        //     order: 40,
-        //     title: "Animations",
-        //     description: "Collection of various animations",
-        //     identifier: "4",
-        //     media: "Digital",
-        //     year: "2018",
-        //     summary: "",
-        //     imageMenuCropped: require("@/assets/menu/cropped/animation.png"),
-        //     imageMenuFull: require("@/assets/menu/full/animations.png"),
-        //     routerLink: "/animations",
-        //     associatedWork: Works.Animations,
-        //     images: [],
-        //     thumbnails: [
-        //         require("@/assets/animations/lowRes/feeling-something.png"),
-        //         require("@/assets/animations/lowRes/ice-cream.png"),
-        //         require("@/assets/animations/lowRes/walking.png"),
-        //     ],
-        //     customWorkHtml: `
-        //         <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-        //         <div style="padding:56.25% 0 0 0;position:relative;margin-top:10px;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-        //         <div style="padding:56.25% 0 0 0;position:relative;margin-top:10px;margin-bottom:10px;"><iframe src="https://player.vimeo.com/video/316146757?h=84d1b63bdc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="i&amp;#039;m starting to feel something."></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-        //     `,
-        // },
+        {
+            id: "animations",
+            order: 40,
+            title: "Animations",
+            description: "Collection of various animations",
+            identifier: "4",
+            media: "Digital",
+            year: "2018",
+            summary: "",
+            imageMenuCropped: require("@/assets/menu/cropped/animation.png"),
+            imageMenuFull: require("@/assets/menu/full/animations.png"),
+            routerLink: "/animations",
+            associatedWork: Works.Animations,
+            images: [],
+            thumbnails: [
+                require("@/assets/animations/lowRes/feeling-something.png"),
+                require("@/assets/animations/lowRes/ice-cream.png"),
+                require("@/assets/animations/lowRes/walking.png"),
+            ],
+            customWorkHtml: [
+                `<div style="padding:56.25% 0 0 0;position:relative;width:100%;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
+                `<div style="padding:56.25% 0 0 0;position:relative;width:100%;"><iframe src="https://player.vimeo.com/video/316146770?h=41bf58d934&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="walking"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
+                `<div style="padding:56.25% 0 0 0;position:relative;width:100%;"><iframe src="https://player.vimeo.com/video/316146757?h=84d1b63bdc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="i&amp;#039;m starting to feel something."></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
+            ],
+        },
         {
             id: "virtualFixtures",
             order: 50,
