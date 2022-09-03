@@ -23,6 +23,5 @@ export default defineComponent({
 <style scoped lang="scss">
 .home-container {
     font-size: 0.9rem;
-    padding-bottom: 100px;
 }
 </style>

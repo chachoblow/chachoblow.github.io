@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+@mixin page-padding {
+    padding: $page-padding-small;
+
+    @media (min-width: $small-device-width) {
+        padding: $page-padding-medium;
+    }
+
+    @media (min-width: $medium-device-width) {
+        padding: $page-padding-large;
+    }
+}

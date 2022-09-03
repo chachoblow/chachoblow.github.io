@@ -1,23 +1,21 @@
 <template>
     <div class="work-router-links">
-        <div v-for="work in works" :key="work.title" class="work-router-link">
+        <div
+            v-for="work in works"
+            :key="work.title"
+            class="work-router-link"
+            @mouseenter="handleMouseEnter(work.id)"
+            @mouseleave="handleMouseLeave(work.id)"
+        >
             <RouterLink
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
                 custom
             >
-                <div class="work-title">
-                    <a
-                        :href="href"
-                        @click="navigate"
-                        @mouseenter="handleMouseEnter(work.id)"
-                        @mouseleave="handleMouseLeave(work.id)"
-                    >
+                <div :id="`${work.id}WorkTitleText`" class="work-title">
+                    <a :href="href" @click="navigate">
+                        <img :src="work.imageMenuCropped" rel="preload" />
                         <span>{{ work.title }}</span>
-                        <img
-                            src="@/assets/icons/right-arrow-thin.svg"
-                            rel="preload"
-                        />
                     </a>
                 </div>
             </RouterLink>
@@ -30,6 +28,7 @@ import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
+import gsap from "gsap";
 
 export default defineComponent({
     computed: {
@@ -42,7 +41,7 @@ export default defineComponent({
         handleMouseEnter(workId: string): void {
             this.workStore.setWorkId(workId);
         },
-        handleMouseLeave(): void {
+        handleMouseLeave(workId: string): void {
             this.workStore.setWorkId("");
         },
     },
@@ -51,9 +50,23 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .work-router-links {
-    display: flex;
-    flex-direction: column;
-    margin: 0 $page-padding;
+    @include page-padding;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: $page-padding-small;
+    padding-top: $page-padding-medium !important;
+
+    @media (min-width: $small-device-width) {
+        grid-template-columns: 1fr 1fr;
+        gap: $page-padding-medium;
+        padding-top: 0 !important;
+    }
+
+    @media (min-width: $medium-device-width) {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: $page-padding-large;
+    }
 
     a {
         text-decoration: none;
@@ -64,27 +77,22 @@ export default defineComponent({
     }
 }
 
-.work-router-link {
-    border-bottom: 1px solid;
-
-    &:first-of-type {
-        border-top: 1px solid;
-    }
-}
-
 .work-title {
     width: 100%;
-    font-size: 3rem;
 
     a {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
+        flex-direction: column;
+    }
+
+    span {
+        padding-top: 10px;
     }
 
     img {
-        height: 40px;
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
     }
 }
 </style>

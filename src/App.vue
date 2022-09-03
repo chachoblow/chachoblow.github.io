@@ -37,7 +37,7 @@ body {
 
 #app {
     // font-family: "Work Sans", sans-serif;
-    font-family: "Mondwest", sans-serif;
+    font-family: "Mori", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 0.9rem;
