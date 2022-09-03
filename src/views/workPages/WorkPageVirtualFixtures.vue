@@ -125,5 +125,9 @@ img {
     object-fit: contain;
     object-position: center;
     margin: auto;
+
+    + img {
+        padding-top: 0 !important;
+    }
 }
 </style>
