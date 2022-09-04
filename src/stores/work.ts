@@ -28,7 +28,7 @@ export const useWorkStore = defineStore("work", {
                     throw Error(`Work with ID [${workId}] not found.`);
                 }
                 return work;
-            }
+            };
         },
     },
     actions: {

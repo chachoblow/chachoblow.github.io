@@ -28,7 +28,6 @@ import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
-import gsap from "gsap";
 
 export default defineComponent({
     computed: {
@@ -41,7 +40,7 @@ export default defineComponent({
         handleMouseEnter(workId: string): void {
             this.workStore.setWorkId(workId);
         },
-        handleMouseLeave(workId: string): void {
+        handleMouseLeave(): void {
             this.workStore.setWorkId("");
         },
     },
