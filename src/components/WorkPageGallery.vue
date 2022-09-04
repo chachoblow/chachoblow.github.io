@@ -1,21 +1,23 @@
 <template>
-    <HeaderMain></HeaderMain>
-    <div class="gallery">
-        <slot>
-            <div
-                v-for="html in work.customWorkHtml"
-                :key="html"
-                class="image-container"
-                v-html="html"
-            ></div>
-            <div
-                v-for="image in work.images"
-                :key="image"
-                class="image-container"
-            >
-                <img :src="image" />
-            </div>
-        </slot>
+    <div>
+        <HeaderMain></HeaderMain>
+        <div class="gallery">
+            <slot>
+                <div
+                    v-for="html in work.customWorkHtml"
+                    :key="html"
+                    class="image-container"
+                    v-html="html"
+                ></div>
+                <div
+                    v-for="image in work.images"
+                    :key="image"
+                    class="image-container"
+                >
+                    <img :src="image" />
+                </div>
+            </slot>
+        </div>
     </div>
 </template>
 
