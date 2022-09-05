@@ -1,34 +1,40 @@
 <template>
-    <div>
-        <div class="gallery">
-            <slot>
-                <div
-                    v-for="html in work.customWorkHtml"
-                    :key="html"
-                    class="image-container"
-                    v-html="html"
-                ></div>
-                <div
-                    v-for="image in work.images"
-                    :key="image"
-                    class="image-container"
-                >
-                    <img :src="image" />
-                </div>
-            </slot>
-        </div>
+    <div class="gallery">
+        <slot>
+            <div
+                v-for="html in work.customWorkHtml"
+                :key="html"
+                class="image-container"
+                v-html="html"
+            ></div>
+            <div
+                v-for="image in work.images"
+                :key="image"
+                class="image-container"
+            >
+                <img :src="image" />
+            </div>
+        </slot>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
+import { mapStores } from "pinia";
+import { useWorkStore } from "@/stores/work";
 
 export default defineComponent({
     props: {
-        work: {
-            type: Object as PropType<WorkConfig>,
+        id: {
+            type: String,
             required: true,
+        },
+    },
+    computed: {
+        ...mapStores(useWorkStore),
+        work(): WorkConfig {
+            return this.workStore.work(this.id);
         },
     },
 });

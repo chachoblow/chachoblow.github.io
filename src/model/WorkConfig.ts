@@ -15,11 +15,6 @@ export interface WorkConfig {
     id: string;
     order: number;
     title: string;
-    description: string;
-    identifier: string;
-    media: string;
-    year: string;
-    summary: string;
     imageMenuCropped: string;
     imageMenuFull: string;
     routerLink: string;
@@ -35,11 +30,6 @@ export function workConfigs(): WorkConfig[] {
             id: "cyclux",
             order: 10,
             title: "Cyclux",
-            description: "Short-form comic",
-            identifier: "1",
-            media: "Pen, pencil, highlighter, collage",
-            year: "2018",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/cyclux.webp"),
             imageMenuFull: require("@/assets/menu/full/cyclux.webp"),
             routerLink: "/cyclux",
@@ -65,11 +55,6 @@ export function workConfigs(): WorkConfig[] {
             id: "branches",
             order: 20,
             title: "Branches",
-            description: "Short-form comic",
-            identifier: "2",
-            media: "Digital",
-            year: "2018",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/branches.webp"),
             imageMenuFull: require("@/assets/menu/full/branches.webp"),
             routerLink: "/branches",
@@ -97,11 +82,6 @@ export function workConfigs(): WorkConfig[] {
             id: "illustrations",
             order: 30,
             title: "Illustrations",
-            description: "Collection of various illustrations",
-            identifier: "3",
-            media: "Digital",
-            year: "2018-present",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/illustrations.webp"),
             imageMenuFull: require("@/assets/menu/full/illustrations.webp"),
             routerLink: "/illustrations",
@@ -129,11 +109,6 @@ export function workConfigs(): WorkConfig[] {
             id: "animations",
             order: 40,
             title: "Animations",
-            description: "Collection of various animations",
-            identifier: "4",
-            media: "Digital",
-            year: "2018",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/animation.webp"),
             imageMenuFull: require("@/assets/menu/full/animations.webp"),
             routerLink: "/animations",
@@ -154,52 +129,6 @@ export function workConfigs(): WorkConfig[] {
             id: "virtualFixtures",
             order: 50,
             title: "Virtual fixtures",
-            description: "Video game",
-            identifier: "5",
-            media: "Software",
-            year: "2017",
-            summary: `
-                <p>
-                    Virtual Fixtures is a roguelike cave exploration game developed in Java. The game was inspired by the graphic novel series 
-                    <a href="https://en.wikipedia.org/wiki/East_of_West" title="Wikipedia entry for East of West" target="_blank">East of West</a>.
-                </p>
-                <p>
-                    In Virtual Fixtures, you are trapped in a cave with your Buddy -
-                    a hovering AI bot which can project the virtual world for you.
-                    You need this projection in order to see where hidden energies
-                    are. The downside is that when in the virtual world, you cannot
-                    see the numreous traps that riddle the cave in the physical
-                    world. Therefore, you must switch back and forth between the two
-                    worlds - using one world to find the energies, and the other to
-                    avoid traps.
-                </p>
-                <p>
-                    When you start the game, you are placed in the middle of a
-                    procedurally generated cave system. You can see this below. Note
-                    that the HUD displays what your cursor is currently hovering
-                    over.
-                </p>
-                <p>
-                    A main feature that I implemented for this game was ray-casting.
-                    You can only see parts of the cave that are within your current
-                    line of sight (or parts that you have seen in the past). In
-                    order to do this, I used 
-                    <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm" title="Wikipedia entry for Bresenham's line algorithm" target="_blank">Bresenham's line algorithm</a>. 
-                    This can be seen below.
-                </p>
-                <p>
-                    The main feature of the game is that you can switch between the
-                    physical and virtual worlds. In doing this, you can avoid traps
-                    while also searching for energies. Another caveat is that when
-                    in the virtual world, you can no longer see remembered parts of
-                    the cave. You are limited to what is currently in view only.
-                </p>
-                <p> 
-                    If you would like to see a more in-depth explanation of the
-                    game, please watch 
-                    <a href="https://youtu.be/C-yfkUNuN_M" title="YouTube link to game walkthrough" target="_blank">my video on YouTube</a>.
-                </p>
-            `,
             imageMenuCropped: require("@/assets/menu/cropped/virtual-fixtures.webp"),
             imageMenuFull: require("@/assets/menu/full/virtual-fixtures.webp"),
             routerLink: "/virtualFixtures",
@@ -219,26 +148,6 @@ export function workConfigs(): WorkConfig[] {
             id: "lineCollection",
             order: 60,
             title: "Line collection",
-            description: "Art tool made entirely of lines",
-            identifier: "6",
-            media: "Software",
-            year: "2018",
-            summary: `
-                <p>
-                    I wanted to make something that only used collections of lines for visuals.
-                    Everything within this application (even the text) is simply a 
-                    specifically placed line collection.
-                </p>
-                <p>
-                    In the main menu, you can choose to either arrange or watch 3 different 
-                    shapes: a circle, a square, and a triangle. While in the arrange portion, 
-                    you can use the mouse wheel to make the shape's size different.
-                </p>
-                <p>
-                    The application was made with JavaScript. More specifically, it used the p5.js 
-                    library.
-                </p>
-            `,
             imageMenuCropped: require("@/assets/menu/cropped/line-collection.webp"),
             imageMenuFull: require("@/assets/menu/full/line-collection.webp"),
             routerLink: "/lineCollection",
@@ -260,11 +169,6 @@ export function workConfigs(): WorkConfig[] {
             id: "photography",
             order: 70,
             title: "Photography",
-            description: "Collection of various photographs",
-            identifier: "7",
-            media: "Digital",
-            year: "2016-present",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/photo.webp"),
             imageMenuFull: require("@/assets/menu/full/photography.webp"),
             routerLink: "/photography",
@@ -300,11 +204,6 @@ export function workConfigs(): WorkConfig[] {
             id: "creativeCoding",
             order: 80,
             title: "Creative coding",
-            description: "Collection of various creative coding sketches",
-            identifier: "8",
-            media: "Software",
-            year: "2018-present",
-            summary: "",
             imageMenuCropped: require("@/assets/menu/cropped/processing-sketches.webp"),
             imageMenuFull: require("@/assets/menu/full/creative-coding.webp"),
             routerLink: "/creativeCoding",
