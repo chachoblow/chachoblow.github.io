@@ -9,10 +9,10 @@
             ></div>
             <div
                 v-for="image in work.images"
-                :key="image"
+                :key="image.image"
                 class="image-container"
             >
-                <img :src="image" />
+                <img :src="image.image" :alt="image.altText" rel="preload" />
             </div>
         </slot>
     </div>

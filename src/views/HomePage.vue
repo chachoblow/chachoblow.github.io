@@ -12,7 +12,11 @@
                 custom
             >
                 <a :href="href" class="work-title" @click="navigate">
-                    <img :src="work.imageMenuCropped" rel="preload" />
+                    <img
+                        :src="work.imageMenuCropped.image"
+                        :alt="work.imageMenuCropped.altText"
+                        rel="preload"
+                    />
                     <span>{{ work.title }}</span>
                 </a>
             </RouterLink>

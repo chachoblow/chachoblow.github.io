@@ -20,13 +20,21 @@
             Therefore, you must switch back and forth between the two worlds -
             using one world to find the energies, and the other to avoid traps.
         </p>
-        <img :src="work.images[0]" rel="preload" />
+        <img
+            :src="work.images[0].image"
+            :alt="work.images[0].altText"
+            rel="preload"
+        />
         <p>
             When you start the game, you are placed in the middle of a
             procedurally generated cave system. You can see this below. Note
             that the HUD displays what your cursor is currently hovering over.
         </p>
-        <img :src="work.images[1]" rel="preload" />
+        <img
+            :src="work.images[1].image"
+            :alt="work.images[1].altText"
+            rel="preload"
+        />
         <p>
             A main feature that I implemented for this game was ray-casting. You
             can only see parts of the cave that are within your current line of
@@ -47,7 +55,11 @@
             the virtual world, you can no longer see remembered parts of the
             cave. You are limited to what is currently in view only.
         </p>
-        <img :src="work.images[2]" rel="preload" />
+        <img
+            :src="work.images[2].image"
+            :alt="work.images[2].altText"
+            rel="preload"
+        />
         <p>
             If you would like to see a more in-depth explanation of the game,
             please watch
