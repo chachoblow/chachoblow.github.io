@@ -1,6 +1,5 @@
 <template>
     <div class="home-container">
-        <HeaderMain></HeaderMain>
         <div class="home-main-content">
             <WorkRouterLinks></WorkRouterLinks>
         </div>
@@ -10,12 +9,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import WorkRouterLinks from "@/components/WorkRouterLinks.vue";
-import HeaderMain from "@/components/HeaderMain.vue";
 
 export default defineComponent({
     components: {
         WorkRouterLinks,
-        HeaderMain,
     },
 });
 </script>

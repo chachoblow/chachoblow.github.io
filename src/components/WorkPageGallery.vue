@@ -1,6 +1,5 @@
 <template>
     <div>
-        <HeaderMain></HeaderMain>
         <div class="gallery">
             <slot>
                 <div
@@ -24,12 +23,8 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
-import HeaderMain from "@/components/HeaderMain.vue";
 
 export default defineComponent({
-    components: {
-        HeaderMain,
-    },
     props: {
         work: {
             type: Object as PropType<WorkConfig>,

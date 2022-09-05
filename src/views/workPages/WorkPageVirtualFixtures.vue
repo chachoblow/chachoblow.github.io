@@ -1,6 +1,5 @@
 <template>
     <div>
-        <HeaderMain></HeaderMain>
         <div class="work-container">
             <p>
                 Virtual Fixtures is a roguelike cave exploration game developed
@@ -72,12 +71,8 @@ import { defineComponent } from "vue";
 import { WorkConfig } from "@/model/WorkConfig";
 import { mapStores } from "pinia";
 import { useWorkStore } from "@/stores/work";
-import HeaderMain from "@/components/HeaderMain.vue";
 
 export default defineComponent({
-    components: {
-        HeaderMain,
-    },
     data() {
         return {
             idInternal: "virtualFixtures",

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <HeaderMain></HeaderMain>
         <div class="work-container">
             <p>
                 I wanted to make something that only used collections of lines
@@ -28,12 +27,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { WorkConfig, workConfigs } from "@/model/WorkConfig";
-import HeaderMain from "@/components/HeaderMain.vue";
 
 export default defineComponent({
-    components: {
-        HeaderMain,
-    },
     data() {
         return {
             idInternal: "lineCollection" as string | null,

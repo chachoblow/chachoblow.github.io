@@ -1,5 +1,5 @@
 <template>
-    <div id="navigationHeader" class="navigation-header-container">
+    <header>
         <RouterLink to="/" v-slot="{ href, navigate }" custom>
             <div class="name-container">
                 <a :href="href" @click="navigate">
@@ -10,39 +10,52 @@
         <div class="about-container">
             <slot>
                 <div class="information-container">
-                    Based in Seattle, WA. Working as a software engineer. Hold a
-                    mathematics and computer science degree from The University
-                    of California, Berkeley. Always exploring ways in which to
-                    merge more traditional artistic endeavours with modern
-                    technologies, such as, microcontrollers, web, virtual
-                    reality, and creative coding frameworks.
+                    <p>
+                        Based in Seattle, WA. Working as a software engineer.
+                        Hold a mathematics and computer science degree from The
+                        University of California, Berkeley. Always exploring
+                        ways in which to merge more traditional artistic
+                        endeavours with modern technologies, such as,
+                        microcontrollers, web, virtual reality, and creative
+                        coding frameworks.
+                    </p>
                 </div>
                 <div class="links-container">
-                    <a
-                        :href="github.link"
-                        :title="github.linkTitle"
-                        target="_blank"
-                    >
-                        {{ github.label }} </a
-                    >,&nbsp;
-                    <a
-                        :href="instagram.link"
-                        :title="instagram.linkTitle"
-                        target="_blank"
-                    >
-                        {{ instagram.label }} </a
-                    >,&nbsp;
-                    <a
-                        :href="linkedin.link"
-                        :title="linkedin.linkTitle"
-                        target="_blank"
-                    >
-                        {{ linkedin.label }}
-                    </a>
+                    <ul>
+                        <li>
+                            <a
+                                :href="github.link"
+                                :title="github.linkTitle"
+                                target="_blank"
+                            >
+                                <span>{{ github.label }}</span
+                                >,&nbsp;</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                :href="instagram.link"
+                                :title="instagram.linkTitle"
+                                target="_blank"
+                            >
+                                <span>{{ instagram.label }}</span
+                                >,&nbsp;</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                :href="linkedin.link"
+                                :title="linkedin.linkTitle"
+                                target="_blank"
+                            >
+                                <span>{{ linkedin.label }}</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </slot>
         </div>
-    </div>
+    </header>
 </template>
 
 <script lang="ts">
@@ -59,17 +72,17 @@ export default defineComponent({
         return {
             github: {
                 link: "https://github.com/chachoblow",
-                linkTitle: "My Github",
+                linkTitle: "Wesley Klein's Github",
                 label: "Github",
             } as ContactConfig,
             instagram: {
                 link: "https://www.instagram.com/chachoblow",
-                linkTitle: "My Instagram",
+                linkTitle: "Wesley Klein's Instagram",
                 label: "Instagram",
             } as ContactConfig,
             linkedin: {
                 link: "https://www.linkedin.com/in/wesleyklein/",
-                linkTitle: "My LinkedIn",
+                linkTitle: "Wesley Klein's LinkedIn",
                 label: "LinkedIn",
             } as ContactConfig,
         };
@@ -78,7 +91,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.navigation-header-container {
+header {
     @include page-padding;
     display: grid;
     grid-template-columns: 1fr;
@@ -94,10 +107,6 @@ export default defineComponent({
     @media (min-width: $medium-device-width) {
         column-gap: $page-padding-large / 2;
     }
-}
-
-.navigation-links {
-    display: flex;
 }
 
 .name-container {
@@ -122,13 +131,24 @@ export default defineComponent({
 
 .information-container {
     padding-bottom: 10px;
+
+    p {
+        margin: 0;
+    }
 }
 
 .links-container {
-    display: flex;
+    ul {
+        display: flex;
+    }
 
     a {
         height: fit-content;
+        text-decoration: none;
+
+        span {
+            text-decoration: underline;
+        }
     }
 }
 </style>

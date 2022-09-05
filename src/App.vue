@@ -1,14 +1,21 @@
 <template>
     <div class="app-container">
-        <div class="view-container">
+        <HeaderMain></HeaderMain>
+        <main role="main">
             <router-view></router-view>
-        </div>
+        </main>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-export default defineComponent({});
+import HeaderMain from "@/components/HeaderMain.vue";
+
+export default defineComponent({
+    components: {
+        HeaderMain,
+    },
+});
 </script>
 
 <style lang="scss">
@@ -22,11 +29,6 @@ export default defineComponent({});
     src: url("assets/fonts/PPMori-Regular.otf") format("opentype");
 }
 
-@font-face {
-    font-family: Mondwest;
-    src: url("assets/fonts/PPMondwest-Regular.otf") format("opentype");
-}
-
 html,
 body {
     margin: 0;
@@ -36,7 +38,6 @@ body {
 }
 
 #app {
-    // font-family: "Work Sans", sans-serif;
     font-family: "Mori", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
