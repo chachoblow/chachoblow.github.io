@@ -6,7 +6,7 @@
             simply a specifically placed line collection.
         </p>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[0].image" type="video/mp4" />
+            <source :src="work.videos[0]" type="video/mp4" />
         </video>
         <p>
             In the main menu, you can choose to either arrange or watch 3
@@ -15,13 +15,13 @@
             size different.
         </p>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[1].image" type="video/mp4" />
+            <source :src="work.videos[1]" type="video/mp4" />
         </video>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[2].image" type="video/mp4" />
+            <source :src="work.videos[2]" type="video/mp4" />
         </video>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[3].image" type="video/mp4" />
+            <source :src="work.videos[3]" type="video/mp4" />
         </video>
         <p>
             The application was made with JavaScript. More specifically, it used

@@ -57,19 +57,20 @@ export default defineComponent({
         @include page-padding;
         padding-left: 0 !important;
         padding-right: 0 !important;
-    }
-
-    img {
         width: 100%;
         max-width: 900px;
         max-height: 80vh;
+
+        + img,
+        + video {
+            padding-top: 0 !important;
+        }
+    }
+
+    img {
         object-fit: contain;
         object-position: center;
         margin: auto;
-
-        + img {
-            padding-top: 0 !important;
-        }
     }
 }
 </style>

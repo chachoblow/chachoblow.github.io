@@ -21,7 +21,7 @@
             using one world to find the energies, and the other to avoid traps.
         </p>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[0].image" type="video/mp4" />
+            <source :src="work.videos[0]" type="video/mp4" />
         </video>
         <p>
             When you start the game, you are placed in the middle of a
@@ -29,7 +29,7 @@
             that the HUD displays what your cursor is currently hovering over.
         </p>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[1].image" type="video/mp4" />
+            <source :src="work.videos[1]" type="video/mp4" />
         </video>
         <p>
             A main feature that I implemented for this game was ray-casting. You
@@ -52,7 +52,7 @@
             cave. You are limited to what is currently in view only.
         </p>
         <video autoplay loop muted playsinline>
-            <source :src="work.images[2].image" type="video/mp4" />
+            <source :src="work.videos[2]" type="video/mp4" />
         </video>
         <p>
             If you would like to see a more in-depth explanation of the game,
