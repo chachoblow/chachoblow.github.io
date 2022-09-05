@@ -3,7 +3,7 @@
         <RouterLink to="/" v-slot="{ href, navigate }" custom>
             <div class="name-container">
                 <a :href="href" @click="navigate">
-                    <img src="@/assets/my-eyes-name-clear.png" rel="preload" />
+                    <img src="@/assets/my-eyes-name-clear.webp" rel="preload" />
                 </a>
             </div>
         </RouterLink>
