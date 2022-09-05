@@ -8,6 +8,15 @@
                 v-html="html"
             ></div>
             <div
+                v-for="video in work.videos"
+                :key="video"
+                class="image-container"
+            >
+                <video autoplay loop muted playsinline>
+                    <source :src="video" type="video/mp4" />
+                </video>
+            </div>
+            <div
                 v-for="image in work.images"
                 :key="image.image"
                 class="image-container"
@@ -66,11 +75,15 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
 
+    video,
     img {
         width: 100%;
         height: 100%;
         max-width: 900px;
         max-height: 80vh;
+    }
+
+    img {
         object-fit: contain;
         object-position: center;
     }

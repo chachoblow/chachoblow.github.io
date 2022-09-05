@@ -20,6 +20,7 @@ export interface WorkConfig {
     routerLink: string;
     associatedWork: Works;
     images: WorkImage[];
+    videos: string[],
     thumbnails: string[];
     customWorkHtml?: string[];
 }
@@ -47,6 +48,7 @@ export function workConfigs(): WorkConfig[] {
                 { image: require("@/assets/comics/cyclux/cyclux-spread5.webp"), altText: "Page 5 of Cylux" },
                 { image: require("@/assets/comics/cyclux/cyclux-spread6.webp"), altText: "Page 6 of Cyclux" },
             ],
+            videos: [],
             thumbnails: [
                 require("@/assets/comics/cyclux//lowRes/cyclux-spread1.webp"),
                 require("@/assets/comics/cyclux//lowRes/cyclux-spread2.webp"),
@@ -73,6 +75,7 @@ export function workConfigs(): WorkConfig[] {
                 { image: require("@/assets/comics/branches/branches-page6.webp"), altText: "Page 6 of Branches" },
                 { image: require("@/assets/comics/branches/branches-page7.webp"), altText: "Page 7 of Branches" },
             ],
+            videos: [],
             thumbnails: [
                 require("@/assets/comics/branches/lowRes/branches-page1.webp"),
                 require("@/assets/comics/branches/lowRes/branches-page2.webp"),
@@ -100,6 +103,7 @@ export function workConfigs(): WorkConfig[] {
                 { image: require("@/assets/illustrations/woman-cursive-900h.webp"), altText: "Illustration of woman" },
                 { image: require("@/assets/illustrations/yellow-vision-1800h.webp"), altText: "Illustration of man" },
             ],
+            videos: [],
             thumbnails: [
                 require("@/assets/illustrations/lowRes/bat-person-375w.webp"),
                 require("@/assets/illustrations/lowRes/breaking-bad-375w.webp"),
@@ -119,6 +123,7 @@ export function workConfigs(): WorkConfig[] {
             routerLink: "/animations",
             associatedWork: Works.Animations,
             images: [],
+            videos: [],
             thumbnails: [
                 require("@/assets/animations/lowRes/feeling-something.webp"),
                 require("@/assets/animations/lowRes/ice-cream.webp"),
@@ -138,10 +143,11 @@ export function workConfigs(): WorkConfig[] {
             imageMenuFull: { image: require("@/assets/menu/full/virtual-fixtures.webp"), altText: "Virtual fixtures thumbnail" },
             routerLink: "/virtualFixtures",
             associatedWork: Works.VirtualFixtures,
-            images: [
-                { image: require("@/assets/virtual-fixtures/game-hud.gif"), altText: "Animation of game HUD" },
-                { image: require("@/assets/virtual-fixtures/game-ray-casting.gif"), altText: "Animation of ray casting" },
-                { image: require("@/assets/virtual-fixtures/game-switch-worlds.gif"), altText: "Animation of switching worlds" },
+            images: [],
+            videos: [
+                require("@/assets/virtual-fixtures/game-hud.mp4"),
+                require("@/assets/virtual-fixtures/game-ray-casting.mp4"),
+                require("@/assets/virtual-fixtures/game-switch-worlds.mp4"),
             ],
             thumbnails: [
                 require("@/assets/virtual-fixtures/lowRes/game-hud.webp"),
@@ -157,11 +163,12 @@ export function workConfigs(): WorkConfig[] {
             imageMenuFull: { image: require("@/assets/menu/full/line-collection.webp"), altText: "Line collection thumbnail" },
             routerLink: "/lineCollection",
             associatedWork: Works.LineCollection,
-            images: [
-                { image: require("@/assets/line-collection/arrange-circles-compressed.gif"), altText: "Animation of arranging circles" },
-                { image: require("@/assets/line-collection/watch-circles-compressed.gif"), altText: "Animation of circles arranging" },
-                { image: require("@/assets/line-collection/watch-squares-compressed.gif"), altText: "Animation of squares arranging" },
-                { image: require("@/assets/line-collection/watch-triangles-compressed.gif"), altText: "Animation of triangles arranging" },
+            images: [],
+            videos: [
+                require("@/assets/line-collection/arrange-circles-compressed.mp4"),
+                require("@/assets/line-collection/watch-circles-compressed.mp4"),
+                require("@/assets/line-collection/watch-squares-compressed.mp4"),
+                require("@/assets/line-collection/watch-triangles-compressed.mp4"),
             ],
             thumbnails: [
                 require("@/assets/line-collection/lowRes/arrange-circles-compressed.webp"),
@@ -191,6 +198,7 @@ export function workConfigs(): WorkConfig[] {
                 { image: require("@/assets/photographs/slit-scanning-1-1000h.webp"), altText: "Self portait using slit scanning" },
                 { image: require("@/assets/photographs/slit-scanning-2-1000h.webp"), altText: "Self portait using slit scanning" },
             ],
+            videos: [],
             thumbnails: [
                 require("@/assets/photographs/lowRes/brittany-driving.webp"),
                 require("@/assets/photographs/lowRes/dad-grandpa.webp"),
@@ -213,20 +221,21 @@ export function workConfigs(): WorkConfig[] {
             imageMenuFull: { image: require("@/assets/menu/full/creative-coding.webp"), altText: "Processing sketches thumbnail" },
             routerLink: "/creativeCoding",
             associatedWork: Works.CreativeCoding,
-            images: [
-                { image: require("@/assets/processing-sketches/examples/bobbing-ocean-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/clicked-fireworks-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/collage-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/criss-cross-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/exploding-balls-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/game-of-life-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/ghost-webcam-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/make-shape-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/pointillism-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/random-chords-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/row-column-suns-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/row-suns-compressed.gif"), altText: "Processing sketch" },
-                { image: require("@/assets/processing-sketches/examples/suns-colliding-compressed.gif"), altText: "Processing sketch" },
+            images: [],
+            videos: [
+                require("@/assets/processing-sketches/examples/bobbing-ocean-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/clicked-fireworks-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/collage-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/criss-cross-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/exploding-balls-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/game-of-life-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/ghost-webcam-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/make-shape-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/pointillism-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/random-chords-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/row-column-suns-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/row-suns-compressed.mp4"),
+                require("@/assets/processing-sketches/examples/suns-colliding-compressed.mp4"),
             ],
             thumbnails: [
                 require("@/assets/processing-sketches/lowRes/bobbing-ocean.webp"),

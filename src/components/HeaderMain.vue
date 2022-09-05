@@ -4,7 +4,7 @@
             <div class="name-container">
                 <a :href="href" @click="navigate">
                     <img
-                        src="@/assets/my-eyes-name-clear.webp"
+                        src="@/assets/my-eyes-name-clear-small.webp"
                         title="Website logo"
                         rel="preload"
                     />
@@ -101,6 +101,7 @@ header {
 .name-container {
     img {
         height: 60px;
+        width: auto;
         padding-bottom: $page-padding-small;
 
         @media (min-width: $small-device-width) {

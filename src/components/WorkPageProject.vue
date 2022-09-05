@@ -52,10 +52,14 @@ export default defineComponent({
         display: unset;
     }
 
+    video,
     img {
         @include page-padding;
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+
+    img {
         width: 100%;
         max-width: 900px;
         max-height: 80vh;
