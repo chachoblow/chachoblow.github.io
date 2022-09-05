@@ -3,7 +3,11 @@
         <RouterLink to="/" v-slot="{ href, navigate }" custom>
             <div class="name-container">
                 <a :href="href" @click="navigate">
-                    <img src="@/assets/my-eyes-name-clear.webp" rel="preload" />
+                    <img
+                        src="@/assets/my-eyes-name-clear.webp"
+                        title="Website logo"
+                        rel="preload"
+                    />
                 </a>
             </div>
         </RouterLink>
@@ -23,31 +27,19 @@
                 <div class="links-container">
                     <ul>
                         <li>
-                            <a
-                                :href="github.link"
-                                :title="github.linkTitle"
-                                target="_blank"
-                            >
+                            <a :href="github.link" target="_blank">
                                 <span>{{ github.label }}</span
                                 >,&nbsp;</a
                             >
                         </li>
                         <li>
-                            <a
-                                :href="instagram.link"
-                                :title="instagram.linkTitle"
-                                target="_blank"
-                            >
+                            <a :href="instagram.link" target="_blank">
                                 <span>{{ instagram.label }}</span
                                 >,&nbsp;</a
                             >
                         </li>
                         <li>
-                            <a
-                                :href="linkedin.link"
-                                :title="linkedin.linkTitle"
-                                target="_blank"
-                            >
+                            <a :href="linkedin.link" target="_blank">
                                 <span>{{ linkedin.label }}</span>
                             </a>
                         </li>
@@ -72,17 +64,14 @@ export default defineComponent({
         return {
             github: {
                 link: "https://github.com/chachoblow",
-                linkTitle: "Wesley Klein's Github",
                 label: "Github",
             } as ContactConfig,
             instagram: {
                 link: "https://www.instagram.com/chachoblow",
-                linkTitle: "Wesley Klein's Instagram",
                 label: "Instagram",
             } as ContactConfig,
             linkedin: {
                 link: "https://www.linkedin.com/in/wesleyklein/",
-                linkTitle: "Wesley Klein's LinkedIn",
                 label: "LinkedIn",
             } as ContactConfig,
         };
