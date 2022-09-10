@@ -1,11 +1,6 @@
 <template>
     <ul class="work-router-links">
-        <li
-            v-for="work in works"
-            :key="work.title"
-            @mouseenter="handleMouseEnter(work.id)"
-            @mouseleave="handleMouseLeave(work.id)"
-        >
+        <li v-for="work in works" :key="work.title">
             <RouterLink
                 :to="work.routerLink"
                 v-slot="{ href, navigate }"
@@ -36,14 +31,6 @@ export default defineComponent({
             return this.workStore.workConfigs;
         },
         ...mapStores(useWorkStore),
-    },
-    methods: {
-        handleMouseEnter(workId: string): void {
-            this.workStore.setWorkId(workId);
-        },
-        handleMouseLeave(): void {
-            this.workStore.setWorkId("");
-        },
     },
 });
 </script>
