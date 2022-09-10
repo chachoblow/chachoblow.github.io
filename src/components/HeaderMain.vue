@@ -80,12 +80,14 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "@/scss/mixins.scss";
+
 header {
     @include page-padding;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    column-gap: $page-padding-medium / 2;
+    column-gap: calc($page-padding-medium / 2);
     z-index: 2;
     background: white;
 
@@ -94,7 +96,7 @@ header {
     }
 
     @media (min-width: $medium-device-width) {
-        column-gap: $page-padding-large / 2;
+        column-gap: calc($page-padding-large / 2);
     }
 }
 

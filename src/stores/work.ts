@@ -1,4 +1,4 @@
-import { WorkConfig, workConfigs, Works } from "@/model/WorkConfig";
+import { WorkConfig, workConfigurations, Works } from "@/model/WorkConfig";
 import { defineStore } from "pinia";
 
 interface State {
@@ -13,7 +13,7 @@ export const useWorkStore = defineStore("work", {
     }),
     getters: {
         workConfigs(): WorkConfig[] {
-            const configs = workConfigs();
+            const configs = workConfigurations;
             return configs.sort(function (a, b) {
                 return a.order - b.order;
             });
@@ -23,7 +23,7 @@ export const useWorkStore = defineStore("work", {
         },
         work: () => {
             return (workId: string) => {
-                const work = workConfigs().find((work) => work.id === workId);
+                const work = workConfigurations.find((work) => work.id === workId);
                 if (work === undefined) {
                     throw Error(`Work with ID [${workId}] not found.`);
                 }

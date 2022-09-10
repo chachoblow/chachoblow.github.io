@@ -27,6 +27,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import "@/scss/mixins.scss";
+
 .work-container {
     @include page-padding;
     max-width: 900px;

@@ -50,6 +50,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "@/scss/mixins.scss";
+
 .gallery {
     @include page-padding;
     display: grid;

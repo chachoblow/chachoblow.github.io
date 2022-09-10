@@ -49,6 +49,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "@/scss/mixins.scss";
+
 .work-router-links {
     @include page-padding;
     display: grid;

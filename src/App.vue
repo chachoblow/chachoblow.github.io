@@ -2,7 +2,7 @@
     <div class="app-container">
         <HeaderMain></HeaderMain>
         <main role="main">
-            <router-view></router-view>
+            <RouterView></RouterView>
         </main>
     </div>
 </template>
@@ -10,15 +10,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import HeaderMain from "@/components/HeaderMain.vue";
+import HomePage from "@/views/HomePage.vue";
 
 export default defineComponent({
     components: {
         HeaderMain,
+        HomePage,
     },
 });
 </script>
 
 <style lang="scss">
+@import "@/scss/globals.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
