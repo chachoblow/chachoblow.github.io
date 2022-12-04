@@ -1,9 +1,38 @@
-import { WorkConfig } from "@/model/WorkConfig";
-import { Work } from "@/model/Work";
 import { defineStore } from "pinia";
 
 interface WorkState {
     works: WorkConfig[];
+}
+
+export interface WorkConfig {
+    id: string;
+    order: number;
+    title: string;
+    imageMenuCropped: WorkImage;
+    imageMenuFull: WorkImage;
+    routerLink: string;
+    associatedWork: Work;
+    images: WorkImage[];
+    videos: string[],
+    customWorkHtml?: string[];
+}
+
+export interface WorkImage {
+    image: string,
+    altText: string
+}
+
+// These should correspond to the the Vue components under views/workPages.
+export enum Work {
+    Animations = "Animations",
+    Branches = "Branches",
+    CreativeCoding = "CreativeCoding",
+    Cyclux = "Cyclux",
+    Illustrations = "Illustrations",
+    LineCollection = "LineCollection",
+    Photography = "Photography",
+    VirtualFixtures = "VirtualFixtures",
+    None = "None",
 }
 
 const workConfigurations: WorkConfig[] = [
