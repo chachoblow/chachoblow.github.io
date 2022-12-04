@@ -1,5 +1,5 @@
 import { WorkConfig } from "@/model/WorkConfig";
-import { Work } from "@/model/Works";
+import { Work } from "@/model/Work";
 import { defineStore } from "pinia";
 
 interface WorkState {

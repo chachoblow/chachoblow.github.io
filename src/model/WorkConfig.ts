@@ -1,4 +1,4 @@
-import { Work } from "./Works";
+import { Work } from "./Work";
 import { WorkImage } from "./WorkImage";
 
 export interface WorkConfig {

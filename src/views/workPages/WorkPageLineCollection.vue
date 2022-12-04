@@ -30,20 +30,8 @@
     </WorkPageProject>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import WorkPageProject from "@/components/WorkPageProject.vue";
 
-export default defineComponent({
-    components: {
-        WorkPageProject,
-    },
-    data() {
-        return {
-            id: "lineCollection",
-        };
-    },
-});
+const id = "lineCollection";
 </script>
-
-<style lang="scss"></style>

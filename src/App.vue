@@ -7,17 +7,8 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import HeaderMain from "@/components/HeaderMain.vue";
-import HomePage from "@/views/HomePage.vue";
-
-export default defineComponent({
-    components: {
-        HeaderMain,
-        HomePage,
-    },
-});
 </script>
 
 <style lang="scss">

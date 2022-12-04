@@ -1,51 +1,34 @@
 <template>
     <div class="gallery">
         <slot>
-            <div
-                v-for="html in work.customWorkHtml"
-                :key="html"
-                class="image-container"
-                v-html="html"
-            ></div>
-            <div
-                v-for="video in work.videos"
-                :key="video"
-                class="image-container"
-            >
+            <div v-for="html in work.customWorkHtml" :key="html" class="image-container" v-html="html"></div>
+            <div v-for="video in work.videos" :key="video" class="image-container">
                 <video autoplay loop muted playsinline>
                     <source :src="video" type="video/mp4" />
                 </video>
             </div>
-            <div
-                v-for="image in work.images"
-                :key="image.image"
-                class="image-container"
-            >
+            <div v-for="image in work.images" :key="image.image" class="image-container">
                 <img :src="image.image" :alt="image.altText" rel="preload" />
             </div>
         </slot>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { WorkConfig } from "@/model/WorkConfig";
-import { mapStores } from "pinia";
+<script setup lang="ts">
+import { computed } from "vue";
 import { useWorkStore } from "@/stores/work";
 
-export default defineComponent({
-    props: {
-        id: {
-            type: String,
-            required: true,
-        },
-    },
-    computed: {
-        ...mapStores(useWorkStore),
-        work(): WorkConfig {
-            return this.workStore.work(this.id);
-        },
-    },
+const props = defineProps({
+    id: {
+        type: String,
+        required: true
+    }
+});
+
+const workStore = useWorkStore();
+
+const work = computed(() => {
+    return workStore.work(props.id);
 });
 </script>
 

@@ -1,17 +1,9 @@
 <template>
     <ul class="work-router-links">
         <li v-for="work in works" :key="work.title">
-            <RouterLink
-                :to="work.routerLink"
-                v-slot="{ href, navigate }"
-                custom
-            >
+            <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
                 <a :href="href" class="work-title" @click="navigate">
-                    <img
-                        :src="work.imageMenuCropped.image"
-                        :alt="work.imageMenuCropped.altText"
-                        rel="preload"
-                    />
+                    <img :src="work.imageMenuCropped.image" :alt="work.imageMenuCropped.altText" rel="preload" />
                     <span>{{ work.title }}</span>
                 </a>
             </RouterLink>
@@ -19,19 +11,14 @@
     </ul>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { WorkConfig } from "@/model/WorkConfig";
-import { mapStores } from "pinia";
+<script setup lang="ts">
 import { useWorkStore } from "@/stores/work";
+import { computed } from "vue";
 
-export default defineComponent({
-    computed: {
-        works(): WorkConfig[] {
-            return this.workStore.workConfigs;
-        },
-        ...mapStores(useWorkStore),
-    },
+const workStore = useWorkStore();
+
+const works = computed(() => {
+    return workStore.workConfigs;
 });
 </script>
 

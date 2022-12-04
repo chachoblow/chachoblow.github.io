@@ -9,7 +9,7 @@ import WorkPageLineCollection from "@/views/workPages/WorkPageLineCollection.vue
 import WorkPagePhotography from "@/views/workPages/WorkPagePhotography.vue";
 import WorkPageVirtualFixtures from "@/views/workPages/WorkPageVirtualFixtures.vue";
 
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
     {
         path: "/",
         name: "Home",

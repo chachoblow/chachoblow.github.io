@@ -4,25 +4,21 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { WorkConfig } from "@/model/WorkConfig";
-import { mapStores } from "pinia";
+<script setup lang="ts">
+import { computed } from "vue";
 import { useWorkStore } from "@/stores/work";
 
-export default defineComponent({
-    props: {
-        id: {
-            type: String,
-            required: true,
-        },
-    },
-    computed: {
-        ...mapStores(useWorkStore),
-        work(): WorkConfig {
-            return this.workStore.work(this.id);
-        },
-    },
+const props = defineProps({
+    id: {
+        type: String,
+        required: true
+    }
+});
+
+const workStore = useWorkStore();
+
+const work = computed(() => {
+    return workStore.work(props.id);
 });
 </script>
 
@@ -45,7 +41,7 @@ export default defineComponent({
     p {
         margin: 0;
 
-        + p {
+        +p {
             margin-top: $page-padding-small;
         }
     }
@@ -63,8 +59,8 @@ export default defineComponent({
         max-width: 900px;
         max-height: 80vh;
 
-        + img,
-        + video {
+        +img,
+        +video {
             padding-top: 0 !important;
         }
     }

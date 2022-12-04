@@ -3,11 +3,7 @@
         <RouterLink to="/" v-slot="{ href, navigate }" custom>
             <div class="name-container">
                 <a :href="href" @click="navigate">
-                    <img
-                        src="@/assets/my-eyes-name-clear-small.webp"
-                        title="Website logo"
-                        rel="preload"
-                    />
+                    <img src="@/assets/my-eyes-name-clear-small.webp" title="Website logo" rel="preload" />
                 </a>
             </div>
         </RouterLink>
@@ -28,15 +24,11 @@
                     <ul>
                         <li>
                             <a :href="github.link" target="_blank">
-                                <span>{{ github.label }}</span
-                                >,&nbsp;</a
-                            >
+                                <span>{{ github.label }}</span>,&nbsp;</a>
                         </li>
                         <li>
                             <a :href="instagram.link" target="_blank">
-                                <span>{{ instagram.label }}</span
-                                >,&nbsp;</a
-                            >
+                                <span>{{ instagram.label }}</span>,&nbsp;</a>
                         </li>
                         <li>
                             <a :href="linkedin.link" target="_blank">
@@ -50,33 +42,26 @@
     </header>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 interface ContactConfig {
     link: string;
-    linkTitle: string;
     label: string;
 }
 
-export default defineComponent({
-    data() {
-        return {
-            github: {
-                link: "https://github.com/chachoblow",
-                label: "Github",
-            } as ContactConfig,
-            instagram: {
-                link: "https://www.instagram.com/chachoblow",
-                label: "Instagram",
-            } as ContactConfig,
-            linkedin: {
-                link: "https://www.linkedin.com/in/wesleyklein/",
-                label: "LinkedIn",
-            } as ContactConfig,
-        };
-    },
-});
+const github: ContactConfig = {
+    link: "https://github.com/chachoblow",
+    label: "Github",
+};
+
+const instagram: ContactConfig = {
+    link: "https://www.instagram.com/chachoblow",
+    label: "Instagram",
+};
+
+const linkedin: ContactConfig = {
+    link: "https://www.linkedin.com/in/wesleyklein/",
+    label: "LinkedIn",
+};
 </script>
 
 <style scoped lang="scss">

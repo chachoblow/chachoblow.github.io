@@ -2,20 +2,8 @@
     <WorkPageGallery :id="id"></WorkPageGallery>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import WorkPageGallery from "@/components/WorkPageGallery.vue";
 
-export default defineComponent({
-    components: {
-        WorkPageGallery,
-    },
-    data() {
-        return {
-            id: "creativeCoding",
-        };
-    },
-});
+const id = "creativeCoding";
 </script>
-
-<style lang="scss"></style>
