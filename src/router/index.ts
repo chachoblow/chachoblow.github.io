@@ -1,13 +1,13 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
-import WorkPageAnimations from "@/views/workPages/WorkPageAnimations.vue";
-import WorkPageBranches from "@/views/workPages/WorkPageBranches.vue";
-import WorkPageCreativeCoding from "@/views/workPages/WorkPageCreativeCoding.vue";
-import WorkPageCyclux from "@/views/workPages/WorkPageCyclux.vue";
-import WorkPageIllustrations from "@/views/workPages/WorkPageIllustrations.vue";
-import WorkPageLineCollection from "@/views/workPages/WorkPageLineCollection.vue";
-import WorkPagePhotography from "@/views/workPages/WorkPagePhotography.vue";
-import WorkPageVirtualFixtures from "@/views/workPages/WorkPageVirtualFixtures.vue";
+import WorkPageAnimations from "@/views/WorkPageAnimations.vue";
+import WorkPageBranches from "@/views/WorkPageBranches.vue";
+import WorkPageCreativeCoding from "@/views/WorkPageCreativeCoding.vue";
+import WorkPageCyclux from "@/views/WorkPageCyclux.vue";
+import WorkPageIllustrations from "@/views/WorkPageIllustrations.vue";
+import WorkPageLineCollection from "@/views/WorkPageLineCollection.vue";
+import WorkPagePhotography from "@/views/WorkPagePhotography.vue";
+import WorkPageVirtualFixtures from "@/views/WorkPageVirtualFixtures.vue";
 
 const routes: RouteRecordRaw[] = [
     {
