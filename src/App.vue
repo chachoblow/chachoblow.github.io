@@ -22,6 +22,7 @@ import HeaderMain from "@/components/HeaderMain.vue";
 @font-face {
     font-family: Mori;
     src: url("/assets/fonts/PPMori-Regular.otf") format("opentype");
+    src: url("/assets/fonts/PPNeueMontreal-Thin.otf") format("opentype");
 }
 
 html,

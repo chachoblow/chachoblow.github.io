@@ -100,7 +100,15 @@ const workConfigurations: WorkConfig[] = [
         imageMenuFull: { image: "/assets/menu/full/animations.webp", altText: "Animation thumbnail" },
         routerLink: "/animations",
         associatedWork: Work.Animations,
-        images: [],
+        // TODO: Replace with proper images.
+        images: [
+            { image: "/assets/comics/cyclux/cyclux-spread1.webp", altText: "Page 1 of Cylclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread2.webp", altText: "Page 2 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread3.webp", altText: "Page 3 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread4.webp", altText: "Page 4 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread5.webp", altText: "Page 5 of Cylux" },
+            { image: "/assets/comics/cyclux/cyclux-spread6.webp", altText: "Page 6 of Cyclux" },
+        ],
         videos: [],
         customWorkHtml: [
             `<div style="padding:56.25% 0 0 0;position:relative;width:100%;"><iframe src="https://player.vimeo.com/video/316146671?h=9f5b214711&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="have you ever waken up?"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>`,
@@ -116,7 +124,15 @@ const workConfigurations: WorkConfig[] = [
         imageMenuFull: { image: "/assets/menu/full/virtual-fixtures.webp", altText: "Virtual fixtures thumbnail" },
         routerLink: "/virtualFixtures",
         associatedWork: Work.VirtualFixtures,
-        images: [],
+        // TODO: Replace with proper images.
+        images: [
+            { image: "/assets/comics/cyclux/cyclux-spread1.webp", altText: "Page 1 of Cylclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread2.webp", altText: "Page 2 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread3.webp", altText: "Page 3 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread4.webp", altText: "Page 4 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread5.webp", altText: "Page 5 of Cylux" },
+            { image: "/assets/comics/cyclux/cyclux-spread6.webp", altText: "Page 6 of Cyclux" },
+        ],
         videos: [
             "/assets/virtual-fixtures/game-hud.mp4",
             "/assets/virtual-fixtures/game-ray-casting.mp4",
@@ -131,7 +147,15 @@ const workConfigurations: WorkConfig[] = [
         imageMenuFull: { image: "/assets/menu/full/line-collection.webp", altText: "Line collection thumbnail" },
         routerLink: "/lineCollection",
         associatedWork: Work.LineCollection,
-        images: [],
+        // TODO: Replace with proper images.
+        images: [
+            { image: "/assets/comics/cyclux/cyclux-spread1.webp", altText: "Page 1 of Cylclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread2.webp", altText: "Page 2 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread3.webp", altText: "Page 3 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread4.webp", altText: "Page 4 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread5.webp", altText: "Page 5 of Cylux" },
+            { image: "/assets/comics/cyclux/cyclux-spread6.webp", altText: "Page 6 of Cyclux" },
+        ],
         videos: [
             "/assets/line-collection/arrange-circles-compressed.mp4",
             "/assets/line-collection/watch-circles-compressed.mp4",
@@ -170,7 +194,15 @@ const workConfigurations: WorkConfig[] = [
         imageMenuFull: { image: "/assets/menu/full/creative-coding.webp", altText: "Processing sketches thumbnail" },
         routerLink: "/creativeCoding",
         associatedWork: Work.CreativeCoding,
-        images: [],
+        // TODO: Replace with proper images.
+        images: [
+            { image: "/assets/comics/cyclux/cyclux-spread1.webp", altText: "Page 1 of Cylclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread2.webp", altText: "Page 2 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread3.webp", altText: "Page 3 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread4.webp", altText: "Page 4 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread5.webp", altText: "Page 5 of Cylux" },
+            { image: "/assets/comics/cyclux/cyclux-spread6.webp", altText: "Page 6 of Cyclux" },
+        ],
         videos: [
             "/assets/processing-sketches/examples/bobbing-ocean-compressed.mp4",
             "/assets/processing-sketches/examples/clicked-fireworks-compressed.mp4",
