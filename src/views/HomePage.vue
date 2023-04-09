@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="work__images">
-                    <div v-for="(image, index) in work.images" class="work__image">
+                    <div v-for="(image, index) in work.imagesMenu" class="work__image">
                         <a :href="href" class="work__link work__link--no-hover" @click="navigate">
                             <img :src="image.image" :alt="image.altText" rel="preload" />
                         </a>
