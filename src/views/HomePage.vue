@@ -16,7 +16,7 @@
                         <a :href="href" class="work__link work__link--no-hover" @click="navigate">
                             <img :src="image.image" :alt="image.altText" rel="preload" />
                         </a>
-                        <a :href="href" class="work__link" @click="navigate">
+                        <a :href="href" class="work__link work__image-count" @click="navigate">
                             <div>I.{{ String(index + 1).padStart(2, "0") }}</div>
                         </a>
                     </swiper-slide>
@@ -43,6 +43,16 @@ const works = computed(() => {
 <style scoped lang="scss">
 @import "@/scss/mixins.scss";
 
+@font-face {
+    font-family: Mondwest;
+    src: url("/assets/fonts/PPMondwest-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: NeueMachinaLightItalic;
+    src: url("/assets/fonts/PPNeueMachina-PlainLightItalic.otf") format("opentype");
+}
+
 .works {
     @include page-padding;
     display: flex;
@@ -51,7 +61,7 @@ const works = computed(() => {
 
 .work {
     +.work {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 }
 
@@ -59,6 +69,10 @@ const works = computed(() => {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    font-family: "Mondwest", sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 10px;
 }
 
 swiper-container {
@@ -80,6 +94,12 @@ swiper-slide img {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.work__image-count {
+    font-size: 0.6rem;
+    line-height: 1;
+    margin-top: 10px;
 }
 
 .work__link {

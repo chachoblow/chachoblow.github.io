@@ -22,7 +22,11 @@ import HeaderMain from "@/components/HeaderMain.vue";
 @font-face {
     font-family: Mori;
     src: url("/assets/fonts/PPMori-Regular.otf") format("opentype");
-    src: url("/assets/fonts/PPNeueMontreal-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: NeueMachina;
+    src: url("/assets/fonts/PPNeueMachina-PlainLight.otf") format("opentype");
 }
 
 html,
@@ -34,9 +38,9 @@ body {
 }
 
 #app {
-    font-family: "Mori", sans-serif;
+    font-family: "NeueMachina", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 </style>
