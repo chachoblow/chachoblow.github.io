@@ -10,6 +10,7 @@ export interface WorkConfig {
     title: string;
     imageMenuCropped: WorkImage;
     imageMenuFull: WorkImage;
+    imagesMenu: WorkImage[];
     routerLink: string;
     associatedWork: Work;
     images: WorkImage[];
@@ -42,6 +43,14 @@ const workConfigurations: WorkConfig[] = [
         title: "Cyclux",
         imageMenuCropped: { image: "/assets/menu/cropped/cyclux.webp", altText: "Cyclux comic thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/cyclux.webp", altText: "Cyclux comic thumbnail" },
+        imagesMenu: [
+            { image: "/assets/comics/cyclux/cyclux-spread1.webp", altText: "Page 1 of Cylclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread2.webp", altText: "Page 2 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread3.webp", altText: "Page 3 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread4.webp", altText: "Page 4 of Cyclux" },
+            { image: "/assets/comics/cyclux/cyclux-spread5.webp", altText: "Page 5 of Cylux" },
+            { image: "/assets/comics/cyclux/cyclux-spread6.webp", altText: "Page 6 of Cyclux" },
+        ],
         routerLink: "/cyclux",
         associatedWork: Work.Cyclux,
         images: [
@@ -60,6 +69,15 @@ const workConfigurations: WorkConfig[] = [
         title: "Branches",
         imageMenuCropped: { image: "/assets/menu/cropped/branches.webp", altText: "Branches comic thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/branches.webp", altText: "Branches comic thumbnail" },
+        imagesMenu: [
+            { image: "/assets/comics/branches/branches-page1.webp", altText: "Page 1 of Branches" },
+            { image: "/assets/comics/branches/branches-page2.webp", altText: "Page 2 of Branches" },
+            { image: "/assets/comics/branches/branches-page3.webp", altText: "Page 3 of Branches" },
+            { image: "/assets/comics/branches/branches-page4.webp", altText: "Page 4 of Branches" },
+            { image: "/assets/comics/branches/branches-page5.webp", altText: "Page 5 of Branches" },
+            { image: "/assets/comics/branches/branches-page6.webp", altText: "Page 6 of Branches" },
+            { image: "/assets/comics/branches/branches-page7.webp", altText: "Page 7 of Branches" },
+        ],
         routerLink: "/branches",
         associatedWork: Work.Branches,
         images: [
@@ -79,6 +97,15 @@ const workConfigurations: WorkConfig[] = [
         title: "Illustrations",
         imageMenuCropped: { image: "/assets/menu/cropped/illustrations.webp", altText: "Illustration thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/illustrations.webp", altText: "Illustration thumbnail" },
+        imagesMenu: [
+            { image: "/assets/illustrations/bat-person-1080h.webp", altText: "Illustration of person holding bat" },
+            { image: "/assets/illustrations/breaking-bad-1500h.webp", altText: "Illustration of face and two people" },
+            { image: "/assets/illustrations/can-you-hear-me-1800h.webp", altText: "Illustration of face" },
+            { image: "/assets/illustrations/fried-1381h.webp", altText: "Illustration of man" },
+            { image: "/assets/illustrations/man-rock-900h.webp", altText: "Illustration of man and rock" },
+            { image: "/assets/illustrations/woman-cursive-900h.webp", altText: "Illustration of woman" },
+            { image: "/assets/illustrations/yellow-vision-1800h.webp", altText: "Illustration of man" },
+        ],
         routerLink: "/illustrations",
         associatedWork: Work.Illustrations,
         images: [
@@ -98,6 +125,11 @@ const workConfigurations: WorkConfig[] = [
         title: "Animations",
         imageMenuCropped: { image: "/assets/menu/cropped/animation.webp", altText: "Animation thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/animations.webp", altText: "Animation thumbnail" },
+        imagesMenu: [
+            { image: "/assets/animations/have-you-ever-waken-up.webp", altText: "Thumbnail of animataion" },
+            { image: "/assets/animations/walking.webp", altText: "Thumbnail of animataion" },
+            { image: "/assets/animations/starting-to-feel-something.webp", altText: "Thumbnail of animataion" }
+        ],
         routerLink: "/animations",
         associatedWork: Work.Animations,
         images: [],
@@ -114,6 +146,11 @@ const workConfigurations: WorkConfig[] = [
         title: "Virtual fixtures",
         imageMenuCropped: { image: "/assets/menu/cropped/virtual-fixtures.webp", altText: "Virtual fixtures thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/virtual-fixtures.webp", altText: "Virtual fixtures thumbnail" },
+        imagesMenu: [
+            { image: "/assets/virtual-fixtures/game-hud.webp", altText: "Thumbnail of virtual fixtures game" },
+            { image: "/assets/virtual-fixtures/game-ray-casting.webp", altText: "Thumbnail of virtual fixtures game" },
+            { image: "/assets/virtual-fixtures/game-switch-worlds.webp", altText: "Thumbnail of virtual fixtures game" }
+        ],
         routerLink: "/virtualFixtures",
         associatedWork: Work.VirtualFixtures,
         images: [],
@@ -129,6 +166,12 @@ const workConfigurations: WorkConfig[] = [
         title: "Line collection",
         imageMenuCropped: { image: "/assets/menu/cropped/line-collection.webp", altText: "Line collection thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/line-collection.webp", altText: "Line collection thumbnail" },
+        imagesMenu: [
+            { image: "/assets/line-collection/arrange-circles.webp", altText: "Thumbnail of line collection" },
+            { image: "/assets/line-collection/watch-circles.webp", altText: "Thumbnail of line collection" },
+            { image: "/assets/line-collection/watch-squares.webp", altText: "Thumbnail of line collection" },
+            { image: "/assets/line-collection/watch-triangles.webp", altText: "Thumbnail of line collection" }
+        ],
         routerLink: "/lineCollection",
         associatedWork: Work.LineCollection,
         images: [],
@@ -145,6 +188,19 @@ const workConfigurations: WorkConfig[] = [
         title: "Photography",
         imageMenuCropped: { image: "/assets/menu/cropped/photo.webp", altText: "Photography thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/photography.webp", altText: "Photography thumbnail" },
+        imagesMenu: [
+            { image: "/assets/photographs/brittany-driving-1000h.webp", altText: "Woman driving" },
+            { image: "/assets/photographs/dad-grandpa-1000h.webp", altText: "Two men sitting" },
+            { image: "/assets/photographs/grandma-chandelier-1000h.webp", altText: "Woman at table" },
+            { image: "/assets/photographs/grandparents-window-1000h.webp", altText: "Two people through window" },
+            { image: "/assets/photographs/grapevine-1000h.webp", altText: "Driving on a highway" },
+            { image: "/assets/photographs/laguna-algea-1000h.webp", altText: "Rock under water" },
+            { image: "/assets/photographs/laguna-ripples-1000h.webp", altText: "Rock under water" },
+            { image: "/assets/photographs/me-bathroom-1000h.webp", altText: "Self portait in bathroom" },
+            { image: "/assets/photographs/megan-dad-2-1000h.webp", altText: "Two people sitting at a table" },
+            { image: "/assets/photographs/slit-scanning-1-1000h.webp", altText: "Self portait using slit scanning" },
+            { image: "/assets/photographs/slit-scanning-2-1000h.webp", altText: "Self portait using slit scanning" },
+        ],
         routerLink: "/photography",
         associatedWork: Work.Photography,
         images: [
@@ -168,6 +224,21 @@ const workConfigurations: WorkConfig[] = [
         title: "Creative coding",
         imageMenuCropped: { image: "/assets/menu/cropped/processing-sketches.webp", altText: "Processing sketches thumbnail" },
         imageMenuFull: { image: "/assets/menu/full/creative-coding.webp", altText: "Processing sketches thumbnail" },
+        imagesMenu: [
+            { image: "/assets/processing-sketches/bobbing-ocean.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/clicked-fireworks.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/collage.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/criss-cross.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/exploding-balls.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/game-of-life.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/ghost-webcam.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/make-shape.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/pointillism.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/random-chords.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/row-column-suns.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/row-suns.webp", altText: "Thumbnail of processing sketch" },
+            { image: "/assets/processing-sketches/suns-colliding.webp", altText: "Thumbnail of processing sketch" },
+        ],
         routerLink: "/creativeCoding",
         associatedWork: Work.CreativeCoding,
         images: [],
