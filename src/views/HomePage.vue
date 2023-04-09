@@ -10,16 +10,17 @@
                         <div class="work__heading-symbol">+</div>
                     </a>
                 </div>
-                <div class="work__images">
-                    <div v-for="(image, index) in work.imagesMenu" class="work__image">
+                <swiper-container class="work__images" :slides-per-view="'auto'" :free-mode="true" :space-between="10"
+                    :grab-cursor="true">
+                    <swiper-slide v-for="(image, index) in work.imagesMenu" class="work__image">
                         <a :href="href" class="work__link work__link--no-hover" @click="navigate">
                             <img :src="image.image" :alt="image.altText" rel="preload" />
                         </a>
-                        <a :href="href" class="work__link" @click="navigate">
+                        <a :href="href" class="work__link work__image-count" @click="navigate">
                             <div>I.{{ String(index + 1).padStart(2, "0") }}</div>
                         </a>
-                    </div>
-                </div>
+                    </swiper-slide>
+                </swiper-container>
             </RouterLink>
         </li>
     </ul>
@@ -28,6 +29,9 @@
 <script setup lang="ts">
 import { useWorkStore } from "@/stores/work";
 import { computed } from "vue";
+import { register } from 'swiper/element/bundle';
+
+register();
 
 const workStore = useWorkStore();
 
@@ -39,6 +43,16 @@ const works = computed(() => {
 <style scoped lang="scss">
 @import "@/scss/mixins.scss";
 
+@font-face {
+    font-family: Mondwest;
+    src: url("/assets/fonts/PPMondwest-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: NeueMachinaLightItalic;
+    src: url("/assets/fonts/PPNeueMachina-PlainLightItalic.otf") format("opentype");
+}
+
 .works {
     @include page-padding;
     display: flex;
@@ -47,7 +61,7 @@ const works = computed(() => {
 
 .work {
     +.work {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 }
 
@@ -55,68 +69,37 @@ const works = computed(() => {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    font-family: "Mondwest", sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 10px;
 }
 
-.work__images {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-left: -$page-padding-small;
-    margin-right: -$page-padding-small;
+swiper-container {
+    overflow: visible;
+}
 
-    @media (min-width: $small-device-width) {
-        margin-left: -$page-padding-medium;
-        margin-right: -$page-padding-medium;
-    }
+swiper-slide {
+    width: 160px;
+}
 
-    @media (min-width: $medium-device-width) {
-        margin-left: -$page-padding-large;
-        margin-right: -$page-padding-large;
-    }
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .work__image {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
-    &:first-of-type {
-        padding-left: $page-padding-small;
-
-        @media (min-width: $small-device-width) {
-            padding-left: $page-padding-medium;
-        }
-
-        @media (min-width: $medium-device-width) {
-            padding-left: $page-padding-large;
-        }
-    }
-
-    &:last-of-type {
-        padding-right: $page-padding-small;
-
-        @media (min-width: $small-device-width) {
-            padding-right: $page-padding-medium;
-        }
-
-        @media (min-width: $medium-device-width) {
-            padding-right: $page-padding-large;
-        }
-    }
-
-    +.work__image {
-        margin-left: 10px;
-    }
 }
 
-img {
-    height: 200px;
-    margin: 4px 0;
+.work__image-count {
+    font-size: 0.6rem;
+    line-height: 1;
+    margin-top: 10px;
 }
 
 .work__link {
