@@ -76,11 +76,46 @@ const works = computed(() => {
 }
 
 swiper-container {
-    overflow: visible;
+    margin-left: -$page-padding-small;
+    margin-right: -$page-padding-small;
+
+    @media (min-width: $small-device-width) {
+        margin-left: -$page-padding-medium;
+        margin-right: -$page-padding-medium;
+    }
+
+    @media (min-width: $medium-device-width) {
+        margin-left: -$page-padding-large;
+        margin-right: -$page-padding-large;
+    }
 }
 
 swiper-slide {
     width: 160px;
+}
+
+swiper-slide:first-of-type {
+    padding-left: $page-padding-small;
+
+    @media (min-width: $small-device-width) {
+        padding-left: $page-padding-medium;
+    }
+
+    @media (min-width: $medium-device-width) {
+        padding-left: $page-padding-large;
+    }
+}
+
+swiper-slide:last-of-type {
+    padding-right: $page-padding-small;
+
+    @media (min-width: $small-device-width) {
+        padding-right: $page-padding-medium;
+    }
+
+    @media (min-width: $medium-device-width) {
+        padding-right: $page-padding-large;
+    }
 }
 
 swiper-slide img {
