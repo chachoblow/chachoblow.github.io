@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import HomePage from "@/views/HomePage.vue";
 import WorkPageAnimations from "@/views/WorkPageAnimations.vue";
+import WorkPageBeacon from "@/views/WorkPageBeacon.vue";
 import WorkPageBranches from "@/views/WorkPageBranches.vue";
 import WorkPageCreativeCoding from "@/views/WorkPageCreativeCoding.vue";
 import WorkPageCyclux from "@/views/WorkPageCyclux.vue";
@@ -19,6 +20,11 @@ const routes: RouteRecordRaw[] = [
         path: "/animations",
         name: "Animations",
         component: WorkPageAnimations,
+    },
+    {
+        path: "/beacon",
+        name: "Beacon",
+        component: WorkPageBeacon,
     },
     {
         path: "/branches",
