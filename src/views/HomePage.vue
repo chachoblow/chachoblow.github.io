@@ -2,25 +2,9 @@
     <ul class="works">
         <li v-for="work in works" :key="work.title" class="work">
             <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
-                <div class="work__heading">
-                    <a :href="href" class="work__link" @click="navigate">
-                        <div class="work__heading-title">{{ work.title }}</div>
-                    </a>
-                    <a :href="href" class="work__link" @click="navigate">
-                        <div class="work__heading-symbol">+</div>
-                    </a>
-                </div>
-                <swiper-container class="work__images" :slides-per-view="'auto'" :free-mode="true" :space-between="10"
-                    :grab-cursor="true">
-                    <swiper-slide v-for="(image, index) in work.imagesMenu" class="work__image">
-                        <a :href="href" class="work__link work__link--no-hover" @click="navigate">
-                            <img :src="image.image" :alt="image.altText" rel="preload" />
-                        </a>
-                        <a :href="href" class="work__link work__image-count" @click="navigate">
-                            <div>I.{{ String(index + 1).padStart(2, "0") }}</div>
-                        </a>
-                    </swiper-slide>
-                </swiper-container>
+                <a :href="href" class="work__image work__link work__link--no-hover" @click="navigate">
+                    <img :src="work.imagesMenu[0].image" :alt="work.imagesMenu[0].altText" rel="preload" />
+                </a>
             </RouterLink>
         </li>
     </ul>
@@ -57,84 +41,32 @@ const works = computed(() => {
     @include page-padding;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .work {
     +.work {
-        margin-top: 50px;
+        margin-top: 100px;
     }
-}
-
-.work__heading {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    font-family: "Mondwest", sans-serif;
-    font-size: 2rem;
-    line-height: 1;
-    margin-bottom: 10px;
-}
-
-swiper-container {
-    margin-left: -$page-padding-small;
-    margin-right: -$page-padding-small;
-
-    @media (min-width: $small-device-width) {
-        margin-left: -$page-padding-medium;
-        margin-right: -$page-padding-medium;
-    }
-
-    @media (min-width: $medium-device-width) {
-        margin-left: -$page-padding-large;
-        margin-right: -$page-padding-large;
-    }
-}
-
-swiper-slide {
-    width: 160px;
-}
-
-swiper-slide:first-of-type {
-    padding-left: $page-padding-small;
-
-    @media (min-width: $small-device-width) {
-        padding-left: $page-padding-medium;
-    }
-
-    @media (min-width: $medium-device-width) {
-        padding-left: $page-padding-large;
-    }
-}
-
-swiper-slide:last-of-type {
-    padding-right: $page-padding-small;
-
-    @media (min-width: $small-device-width) {
-        padding-right: $page-padding-medium;
-    }
-
-    @media (min-width: $medium-device-width) {
-        padding-right: $page-padding-large;
-    }
-}
-
-swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .work__image {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-}
+    width: fit-content;
 
-.work__image-count {
-    font-size: 0.6rem;
-    line-height: 1;
-    margin-top: 10px;
+    img {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+        //max-height: 60vh;
+    }
+
+    img {
+        object-fit: contain;
+        object-position: center;
+    }
 }
 
 .work__link {
