@@ -10,8 +10,8 @@
         "deploy": "sh deploy.sh"
     },
     "dependencies": {
+        "gsap": "^3.12.2",
         "pinia": "^2.0.20",
-        "swiper": "^9.2.0",
         "vue": "^3.0.0",
         "vue-gtag": "^2.0.1",
         "vue-router": "^4.0.0-0"

@@ -2,9 +2,7 @@
     <header>
         <RouterLink to="/" v-slot="{ href, navigate }" custom>
             <div class="name-container">
-                <a :href="href" @click="navigate">
-                    <img src="@/assets/my-eyes-name-clear-small.webp" title="Website logo" rel="preload" />
-                </a>
+                <a :href="href" @click="navigate">Wesley Klein</a>
             </div>
         </RouterLink>
         <div class="about-container">
@@ -74,7 +72,8 @@ header {
     grid-template-rows: auto;
     column-gap: calc($page-padding-medium / 2);
     z-index: 2;
-    background: white;
+    background: transparent;
+    position: fixed;
 
     @media (min-width: $small-device-width) {
         grid-template-columns: 1fr 2fr;
@@ -86,14 +85,11 @@ header {
 }
 
 .name-container {
-    img {
-        height: 60px;
-        width: auto;
-        padding-bottom: $page-padding-small;
+    font-size: 2rem;
+    padding-bottom: $page-padding-small;
 
-        @media (min-width: $small-device-width) {
-            padding-bottom: 0;
-        }
+    a {
+        text-decoration: none;
     }
 
     a:hover {

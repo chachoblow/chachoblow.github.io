@@ -1,6 +1,5 @@
 <template>
     <div class="app-container">
-        <HeaderMain></HeaderMain>
         <main role="main">
             <RouterView></RouterView>
         </main>
@@ -8,25 +7,14 @@
 </template>
 
 <script setup lang="ts">
-import HeaderMain from "@/components/HeaderMain.vue";
 </script>
 
 <style lang="scss">
 @import "@/scss/globals.scss";
 
-@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&family=Work+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
-
 @font-face {
-    font-family: Mori;
-    src: url("/assets/fonts/PPMori-Regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: NeueMachina;
-    src: url("/assets/fonts/PPNeueMachina-PlainLight.otf") format("opentype");
+    font-family: NeueMontreal;
+    src: url("/assets/fonts/PPNeueMontreal-Regular.otf") format("opentype");
 }
 
 html,
@@ -38,9 +26,10 @@ body {
 }
 
 #app {
-    font-family: "NeueMachina", sans-serif;
+    font-family: 'NeueMontreal', sans-serif;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 </style>
