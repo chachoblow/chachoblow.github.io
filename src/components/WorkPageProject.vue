@@ -30,13 +30,7 @@ const work = computed(() => {
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    padding-top: 0 !important;
     margin: auto;
-    padding-top: $page-padding-medium !important;
-
-    @media (min-width: $small-device-width) {
-        padding-top: 0 !important;
-    }
 
     p {
         margin: 0;

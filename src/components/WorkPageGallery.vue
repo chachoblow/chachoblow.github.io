@@ -41,17 +41,15 @@ const work = computed(() => {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     row-gap: $page-padding-small;
-    padding-top: $page-padding-medium !important;
     max-width: 900px;
     margin: auto;
 
     @media (min-width: $small-device-width) {
         row-gap: $page-padding-medium;
-        padding-top: 0 !important;
     }
 
     @media (min-width: $medium-device-width) {
-        row-gap: $page-padding-large;
+        //row-gap: $page-padding-large;
     }
 }
 
