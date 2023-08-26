@@ -1,25 +1,29 @@
 <template>
-    <div class="homepage">
-        <header class="homepage__left">
-            <RouterLink to="/" v-slot="{ href, navigate }" custom>
-                <div class="name-container" :style="titleFont">
+    <header class="grid-layout page-padding">
+        <RouterLink to="/" v-slot="{ href, navigate }" custom>
+            <div class="name-container">
+                <div class="name-container--static">
+                    <a :href="href" @click="navigate">{{ defaultTitle }}</a>
+                </div>
+                <div class="name-container--dynamic" :style="titleFont">
                     <a :href="href" @click="navigate">{{ title }}</a>
                 </div>
-            </RouterLink>
-        </header>
-        <div class="homepage__right">
-            <AboutMe></AboutMe>
-            <ul class="works">
-                <li v-for="(work, index) in works" :key="work.title" class="work">
-                    <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
-                        <a :href="href" class="work__image work__link work__link--no-hover" @click="navigate"
-                            @mouseover="handleMouseover(work.title)" @mouseleave="handleMouseleave">
-                            <img :src="work.imagesMenu[0].image" :alt="work.imagesMenu[0].altText" rel="preload" />
-                        </a>
-                    </RouterLink>
-                </li>
-            </ul>
-        </div>
+            </div>
+        </RouterLink>
+        <AboutMe></AboutMe>
+    </header>
+    <div class="grid-layout page-padding">
+        <div></div>
+        <ul class="works">
+            <li v-for="(work, index) in works" :key="work.title" class="work">
+                <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
+                    <a :href="href" class="work__image work__link work__link--no-hover" @click="navigate"
+                        @mouseover="changeTitle(work.title)" @mouseleave="changeTitle('')">
+                        <img :src="work.imagesMenu[0].image" :alt="work.imagesMenu[0].altText" rel="preload" />
+                    </a>
+                </RouterLink>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -38,6 +42,7 @@ const works = computed(() => {
 const hoveredWork = ref("");
 
 const defaultTitle = "Wesley Klein"
+
 const title = computed(() => {
     return hoveredWork.value ? hoveredWork.value : defaultTitle;
 });
@@ -50,36 +55,36 @@ const titleFont = computed(() => {
     }
 });
 
-watch(title, (newTitle: string) => {
-    changeTitle(newTitle);
-});
-
-function handleMouseover(title: string) {
-    // Below should match "$desktop-max-width".
-    if (window.innerWidth > 1000) {
-        hoveredWork.value = title;
-    }
-}
-
-function handleMouseleave() {
-    // Below should match "$desktop-max-width".
-    if (window.innerWidth > 1000) {
-        hoveredWork.value = "";
-    }
-}
-
 function changeTitle(value: string): void {
-    const mm = gsap.matchMedia();
-    // Below should match "$desktop-max-width".
-    mm.add("(min-width: 1000px)", () => {
+    const duration = 0.15;
+
+    function fade() {
         gsap.fromTo(".name-container a", {
-            opacity: 0
+            opacity: 1,
         }, {
-            duration: 1,
-            innerHTML: () => value,
+            duration,
+            opacity: 0,
+            ease: "power1",
+            onComplete: handleOnComplete
+        });
+        gsap.fromTo(".name-container a", {
+            opacity: 0,
+        }, {
+            delay: duration,
+            duration,
             opacity: 1,
             ease: "power1"
         });
+    }
+
+    function handleOnComplete() {
+        hoveredWork.value = value;
+    }
+
+    const mm = gsap.matchMedia();
+    // Below should match "$small-device-width".
+    mm.add("(min-width: 900px)", () => {
+        fade();
     });
 }
 </script>
@@ -97,7 +102,7 @@ function changeTitle(value: string): void {
     src: url("/assets/fonts/MigraItalic-ExtralightItalic.otf") format("opentype");
 }
 
-.homepage {
+.grid-layout {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -114,38 +119,24 @@ function changeTitle(value: string): void {
     }
 }
 
-.homepage__left,
-.homepage__right {
+.page-padding {
     @include page-padding;
 }
 
-.homepage__left {
+header {
+    position: initial;
+    background-color: white;
+
     @media (min-width: $small-device-width) {
-        padding-right: calc($page-padding-medium / 2);
         position: sticky;
         top: 0;
-        height: 100vh;
-        box-sizing: border-box;
-    }
-
-    @media (min-width: $medium-device-width) {
-        padding-right: calc($page-padding-large / 2);
-    }
-}
-
-.homepage__right {
-    @media (min-width: $small-device-width) {
-        padding-left: calc($page-padding-medium / 2);
-    }
-
-    @media (min-width: $medium-device-width) {
-        padding-left: calc($page-padding-large / 2);
+        backdrop-filter: blur(50px);
     }
 }
 
 .name-container {
-    font-family: var(--title-font);
     font-size: 2rem;
+    padding-bottom: 16px;
 
     a {
         text-decoration: none;
@@ -157,10 +148,29 @@ function changeTitle(value: string): void {
 
     @media (min-width: $small-device-width) {
         font-size: 3rem;
+        padding-bottom: 0;
     }
 
     @media (min-width: $medium-device-width) {
-        font-size: 4rem;
+        font-size: 3rem;
+    }
+}
+
+.name-container--static {
+    font-family: Migra;
+    display: block;
+
+    @media (min-width: $small-device-width) {
+        display: none;
+    }
+}
+
+.name-container--dynamic {
+    font-family: var(--title-font);
+    display: none;
+
+    @media (min-width: $small-device-width) {
+        display: block;
     }
 }
 
@@ -168,20 +178,18 @@ function changeTitle(value: string): void {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 100px;
+    margin-top: 64px;
+
+    @media (min-width: $small-device-width) {
+        margin-top: 56px;
+    }
 }
 
-.work {
-    +.work {
-        margin-top: 60px;
+.work+.work {
+    margin-top: 8px;
 
-        @media (min-width: $small-device-width) {
-            margin-top: 150px;
-        }
-
-        @media (min-width: $medium-device-width) {
-            margin-top: 150px;
-        }
+    @media (min-width: $small-device-width) {
+        margin-top: 64px;
     }
 }
 
@@ -207,9 +215,7 @@ function changeTitle(value: string): void {
     text-decoration: none;
 }
 
-.work__link--no-hover {
-    &:hover {
-        opacity: 1;
-    }
+.work__link--no-hover:hover {
+    opacity: 1;
 }
 </style>

@@ -62,7 +62,7 @@ const linkedin: ContactConfig = {
 }
 
 .information-container {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 
     p {
         margin: 0;
@@ -79,7 +79,7 @@ const linkedin: ContactConfig = {
         text-decoration: none;
 
         span {
-            text-decoration: underline;
+            font-style: italic;
         }
     }
 }
