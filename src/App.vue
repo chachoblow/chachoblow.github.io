@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: NeueMontreal;
-    src: url("/assets/fonts/PPNeueMontreal-Regular.otf") format("opentype");
+    src: url("/assets/fonts/PPNeueMontreal-Book.otf") format("opentype");
 }
 
 html,
