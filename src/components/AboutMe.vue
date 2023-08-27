@@ -53,34 +53,25 @@ const linkedin: ContactConfig = {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/scss/mixins.scss";
-
+<style scoped>
 .about-container {
     display: flex;
     flex-direction: column;
 }
 
 .information-container {
-    padding-bottom: 8px;
-
-    p {
-        margin: 0;
-    }
+    padding-bottom: var(--page-padding);
 }
 
-.links-container {
-    ul {
-        display: flex;
-    }
+.information-container p {
+    margin: 0;
+}
 
-    a {
-        height: fit-content;
-        text-decoration: none;
+.links-container ul {
+    display: flex;
+}
 
-        span {
-            font-style: italic;
-        }
-    }
+.links-container a {
+    height: fit-content;
 }
 </style>

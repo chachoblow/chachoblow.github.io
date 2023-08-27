@@ -1,5 +1,5 @@
 <template>
-    <div class="work-container">
+    <div class="work-container page-padding">
         <slot :work="work"></slot>
     </div>
 </template>
@@ -22,47 +22,49 @@ const work = computed(() => {
 });
 </script>
 
-<style lang="scss">
-@import "@/scss/mixins.scss";
-
+<!-- 
+    Purposefully not scoped so that consumers have styles applied. However, then styling is global
+      and so then need to prefix all stylings with ".work-container" so that other components aren't
+      affected. There is probably a better way to solve this.
+-->
+<style>
 .work-container {
-    @include page-padding;
     max-width: 900px;
     display: flex;
     flex-direction: column;
     margin: auto;
+}
 
-    p {
-        margin: 0;
+.work-container p {
+    margin: 0;
+}
 
-        +p {
-            margin-top: $page-padding-small;
-        }
-    }
+.work-container p+p {
+    margin-top: var(--page-padding-small);
+}
 
-    a {
-        display: unset;
-    }
+.work-container a {
+    display: unset;
+}
 
-    video,
-    img {
-        @include page-padding;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        width: 100%;
-        max-width: 900px;
-        max-height: 80vh;
+.work-container video,
+.work-container img {
+    padding: var(--page-padding);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+    max-width: 900px;
+    max-height: 80vh;
+}
 
-        +img,
-        +video {
-            padding-top: 0 !important;
-        }
-    }
+.work-container video+video,
+.work-container img+img {
+    padding-top: 0 !important;
+}
 
-    img {
-        object-fit: contain;
-        object-position: center;
-        margin: auto;
-    }
+.work-container img {
+    object-fit: contain;
+    object-position: center;
+    margin: auto;
 }
 </style>

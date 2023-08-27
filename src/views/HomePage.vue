@@ -15,7 +15,7 @@
     <div class="grid-layout page-padding">
         <div></div>
         <ul class="works">
-            <li v-for="(work, index) in works" :key="work.title" class="work">
+            <li v-for="work in works" :key="work.title" class="work">
                 <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
                     <a :href="href" class="work__image work__link work__link--no-hover" @click="navigate"
                         @mouseover="changeTitle(work.title)" @mouseleave="changeTitle('')">
@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { useWorkStore } from "@/stores/work";
-import { ref, computed, watch } from "vue";
+import { ref, computed } from "vue";
 import AboutMe from "@/components/AboutMe.vue";
 import { gsap } from "gsap";
 
@@ -82,16 +82,13 @@ function changeTitle(value: string): void {
     }
 
     const mm = gsap.matchMedia();
-    // Below should match "$small-device-width".
     mm.add("(min-width: 900px)", () => {
         fade();
     });
 }
 </script>
 
-<style scoped lang="scss">
-@import "@/scss/mixins.scss";
-
+<style scoped>
 @font-face {
     font-family: Migra;
     src: url("/assets/fonts/Migra-Extralight.otf") format("opentype");
@@ -102,32 +99,10 @@ function changeTitle(value: string): void {
     src: url("/assets/fonts/MigraItalic-ExtralightItalic.otf") format("opentype");
 }
 
-.grid-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    column-gap: calc($page-padding-medium / 2);
-    z-index: 2;
-    background: transparent;
-
-    @media (min-width: $small-device-width) {
-        grid-template-columns: 1fr 2fr;
-    }
-
-    @media (min-width: $medium-device-width) {
-        column-gap: calc($page-padding-large / 2);
-    }
-}
-
-.page-padding {
-    @include page-padding;
-}
-
 header {
     position: initial;
-    background-color: white;
 
-    @media (min-width: $small-device-width) {
+    @media (min-width: 900px) {
         position: sticky;
         top: 0;
         backdrop-filter: blur(50px);
@@ -136,31 +111,29 @@ header {
 
 .name-container {
     font-size: 2rem;
-    padding-bottom: 16px;
+    padding-bottom: calc(var(--page-padding) * 2);
 
-    a {
-        text-decoration: none;
-    }
-
-    a:hover {
-        opacity: 1;
-    }
-
-    @media (min-width: $small-device-width) {
+    @media (min-width: 900px) {
         font-size: 3rem;
         padding-bottom: 0;
     }
+}
 
-    @media (min-width: $medium-device-width) {
-        font-size: 3rem;
-    }
+.name-container a {
+    text-decoration: none;
+    /* Add some padding for italic font style change. */
+    padding-right: 10px;
+}
+
+.name-container a:hover {
+    opacity: 1;
 }
 
 .name-container--static {
     font-family: Migra;
     display: block;
 
-    @media (min-width: $small-device-width) {
+    @media (min-width: 900px) {
         display: none;
     }
 }
@@ -169,7 +142,7 @@ header {
     font-family: var(--title-font);
     display: none;
 
-    @media (min-width: $small-device-width) {
+    @media (min-width: 900px) {
         display: block;
     }
 }
@@ -178,18 +151,15 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 64px;
-
-    @media (min-width: $small-device-width) {
-        margin-top: 56px;
-    }
+    /* (8 - 1) to account for page padding on container */
+    margin-top: calc(var(--page-padding) * 7);
 }
 
 .work+.work {
-    margin-top: 8px;
+    margin-top: var(--page-padding);
 
-    @media (min-width: $small-device-width) {
-        margin-top: 64px;
+    @media (min-width: 900px) {
+        margin-top: calc(var(--page-padding) * 8);
     }
 }
 
@@ -197,17 +167,17 @@ header {
     display: flex;
     flex-direction: column;
     width: fit-content;
+}
 
-    img {
-        width: 100%;
-        height: 100%;
-        max-width: 600px;
-        object-fit: contain;
-        object-position: left;
+.work__image img {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    object-fit: contain;
+    object-position: left;
 
-        @media (min-width: $small-device-width) {
-            max-height: 60vh;
-        }
+    @media (min-width: 900px) {
+        max-height: 60vh;
     }
 }
 

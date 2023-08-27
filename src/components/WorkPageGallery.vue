@@ -1,5 +1,5 @@
 <template>
-    <div class="gallery">
+    <div class="grid-layout page-padding">
         <slot>
             <div v-for="html in work.customWorkHtml" :key="html" class="image-container" v-html="html"></div>
             <div v-for="video in work.videos" :key="video" class="image-container">
@@ -32,24 +32,14 @@ const work = computed(() => {
 });
 </script>
 
-<style scoped lang="scss">
-@import "@/scss/mixins.scss";
-
-.gallery {
-    @include page-padding;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    row-gap: $page-padding-small;
+<style scoped>
+.grid-layout {
+    row-gap: var(--page-padding-small);
     max-width: 900px;
     margin: auto;
 
-    @media (min-width: $small-device-width) {
-        row-gap: $page-padding-medium;
-    }
-
-    @media (min-width: $medium-device-width) {
-        //row-gap: $page-padding-large;
+    @media (min-width: 900px) {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -57,18 +47,18 @@ const work = computed(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    video,
-    img {
-        width: 100%;
-        height: 100%;
-        max-width: 900px;
-        max-height: 80vh;
-    }
+.image-container video,
+.image-container img {
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    max-height: 80vh;
+}
 
-    img {
-        object-fit: contain;
-        object-position: center;
-    }
+.image-container img {
+    object-fit: contain;
+    object-position: center;
 }
 </style>

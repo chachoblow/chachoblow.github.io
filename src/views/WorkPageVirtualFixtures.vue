@@ -3,8 +3,7 @@
         <p>
             Virtual Fixtures is a roguelike cave exploration game developed in
             Java. The game was inspired by the graphic novel series
-            <a href="https://en.wikipedia.org/wiki/East_of_West" title="Wikipedia entry for East of West"
-                target="_blank">
+            <a href="https://en.wikipedia.org/wiki/East_of_West" title="Wikipedia entry for East of West" target="_blank">
                 East of West</a>.
         </p>
         <p>

@@ -9,8 +9,8 @@
 <script setup lang="ts">
 </script>
 
-<style lang="scss">
-@import "@/scss/globals.scss";
+<style>
+@import "@/css/globals.css";
 
 @font-face {
     font-family: NeueMontreal;
