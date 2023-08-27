@@ -1,6 +1,6 @@
 <template>
     <header class="grid-layout page-padding">
-        <RouterLink to="/" v-slot="{ href, navigate }" custom>
+        <RouterLink v-slot="{ href, navigate }" to="/" custom>
             <div class="name-container">
                 <div class="name-container--static">
                     <a :href="href" @click="navigate">{{ defaultTitle }}</a>
@@ -16,10 +16,23 @@
         <div></div>
         <ul class="works">
             <li v-for="work in works" :key="work.title" class="work">
-                <RouterLink :to="work.routerLink" v-slot="{ href, navigate }" custom>
-                    <a :href="href" class="work__image work__link work__link--no-hover" @click="navigate"
-                        @mouseover="changeTitle(work.title)" @mouseleave="changeTitle('')">
-                        <img :src="work.imagesMenu[0].image" :alt="work.imagesMenu[0].altText" rel="preload" />
+                <RouterLink
+                    v-slot="{ href, navigate }"
+                    :to="work.routerLink"
+                    custom
+                >
+                    <a
+                        :href="href"
+                        class="work__image work__link work__link--no-hover"
+                        @click="navigate"
+                        @mouseover="changeTitle(work.title)"
+                        @mouseleave="changeTitle('')"
+                    >
+                        <img
+                            :src="work.imagesMenu[0].image"
+                            :alt="work.imagesMenu[0].altText"
+                            rel="preload"
+                        />
                     </a>
                 </RouterLink>
             </li>
@@ -41,7 +54,7 @@ const works = computed(() => {
 
 const hoveredWork = ref("");
 
-const defaultTitle = "Wesley Klein"
+const defaultTitle = "Wesley Klein";
 
 const title = computed(() => {
     return hoveredWork.value ? hoveredWork.value : defaultTitle;
@@ -51,30 +64,38 @@ const titleFont = computed(() => {
     const font = title.value === defaultTitle ? "Migra" : "MigraItalic";
     const value = `'${font}', sans-serif`;
     return {
-        "--title-font": value
-    }
+        "--title-font": value,
+    };
 });
 
 function changeTitle(value: string): void {
     const duration = 0.15;
 
     function fade() {
-        gsap.fromTo(".name-container a", {
-            opacity: 1,
-        }, {
-            duration,
-            opacity: 0,
-            ease: "power1",
-            onComplete: handleOnComplete
-        });
-        gsap.fromTo(".name-container a", {
-            opacity: 0,
-        }, {
-            delay: duration,
-            duration,
-            opacity: 1,
-            ease: "power1"
-        });
+        gsap.fromTo(
+            ".name-container a",
+            {
+                opacity: 1,
+            },
+            {
+                duration,
+                opacity: 0,
+                ease: "power1",
+                onComplete: handleOnComplete,
+            }
+        );
+        gsap.fromTo(
+            ".name-container a",
+            {
+                opacity: 0,
+            },
+            {
+                delay: duration,
+                duration,
+                opacity: 1,
+                ease: "power1",
+            }
+        );
     }
 
     function handleOnComplete() {
@@ -96,7 +117,8 @@ function changeTitle(value: string): void {
 
 @font-face {
     font-family: MigraItalic;
-    src: url("/assets/fonts/MigraItalic-ExtralightItalic.otf") format("opentype");
+    src: url("/assets/fonts/MigraItalic-ExtralightItalic.otf")
+        format("opentype");
 }
 
 header {
@@ -155,7 +177,7 @@ header {
     margin-top: calc(var(--page-padding) * 7);
 }
 
-.work+.work {
+.work + .work {
     margin-top: var(--page-padding);
 
     @media (min-width: 900px) {

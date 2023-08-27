@@ -3,8 +3,13 @@
         <p>
             Virtual Fixtures is a roguelike cave exploration game developed in
             Java. The game was inspired by the graphic novel series
-            <a href="https://en.wikipedia.org/wiki/East_of_West" title="Wikipedia entry for East of West" target="_blank">
-                East of West</a>.
+            <a
+                href="https://en.wikipedia.org/wiki/East_of_West"
+                title="Wikipedia entry for East of West"
+                target="_blank"
+            >
+                East of West</a
+            >.
         </p>
         <p>
             In Virtual Fixtures, you are trapped in a cave with your Buddy - a
@@ -31,9 +36,13 @@
             can only see parts of the cave that are within your current line of
             sight (or parts that you have seen in the past). In order to do
             this, I used
-            <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm"
-                title="Wikipedia entry for Bresenham's line algorithm" target="_blank">
-                Bresenham's line algorithm</a>. This can be seen below.
+            <a
+                href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm"
+                title="Wikipedia entry for Bresenham's line algorithm"
+                target="_blank"
+            >
+                Bresenham's line algorithm</a
+            >. This can be seen below.
         </p>
         <p>
             The main feature of the game is that you can switch between the
@@ -48,8 +57,13 @@
         <p>
             If you would like to see a more in-depth explanation of the game,
             please watch
-            <a href="https://youtu.be/C-yfkUNuN_M" title="YouTube link to game walkthrough" target="_blank">
-                my video on YouTube</a>.
+            <a
+                href="https://youtu.be/C-yfkUNuN_M"
+                title="YouTube link to game walkthrough"
+                target="_blank"
+            >
+                my video on YouTube</a
+            >.
         </p>
     </WorkPageProject>
 </template>

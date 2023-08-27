@@ -1,13 +1,28 @@
 <template>
     <div class="grid-layout page-padding">
         <slot>
-            <div v-for="html in work.customWorkHtml" :key="html" class="image-container" v-html="html"></div>
-            <div v-for="video in work.videos" :key="video" class="image-container">
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+                v-for="html in work.customWorkHtml"
+                :key="html"
+                class="image-container"
+                v-html="html"
+            ></div>
+            <!--eslint-enable-->
+            <div
+                v-for="video in work.videos"
+                :key="video"
+                class="image-container"
+            >
                 <video autoplay loop muted playsinline>
                     <source :src="video" type="video/mp4" />
                 </video>
             </div>
-            <div v-for="image in work.images" :key="image.image" class="image-container">
+            <div
+                v-for="image in work.images"
+                :key="image.image"
+                class="image-container"
+            >
                 <img :src="image.image" :alt="image.altText" rel="preload" />
             </div>
         </slot>
@@ -21,8 +36,8 @@ import { useWorkStore } from "@/stores/work";
 const props = defineProps({
     id: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 });
 
 const workStore = useWorkStore();

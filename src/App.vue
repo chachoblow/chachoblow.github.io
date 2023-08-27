@@ -6,8 +6,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style>
 @import "@/css/globals.css";
@@ -26,7 +25,7 @@ body {
 }
 
 #app {
-    font-family: 'NeueMontreal', sans-serif;
+    font-family: "NeueMontreal", sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

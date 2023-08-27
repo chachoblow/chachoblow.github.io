@@ -8,10 +8,14 @@ const app = createApp(App);
 
 app.use(pinia);
 app.use(router);
-app.use(VueGtag, {
-    appName: 'Personal website',
-    pageTrackerScreenviewEnabled: true,
-    config: { id: "G-BDCX2RTVRT" }
-}, router);
+app.use(
+    VueGtag,
+    {
+        appName: "Personal website",
+        pageTrackerScreenviewEnabled: true,
+        config: { id: "G-BDCX2RTVRT" },
+    },
+    router
+);
 
 app.mount("#app");

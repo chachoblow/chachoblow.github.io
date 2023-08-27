@@ -11,8 +11,8 @@ import { useWorkStore } from "@/stores/work";
 const props = defineProps({
     id: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 });
 
 const workStore = useWorkStore();
@@ -39,7 +39,7 @@ const work = computed(() => {
     margin: 0;
 }
 
-.work-container p+p {
+.work-container p + p {
     margin-top: var(--page-padding-small);
 }
 
@@ -57,8 +57,8 @@ const work = computed(() => {
     max-height: 80vh;
 }
 
-.work-container video+video,
-.work-container img+img {
+.work-container video + video,
+.work-container img + img {
     padding-top: 0 !important;
 }
 

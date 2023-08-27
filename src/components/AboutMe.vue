@@ -2,12 +2,11 @@
     <div class="about-container">
         <div class="information-container">
             <p>
-                Based in Seattle, WA. Working as a software engineer.
-                Hold a mathematics and computer science degree from The
-                University of California, Berkeley. Always exploring
-                ways in which to merge more traditional artistic
-                endeavours with modern technologies, such as,
-                microcontrollers, web, virtual reality, and creative
+                Based in Seattle, WA. Working as a software engineer. Hold a
+                mathematics and computer science degree from The University of
+                California, Berkeley. Always exploring ways in which to merge
+                more traditional artistic endeavours with modern technologies,
+                such as, microcontrollers, web, virtual reality, and creative
                 coding frameworks.
             </p>
         </div>
@@ -15,11 +14,15 @@
             <ul>
                 <li>
                     <a :href="github.link" target="_blank">
-                        <span>{{ github.label }}</span>,&nbsp;</a>
+                        <span>{{ github.label }}</span
+                        >,&nbsp;</a
+                    >
                 </li>
                 <li>
                     <a :href="instagram.link" target="_blank">
-                        <span>{{ instagram.label }}</span>,&nbsp;</a>
+                        <span>{{ instagram.label }}</span
+                        >,&nbsp;</a
+                    >
                 </li>
                 <li>
                     <a :href="linkedin.link" target="_blank">
