@@ -145,6 +145,8 @@ header {
     text-decoration: none;
     /* Add some padding for italic font style change. */
     padding-right: 10px;
+    /* Unset global anchor link styling. */
+    font-style: unset;
 }
 
 .name-container a:hover {
